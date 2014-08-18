@@ -23,10 +23,6 @@ Run the container
 
     $ docker run --name php-fpm -d docker-registry.simpledrupalcloud.com/php-fpm
 
-### Environment variables
-
-    APACHE_SERVERNAME=example.com
-
 Stop the container
 ------------------
 
