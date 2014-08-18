@@ -1,5 +1,13 @@
 #!/usr/bin/env bash
 
+puppet module install puppetlabs-apt
+
+puppet apply /opt/build/etc/puppet/manifests/build.pp
+
+rm /opt/build/etc/puppet/manifests/build.pp
+
+cp /opt/build/etc/puppet/manifests/run.pp /etc/puppet/manifests/run.pp
+
 #apt-get install -y git
 #apt-get install -y wget
 #apt-get install -y libmcrypt-dev
