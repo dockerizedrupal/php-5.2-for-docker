@@ -12,4 +12,9 @@ RUN rm -rf /tmp/build
 ADD ./src/run.sh /opt/run.sh
 RUN chmod +x /opt/run.sh
 
+EXPOSE 9052
+EXPOSE 9053
+EXPOSE 9054
+EXPOSE 9055
+
 CMD ["/opt/run.sh"]
