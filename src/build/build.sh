@@ -4,6 +4,8 @@ apt-get install -y git
 apt-get install -y wget
 apt-get install -y libmcrypt-dev
 
+apt-get install build-essential
+
 apt-get build-dep -y php5
 
 git clone git://git.code.sf.net/p/phpfarm/code /opt/phpfarm
