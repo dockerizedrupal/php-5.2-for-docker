@@ -1,4 +1,4 @@
-FROM docker-registry.simpledrupalcloud.com/puppet
+FROM docker-registry.simpledrupalcloud.com/supervisor
 
 MAINTAINER Simple Drupal Cloud <support@simpledrupalcloud.com>
 
