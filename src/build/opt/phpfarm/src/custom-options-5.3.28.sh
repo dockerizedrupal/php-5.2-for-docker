@@ -9,6 +9,8 @@ configoptions="--with-libdir=/lib/x86_64-linux-gnu \
   --enable-soap \
   --enable-calendar \
   --enable-mbstring \
+  --with-fpm-user=www-data \
+  --with-fpm-group=www-data \
   --with-bz2 \
   --with-curl \
   --with-gd \
