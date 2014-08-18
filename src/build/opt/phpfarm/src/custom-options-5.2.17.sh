@@ -1,5 +1,5 @@
 configoptions="--with-libdir=/lib/x86_64-linux-gnu \
-  --enable-fastcgi \
+  --enable-fpm \
   --enable-force-cgi-redirect \
   --enable-gd-native-ttf \
   --enable-exif \
