@@ -3,6 +3,14 @@ docker-php-fpm
 
 Docker image to run a PHP-FPM
 
+Compiled PHP versions
+---------------------
+
+- 5.2.17 listening on port 9052
+- 5.3.28 listening on port 9053
+- 5.4.30 listening on port 9054
+- 5.5.14 listening on port 9055
+
 Build the Docker image by yourself
 ----------------------------------
 
