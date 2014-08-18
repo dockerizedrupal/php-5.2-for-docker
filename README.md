@@ -1,4 +1,4 @@
-docker-apache2
+docker-php-fpm
 ==============
 
 Docker image to run a PHP-FPM
