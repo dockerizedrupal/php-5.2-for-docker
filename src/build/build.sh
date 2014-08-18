@@ -8,16 +8,31 @@ rm /opt/build/etc/puppet/manifests/build.pp
 
 cp /opt/build/etc/puppet/manifests/run.pp /etc/puppet/manifests/run.pp
 
-#apt-get install -y git
+
+apt-get install -y git
+
+git clone git://git.code.sf.net/p/phpfarm/code /opt/phpfarm
+
+cp /opt/build/opt/phpfarm/src/custom-options-5.2.17.sh /opt/phpfarm/src/custom-options-5.2.17.sh
+
+apt-get install -y build-essential
+
+apt-get install -y libxml2-dev
+apt-get install -y libssl-dev
+apt-get install -y libbz2-dev
+apt-get install -y libcurl4-gnutls-dev
+apt-get install -y libpng12-dev
+apt-get install -y libmcrypt-dev
+apt-get install -y libmhash-dev
+apt-get install -y libmysqlclient-dev
+apt-get install -y libpspell-dev
+
+/opt/phpfarm/src/compile.sh 5.2.17
+
 #apt-get install -y wget
-#apt-get install -y libmcrypt-dev
 #
 #apt-get install build-essential
-#
-#apt-get build-dep -y php5
-#
-#git clone git://git.code.sf.net/p/phpfarm/code /opt/phpfarm
-#
+
 #cp /opt/build/opt/phpfarm/src/custom-options-5.2.17.sh /opt/phpfarm/src/custom-options-5.2.17.sh
 #
 #/opt/phpfarm/src/compile.sh 5.2.17
