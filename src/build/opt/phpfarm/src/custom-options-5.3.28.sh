@@ -1,0 +1,32 @@
+configoptions="--with-libdir=/lib/x86_64-linux-gnu \
+  --enable-fastcgi \
+  --enable-force-cgi-redirect \
+  --enable-gd-native-ttf \
+  --enable-exif \
+  --enable-ftp \
+  --enable-bcmath \
+  --enable-sockets \
+  --enable-soap \
+  --enable-calendar \
+  --enable-mbstring \
+  --with-bz2 \
+  --with-curl \
+  --with-gd \
+  --with-jpeg \
+  --with-png \
+  --with-ttf \
+  --with-mhash \
+  --with-mcrypt \
+  --with-mysqli \
+  --with-mysql \
+  --with-pdo-mysql \
+  --with-libxml \
+  --with-mbstring \
+  --with-iconv \
+  --with-pear \
+  --with-openssl \
+  --with-iconv \
+  --with-zlib-dir=/opt/phpfarm/zziplib-0.13.62 \
+  --with-gettext \
+  --with-pspell \
+"
