@@ -9,9 +9,9 @@ configoptions="--with-libdir=/lib/x86_64-linux-gnu \
   --enable-soap \
   --enable-calendar \
   --enable-mbstring \
+  --enable-zip \
   --with-fpm-user=www-data \
   --with-fpm-group=www-data \
-  --with-bz2 \
   --with-curl \
   --with-gd \
   --with-jpeg \
@@ -28,6 +28,7 @@ configoptions="--with-libdir=/lib/x86_64-linux-gnu \
   --with-pear \
   --with-openssl \
   --with-iconv \
+  --with-bz2 \
   --with-zlib \
   --with-gettext \
   --with-pspell \
