@@ -28,7 +28,7 @@ configoptions="--with-libdir=/lib/x86_64-linux-gnu \
   --with-pear \
   --with-openssl \
   --with-iconv \
-  --with-zlib-dir=/opt/phpfarm/zziplib-0.13.62 \
+  --with-zlib \
   --with-gettext \
   --with-pspell \
 "
