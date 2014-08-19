@@ -4,8 +4,6 @@ puppet module install puppetlabs-apt
 
 puppet apply /tmp/build/etc/puppet/manifests/build.pp
 
-cp /tmp/build/etc/puppet/manifests/run.pp /etc/puppet/manifests/run.pp
-
 git clone git://git.code.sf.net/p/phpfarm/code /opt/phpfarm
 
 cp /tmp/build/opt/phpfarm/src/custom-options-5.2.17.sh /opt/phpfarm/src/custom-options-5.2.17.sh
