@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-puppet apply /opt/build/etc/puppet/manifests/run.pp
+puppet apply /etc/puppet/manifests/run.pp
 
 supervisord
