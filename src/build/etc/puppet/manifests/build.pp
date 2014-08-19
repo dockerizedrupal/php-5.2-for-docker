@@ -1,5 +1,5 @@
 node default {
-  class { '::apt':
+  class { 'apt':
     always_apt_update => true
   }
 
