@@ -1,4 +1,4 @@
-FROM docker-registry.simpledrupalcloud.com/supervisor
+FROM simpledrupalcloud/base-image
 
 MAINTAINER Simple Drupal Cloud <support@simpledrupalcloud.com>
 
