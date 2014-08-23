@@ -15,4 +15,4 @@ EXPOSE 9053
 EXPOSE 9054
 EXPOSE 9055
 
-CMD ["/opt/run.sh"]
+CMD ["/run.sh"]
