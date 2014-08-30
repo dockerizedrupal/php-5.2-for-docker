@@ -104,8 +104,8 @@ class php55 {
 }
 
 class php {
-  include php52
-#  include php53
+#  include php52
+  include php53
 #  include php54
 #  include php55
 #
