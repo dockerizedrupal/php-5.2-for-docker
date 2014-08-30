@@ -47,6 +47,11 @@ class php52 {
     mode => 644,
     require => Exec['/opt/phpfarm/src/compile.sh 5.2.17']
   }
+
+  file { '/etc/supervisor/conf.d/php-5.2.17.conf':
+    ensure => present,
+    source => '/tmp/build/etc/supervisor/conf.d/php-5.2.17.conf'
+  }
 }
 
 class php53 {
