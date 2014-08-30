@@ -61,32 +61,32 @@ class php53 {
 class php54 {
   include phpfarm
 
-  file { '/opt/phpfarm/src/custom-options-5.4.30.sh':
+  file { '/opt/phpfarm/src/custom-options-5.4.31.sh':
     ensure => present,
-    source => '/tmp/build/opt/phpfarm/src/custom-options-5.4.30.sh',
+    source => '/tmp/build/opt/phpfarm/src/custom-options-5.4.31.sh',
     mode => 755,
     require => Class['phpfarm']
   }
 
-  exec { '/opt/phpfarm/src/compile.sh 5.4.30':
+  exec { '/opt/phpfarm/src/compile.sh 5.4.31':
     timeout => 0,
-    require => File['/opt/phpfarm/src/custom-options-5.4.30.sh']
+    require => File['/opt/phpfarm/src/custom-options-5.4.31.sh']
   }
 }
 
 class php55 {
   include phpfarm
 
-  file { '/opt/phpfarm/src/custom-options-5.5.14.sh':
+  file { '/opt/phpfarm/src/custom-options-5.5.15.sh':
     ensure => present,
     source => '/tmp/build/opt/phpfarm/src/custom-options-5.4.14.sh',
     mode => 755,
     require => Class['phpfarm']
   }
 
-  exec { '/opt/phpfarm/src/compile.sh 5.5.14':
+  exec { '/opt/phpfarm/src/compile.sh 5.5.15':
     timeout => 0,
-    require => File['/opt/phpfarm/src/custom-options-5.5.14.sh']
+    require => File['/opt/phpfarm/src/custom-options-5.5.15.sh']
   }
 }
 
@@ -100,7 +100,7 @@ class php {
     require => Class['php55']
   }
 
-  exec { '/bin/bash -c "source /etc/profile.d/phpfarm.sh && switch-phpfarm 5.5.14"':
+  exec { '/bin/bash -c "source /etc/profile.d/phpfarm.sh && switch-phpfarm 5.5.15"':
     require => File['/etc/profile.d/phpfarm.sh']
   }
 }
