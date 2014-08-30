@@ -79,7 +79,7 @@ class php55 {
 
   file { '/opt/phpfarm/src/custom-options-5.5.15.sh':
     ensure => present,
-    source => '/tmp/build/opt/phpfarm/src/custom-options-5.4.14.sh',
+    source => '/tmp/build/opt/phpfarm/src/custom-options-5.4.15.sh',
     mode => 755,
     require => Class['phpfarm']
   }
