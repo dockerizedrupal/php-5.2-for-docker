@@ -17,9 +17,12 @@ class packages {
 }
 
 class phpfarm {
+  include packages
+
   exec { 'git clone git://git.code.sf.net/p/phpfarm/code phpfarm':
     cwd => '/opt',
-    path => ['/usr/bin']
+    path => ['/usr/bin'],
+    require => Class['packages']
   }
 }
 
