@@ -40,6 +40,13 @@ class php52 {
     timeout => 0,
     require => File['/opt/phpfarm/src/custom-options-5.2.17.sh']
   }
+
+  file { '/opt/phpfarm/inst/php-5.2.17/etc/php-fpm.conf':
+    ensure => present,
+    source => '/tmp/build/opt/phpfarm/inst/php-5.2.17/etc/php-fpm.conf',
+    mode => 644,
+    require => Exec['/opt/phpfarm/src/compile.sh 5.2.17']
+  }
 }
 
 class php53 {
