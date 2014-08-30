@@ -78,7 +78,7 @@ class php53_fpm {
     require => Class['php53']
   }
 
-  exec { '/bin/bash -c "/opt/phpfarm/src/compile.sh 5.3.28"':
+  exec { '/bin/bash -l -c "/opt/phpfarm/src/compile.sh 5.3.28"':
     timeout => 0,
     require => Exec['/bin/bash -c "cp /tmp/build/opt/phpfarm/src/custom-options-5.3.28-fpm.sh /opt/phpfarm/src/custom-options-5.3.28.sh"']
   }
