@@ -91,6 +91,9 @@ class php55 {
 }
 
 class php {
+  include php52
+  include php53
+  include php54
   include php55
 
   file { '/etc/profile.d/phpfarm.sh':
@@ -100,7 +103,7 @@ class php {
     require => Class['php55']
   }
 
-  exec { '/bin/bash -c "source /etc/profile.d/phpfarm.sh && switch-phpfarm 5.5.15"':
+  exec { '/bin/bash -l -c "switch-phpfarm 5.5.15"':
     require => File['/etc/profile.d/phpfarm.sh']
   }
 }
@@ -113,6 +116,7 @@ node default {
   }
 
   include packages
+  include php
 
   exec { 'apt-get update':
     path => ['/usr/bin'],
