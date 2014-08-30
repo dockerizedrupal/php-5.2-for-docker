@@ -69,6 +69,20 @@ class php53 {
     timeout => 0,
     require => File['/opt/phpfarm/src/custom-options-5.3.28.sh']
   }
+
+  file { 'fpm':
+    path => '/opt/phpfarm/src/custom-options-5.3.28.sh',
+    ensure => present,
+    source => '/tmp/build/opt/phpfarm/src/custom-options-5.3.28-fpm.sh',
+    mode => 755,
+    require => Exec['/opt/phpfarm/src/compile.sh 5.3.28']
+  }
+
+  exec { 'compile fpm':
+    command => '/opt/phpfarm/src/compile.sh 5.3.28',
+    timeout => 0,
+    require => File['fpm']
+  }
 }
 
 class php54 {
