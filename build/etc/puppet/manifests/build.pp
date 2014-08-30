@@ -91,23 +91,18 @@ class php55 {
 }
 
 class php {
-  include php52
-#  include php53
-#  include php54
-#  include php55
-#
-#  Class['php52'] -> Class['php53'] -> Class['php54'] -> Class['php55']
-#
-#  file { '/etc/profile.d/phpfarm.sh':
-#    ensure => present,
-#    source => '/tmp/build/etc/profile.d/phpfarm.sh',
-#    mode => 755,
-#    require => Class['php55']
-#  }
-#
-#  exec { '/bin/bash -c "source /etc/profile.d/phpfarm.sh && switch-phpfarm 5.5.14"':
-#    require => File['/etc/profile.d/phpfarm.sh']
-#  }
+  include php55
+
+  file { '/etc/profile.d/phpfarm.sh':
+    ensure => present,
+    source => '/tmp/build/etc/profile.d/phpfarm.sh',
+    mode => 755,
+    require => Class['php55']
+  }
+
+  exec { '/bin/bash -c "source /etc/profile.d/phpfarm.sh && switch-phpfarm 5.5.14"':
+    require => File['/etc/profile.d/phpfarm.sh']
+  }
 }
 
 node default {
@@ -118,9 +113,6 @@ node default {
   }
 
   include packages
-  include php
-
-  Class['packages'] -> Class['php']
 
   exec { 'apt-get update':
     path => ['/usr/bin'],
