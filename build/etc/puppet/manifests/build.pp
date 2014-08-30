@@ -88,16 +88,13 @@ class php53 {
 class php53_fpm {
   include php53
 
-  file { '/opt/phpfarm/src/custom-options-5.3.28.sh':
-    ensure => present,
-    source => '/tmp/build/opt/phpfarm/src/custom-options-5.3.28-fpm.sh',
-    mode => 755,
+  exec { '/bin/bash -c "cp /tmp/build/opt/phpfarm/src/custom-options-5.3.28-fpm.sh /opt/phpfarm/src/custom-options-5.3.28.sh"':
     require => Class['php53']
   }
 
   exec { '/opt/phpfarm/src/compile.sh 5.3.28':
     timeout => 0,
-    require => File['/opt/phpfarm/src/custom-options-5.3.28.sh']
+    require => Exec['/bin/bash -c "cp /tmp/build/opt/phpfarm/src/custom-options-5.3.28-fpm.sh /opt/phpfarm/src/custom-options-5.3.28.sh"']
   }
 }
 
