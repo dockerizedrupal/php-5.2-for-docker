@@ -1,5 +1,6 @@
 configoptions="--with-libdir=/lib/x86_64-linux-gnu \
   --enable-fpm \
+  --enable-cgi \
   --enable-gd-native-ttf \
   --enable-exif \
   --enable-ftp \
