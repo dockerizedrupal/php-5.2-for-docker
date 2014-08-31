@@ -34,17 +34,9 @@ class php52_supervisor {
   }
 }
 
-class php52_apache2 {
-  file { '/etc/apache2/conf.d/php52-fcgi.conf':
-    ensure => present,
-    source => '/tmp/build/etc/apache2/conf.d/php52-fcgi.conf'
-  }
-}
-
 class php52 {
   include phpfarm
   include php52_supervisor
-  include php52_apache2
 
   file { '/opt/phpfarm/src/custom-options-5.2.17.sh':
     ensure => present,
@@ -73,17 +65,9 @@ class php53_supervisor {
   }
 }
 
-class php53_apache2 {
-  file { '/etc/apache2/conf.d/php53-fcgi.conf':
-    ensure => present,
-    source => '/tmp/build/etc/apache2/conf.d/php53-fcgi.conf'
-  }
-}
-
 class php53 {
   include phpfarm
   include php53_supervisor
-  include php53_apache2
 
   file { '/opt/phpfarm/src/custom-options-5.3.28.sh':
     ensure => present,
@@ -125,17 +109,9 @@ class php54_supervisor {
   }
 }
 
-class php54_apache2 {
-  file { '/etc/apache2/conf.d/php54-fcgi.conf':
-    ensure => present,
-    source => '/tmp/build/etc/apache2/conf.d/php54-fcgi.conf'
-  }
-}
-
 class php54 {
   include phpfarm
   include php54_supervisor
-  include php54_apache2
 
   file { '/opt/phpfarm/src/custom-options-5.4.31.sh':
     ensure => present,
@@ -164,17 +140,9 @@ class php55_supervisor {
   }
 }
 
-class php55_apache2 {
-  file { '/etc/apache2/conf.d/php55-fcgi.conf':
-    ensure => present,
-    source => '/tmp/build/etc/apache2/conf.d/php55-fcgi.conf'
-  }
-}
-
 class php55 {
   include phpfarm
   include php55_supervisor
-  include php55_apache2
 
   file { '/opt/phpfarm/src/custom-options-5.5.15.sh':
     ensure => present,
@@ -197,9 +165,10 @@ class php55 {
 }
 
 class php_apache2 {
-  file { '/etc/apache2/conf.d/fastcgi.conf':
+  file { '/etc/apache2':
     ensure => present,
-    source => '/tmp/build/etc/apache2/conf.d/fastcgi.conf'
+    recurse => true,
+    source => '/tmp/build/etc/apache2'
   }
 }
 
