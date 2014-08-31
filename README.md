@@ -51,9 +51,9 @@ Run as PHP-FPM (FastCGI Process Manager)
 
 Apache 2.2 FastCGI conf
 -----------------------
-
-/etc/apache/conf.d/fastcgi.conf
-/etc/apache/conf.d/php52-fcgi.conf
-/etc/apache/conf.d/php53-fcgi.conf
-/etc/apache/conf.d/php54-fcgi.conf
-/etc/apache/conf.d/php55-fcgi.conf
+    
+    /etc/apache/conf.d/fastcgi.conf
+    /etc/apache/conf.d/php52-fcgi.conf
+    /etc/apache/conf.d/php53-fcgi.conf
+    /etc/apache/conf.d/php54-fcgi.conf
+    /etc/apache/conf.d/php55-fcgi.conf
