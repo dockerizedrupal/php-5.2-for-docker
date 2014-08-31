@@ -48,3 +48,12 @@ Run as PHP-FPM (FastCGI Process Manager)
 - PHP 5.3 accepting connections on port 9053
 - PHP 5.4 accepting connections on port 9054
 - PHP 5.4 accepting connections on port 9055
+
+Apache 2.2 FastCGI conf
+-----------------------
+
+/etc/apache/conf.d/fastcgi.conf
+/etc/apache/conf.d/php52-fcgi.conf
+/etc/apache/conf.d/php53-fcgi.conf
+/etc/apache/conf.d/php54-fcgi.conf
+/etc/apache/conf.d/php55-fcgi.conf
