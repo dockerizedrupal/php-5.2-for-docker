@@ -40,7 +40,7 @@ Run PHP from the command line
 Run as PHP-FPM (FastCGI Process Manager)
 ----------------------------------------
 
-    sudo docker run --name php-fpm -p 9052:9052 -p 9053:9053 -p 9054:9054 -p 9055:9055 -v /var/www:/var/www -d simpledrupalcloud/php
+    sudo docker run --name php-fpm -p 9052:9052 -p 9053:9053 -p 9054:9054 -p 9055:9055 -v /var/www:/var/www -v /etc/apache/conf.d/fastcgi.conf:/etc/apache/conf.d/fastcgi.conf -d simpledrupalcloud/php
 
 ### Exposed ports
 
@@ -49,11 +49,8 @@ Run as PHP-FPM (FastCGI Process Manager)
 - PHP 5.4 accepting connections on port 9054
 - PHP 5.4 accepting connections on port 9055
 
-Apache 2.2 FastCGI conf
+### Apache 2.2 FastCGI conf
 -----------------------
-    
+
     /etc/apache/conf.d/fastcgi.conf
-    /etc/apache/conf.d/php52-fcgi.conf
-    /etc/apache/conf.d/php53-fcgi.conf
-    /etc/apache/conf.d/php54-fcgi.conf
-    /etc/apache/conf.d/php55-fcgi.conf
+
