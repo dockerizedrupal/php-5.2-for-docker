@@ -17,5 +17,4 @@ EXPOSE 9053
 EXPOSE 9054
 EXPOSE 9055
 
-ENTRYPOINT ["/bin/bash", "-l", "-c"]
-CMD ["/run.sh"]
+ENTRYPOINT ["/bin/bash", "-l", "-c", "/run.sh"]
