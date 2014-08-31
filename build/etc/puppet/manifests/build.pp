@@ -69,6 +69,18 @@ class php53 {
     timeout => 0,
     require => File['/opt/phpfarm/src/custom-options-5.3.28.sh']
   }
+
+  file { '/opt/phpfarm/inst/php-5.3.28/etc/php-fpm.conf':
+    ensure => present,
+    source => '/tmp/build/opt/phpfarm/inst/php-5.3.28/etc/php-fpm.conf',
+    mode => 644,
+    require => Exec['/opt/phpfarm/src/compile.sh 5.3.28']
+  }
+
+  file { '/etc/supervisor/conf.d/php-5.3.28.conf':
+    ensure => present,
+    source => '/tmp/build/etc/supervisor/conf.d/php-5.3.28.conf'
+  }
 }
 
 class php53_fpm {
@@ -118,9 +130,9 @@ class php55 {
 
 class php {
 #  include php52
-  include php53
-  include php53_fpm
-#  include php54
+#  include php53
+#  include php53_fpm
+  include php54
 #  include php55
 #
 #  file { '/etc/profile.d/phpfarm.sh':
