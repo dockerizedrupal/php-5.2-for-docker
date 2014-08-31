@@ -83,7 +83,7 @@ class php53_apache2 {
 class php53 {
   include phpfarm
   include php53_supervisor
-  incldue php53_apache2
+  include php53_apache2
 
   file { '/opt/phpfarm/src/custom-options-5.3.28.sh':
     ensure => present,
@@ -159,8 +159,9 @@ class php54 {
 
 class php55_supervisor {
   file { '/etc/supervisor/conf.d/php-5.5.15.conf':
-  ensure => present,
-  source => '/tmp/build/etc/supervisor/conf.d/php-5.5.15.conf'
+    ensure => present,
+    source => '/tmp/build/etc/supervisor/conf.d/php-5.5.15.conf'
+  }
 }
 
 class php55_apache2 {
