@@ -111,7 +111,6 @@ class php54 {
     require => File['/opt/phpfarm/src/custom-options-5.4.31.sh']
   }
 
-
   file { '/opt/phpfarm/inst/php-5.4.31/etc/php-fpm.conf':
     ensure => present,
     source => '/tmp/build/opt/phpfarm/inst/php-5.4.31/etc/php-fpm.conf',
@@ -139,25 +138,37 @@ class php55 {
     timeout => 0,
     require => File['/opt/phpfarm/src/custom-options-5.5.15.sh']
   }
+
+  file { '/opt/phpfarm/inst/php-5.5.15/etc/php-fpm.conf':
+    ensure => present,
+    source => '/tmp/build/opt/phpfarm/inst/php-5.5.15/etc/php-fpm.conf',
+    mode => 644,
+    require => Exec['/opt/phpfarm/src/compile.sh 5.5.15']
+  }
+
+  file { '/etc/supervisor/conf.d/php-5.5.15.conf':
+    ensure => present,
+    source => '/tmp/build/etc/supervisor/conf.d/php-5.5.15.conf'
+  }
 }
 
 class php {
-#  include php52
-#  include php53
-#  include php53_fpm
-#  include php54
+  include php52
+  include php53
+  include php53_fpm
+  include php54
   include php55
-#
-#  file { '/etc/profile.d/phpfarm.sh':
-#    ensure => present,
-#    source => '/tmp/build/etc/profile.d/phpfarm.sh',
-#    mode => 755,
-#    require => Class['php55']
-#  }
-#
-#  exec { '/bin/bash -l -c "switch-phpfarm 5.5.15"':
-#    require => File['/etc/profile.d/phpfarm.sh']
-#  }
+
+  file { '/etc/profile.d/phpfarm.sh':
+    ensure => present,
+    source => '/tmp/build/etc/profile.d/phpfarm.sh',
+    mode => 755,
+    require => Class['php55']
+  }
+
+  exec { '/bin/bash -l -c "switch-phpfarm 5.5.15"':
+    require => File['/etc/profile.d/phpfarm.sh']
+  }
 }
 
 node default {
