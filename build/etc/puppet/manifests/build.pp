@@ -27,8 +27,24 @@ class phpfarm {
   }
 }
 
+class php52_supervisor {
+  file { '/etc/supervisor/conf.d/php-5.2.17.conf':
+    ensure => present,
+    source => '/tmp/build/etc/supervisor/conf.d/php-5.2.17.conf'
+  }
+}
+
+class php52_apache2 {
+  file { '/etc/apache2/conf.d/php52-fcgi.conf':
+    ensure => present,
+    source => '/tmp/build/etc/apache2/conf.d/php52-fcgi.conf'
+  }
+}
+
 class php52 {
   include phpfarm
+  include php52_supervisor
+  include php52_apache2
 
   file { '/opt/phpfarm/src/custom-options-5.2.17.sh':
     ensure => present,
@@ -48,15 +64,26 @@ class php52 {
     mode => 644,
     require => Exec['/opt/phpfarm/src/compile.sh 5.2.17']
   }
+}
 
-  file { '/etc/supervisor/conf.d/php-5.2.17.conf':
+class php53_supervisor {
+  file { '/etc/supervisor/conf.d/php-5.3.28.conf':
     ensure => present,
-    source => '/tmp/build/etc/supervisor/conf.d/php-5.2.17.conf'
+    source => '/tmp/build/etc/supervisor/conf.d/php-5.3.28.conf'
+  }
+}
+
+class php53_apache2 {
+  file { '/etc/apache2/conf.d/php53-fcgi.conf':
+    ensure => present,
+    source => '/tmp/build/etc/apache2/conf.d/php53-fcgi.conf'
   }
 }
 
 class php53 {
   include phpfarm
+  include php53_supervisor
+  incldue php53_apache2
 
   file { '/opt/phpfarm/src/custom-options-5.3.28.sh':
     ensure => present,
@@ -76,11 +103,6 @@ class php53 {
     mode => 644,
     require => Exec['/opt/phpfarm/src/compile.sh 5.3.28']
   }
-
-  file { '/etc/supervisor/conf.d/php-5.3.28.conf':
-    ensure => present,
-    source => '/tmp/build/etc/supervisor/conf.d/php-5.3.28.conf'
-  }
 }
 
 class php53_fpm {
@@ -96,8 +118,24 @@ class php53_fpm {
   }
 }
 
+class php54_supervisor {
+  file { '/etc/supervisor/conf.d/php-5.4.31.conf':
+    ensure => present,
+    source => '/tmp/build/etc/supervisor/conf.d/php-5.4.31.conf'
+  }
+}
+
+class php54_apache2 {
+  file { '/etc/apache2/conf.d/php54-fcgi.conf':
+    ensure => present,
+    source => '/tmp/build/etc/apache2/conf.d/php54-fcgi.conf'
+  }
+}
+
 class php54 {
   include phpfarm
+  include php54_supervisor
+  include php54_apache2
 
   file { '/opt/phpfarm/src/custom-options-5.4.31.sh':
     ensure => present,
@@ -117,15 +155,25 @@ class php54 {
     mode => 644,
     require => Exec['/opt/phpfarm/src/compile.sh 5.4.31']
   }
+}
 
-  file { '/etc/supervisor/conf.d/php-5.4.31.conf':
+class php55_supervisor {
+  file { '/etc/supervisor/conf.d/php-5.5.15.conf':
+  ensure => present,
+  source => '/tmp/build/etc/supervisor/conf.d/php-5.5.15.conf'
+}
+
+class php55_apache2 {
+  file { '/etc/apache2/conf.d/php55-fcgi.conf':
     ensure => present,
-    source => '/tmp/build/etc/supervisor/conf.d/php-5.4.31.conf'
+    source => '/tmp/build/etc/apache2/conf.d/php55-fcgi.conf'
   }
 }
 
 class php55 {
   include phpfarm
+  include php55_supervisor
+  include php55_apache2
 
   file { '/opt/phpfarm/src/custom-options-5.5.15.sh':
     ensure => present,
@@ -145,10 +193,12 @@ class php55 {
     mode => 644,
     require => Exec['/opt/phpfarm/src/compile.sh 5.5.15']
   }
+}
 
-  file { '/etc/supervisor/conf.d/php-5.5.15.conf':
+class php_apache2 {
+  file { '/etc/apache2/conf.d/fastcgi.conf':
     ensure => present,
-    source => '/tmp/build/etc/supervisor/conf.d/php-5.5.15.conf'
+    source => '/tmp/build/etc/apache2/conf.d/fastcgi.conf'
   }
 }
 
@@ -158,6 +208,7 @@ class php {
   include php53_fpm
   include php54
   include php55
+  include php_apache2
 
   file { '/etc/profile.d/phpfarm.sh':
     ensure => present,
@@ -180,6 +231,8 @@ node default {
 
   include packages
   include php
+
+  Class['packages'] -> Class['php']
 
   exec { 'apt-get update':
     path => ['/usr/bin'],

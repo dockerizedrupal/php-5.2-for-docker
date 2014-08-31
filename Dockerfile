@@ -10,6 +10,8 @@ RUN chmod +x /tmp/build/build.sh
 RUN /tmp/build/build.sh
 RUN rm -rf /tmp/*
 
+VOLUME ["/etc/apache2/conf.d"]
+
 EXPOSE 9052
 EXPOSE 9053
 EXPOSE 9054
