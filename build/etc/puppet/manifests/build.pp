@@ -145,8 +145,8 @@ class php {
 #  include php52
 #  include php53
 #  include php53_fpm
-  include php54
-#  include php55
+#  include php54
+  include php55
 #
 #  file { '/etc/profile.d/phpfarm.sh':
 #    ensure => present,
