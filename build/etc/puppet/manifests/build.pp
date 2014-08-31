@@ -110,6 +110,19 @@ class php54 {
     timeout => 0,
     require => File['/opt/phpfarm/src/custom-options-5.4.31.sh']
   }
+
+
+  file { '/opt/phpfarm/inst/php-5.4.31/etc/php-fpm.conf':
+    ensure => present,
+    source => '/tmp/build/opt/phpfarm/inst/php-5.4.31/etc/php-fpm.conf',
+    mode => 644,
+    require => Exec['/opt/phpfarm/src/compile.sh 5.4.31']
+  }
+
+  file { '/etc/supervisor/conf.d/php-5.4.31.conf':
+    ensure => present,
+    source => '/tmp/build/etc/supervisor/conf.d/php-5.4.31.conf'
+  }
 }
 
 class php55 {
