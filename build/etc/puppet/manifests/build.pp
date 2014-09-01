@@ -64,7 +64,7 @@ class php_5217_extension_xdebug {
   exec { 'make':
     cwd => '/tmp/xdebug-2.2.5',
     path => ['/usr/bin'],
-    require => Exec['./configure --with-php-config=/opt/phpfarm/inst/bin/php-config-5.2.17']
+    require => Exec['configure --with-php-config=/opt/phpfarm/inst/bin/php-config-5.2.17']
   }
 
   exec { 'make install':
