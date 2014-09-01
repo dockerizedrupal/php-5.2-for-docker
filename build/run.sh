@@ -1,27 +1,27 @@
 #!/usr/bin/env bash
 
 case "${1}" in
-  php52)
+  php-5.2.17)
     cd /src
 
     php-5.2.17 "${@:2}"
     ;;
-  php53)
+  php-5.3.28)
     cd /src
 
     php-5.3.28 "${@:2}"
     ;;
-  php54)
+  php-5.4.31)
     cd /src
 
     php-5.4.31 "${@:2}"
     ;;
-  php55)
+  php-5.5.15)
     cd /src
 
     php-5.5.15 "${@:2}"
     ;;
   *)
     /usr/bin/supervisord
-  ;;
+    ;;
 esac

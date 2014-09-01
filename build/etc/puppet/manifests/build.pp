@@ -27,16 +27,16 @@ class phpfarm {
   }
 }
 
-class php52_supervisor {
+class php_5217_supervisor {
   file { '/etc/supervisor/conf.d/php-5.2.17.conf':
     ensure => present,
     source => '/tmp/build/etc/supervisor/conf.d/php-5.2.17.conf'
   }
 }
 
-class php52 {
+class php_5217 {
   include phpfarm
-  include php52_supervisor
+  include php_5217_supervisor
 
   file { '/opt/phpfarm/src/custom-options-5.2.17.sh':
     ensure => present,
@@ -58,16 +58,16 @@ class php52 {
   }
 }
 
-class php53_supervisor {
+class php_5328_supervisor {
   file { '/etc/supervisor/conf.d/php-5.3.28.conf':
     ensure => present,
     source => '/tmp/build/etc/supervisor/conf.d/php-5.3.28.conf'
   }
 }
 
-class php53 {
+class php_5328 {
   include phpfarm
-  include php53_supervisor
+  include php_5328_supervisor
 
   file { '/opt/phpfarm/src/custom-options-5.3.28.sh':
     ensure => present,
@@ -89,11 +89,11 @@ class php53 {
   }
 }
 
-class php53_fpm {
-  include php53
+class php_5328_fpm {
+  include php_5328
 
   exec { '/bin/bash -c "cp /tmp/build/opt/phpfarm/src/custom-options-5.3.28-fpm.sh /opt/phpfarm/src/custom-options-5.3.28.sh"':
-    require => Class['php53']
+    require => Class['php_5328']
   }
 
   exec { '/bin/bash -l -c "rm -rf /opt/phpfarm/src/php-5.3.28 && /opt/phpfarm/src/compile.sh 5.3.28"':
@@ -102,16 +102,16 @@ class php53_fpm {
   }
 }
 
-class php54_supervisor {
+class php_5431_supervisor {
   file { '/etc/supervisor/conf.d/php-5.4.31.conf':
     ensure => present,
     source => '/tmp/build/etc/supervisor/conf.d/php-5.4.31.conf'
   }
 }
 
-class php54 {
+class php_5431 {
   include phpfarm
-  include php54_supervisor
+  include php_5431_supervisor
 
   file { '/opt/phpfarm/src/custom-options-5.4.31.sh':
     ensure => present,
@@ -133,16 +133,16 @@ class php54 {
   }
 }
 
-class php55_supervisor {
+class php_5515_supervisor {
   file { '/etc/supervisor/conf.d/php-5.5.15.conf':
     ensure => present,
     source => '/tmp/build/etc/supervisor/conf.d/php-5.5.15.conf'
   }
 }
 
-class php55 {
+class php_5515 {
   include phpfarm
-  include php55_supervisor
+  include php_5515_supervisor
 
   file { '/opt/phpfarm/src/custom-options-5.5.15.sh':
     ensure => present,
@@ -173,18 +173,18 @@ class php_apache2 {
 }
 
 class php {
-  include php52
-  include php53
-  include php53_fpm
-  include php54
-  include php55
+  include php_5217
+  include php_5328
+  include php_5328_fpm
+  include php_5431
+  include php_5515
   include php_apache2
 
   file { '/etc/profile.d/phpfarm.sh':
     ensure => present,
     source => '/tmp/build/etc/profile.d/phpfarm.sh',
     mode => 755,
-    require => Class['php55']
+    require => Class['php_5515']
   }
 
   exec { '/bin/bash -l -c "switch-phpfarm 5.5.15"':

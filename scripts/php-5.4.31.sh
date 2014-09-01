@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+sudo docker run --rm -i -t -v $(pwd):/src simpledrupalcloud/php php-5.4.31 "${@}"
