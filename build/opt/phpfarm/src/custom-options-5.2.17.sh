@@ -1,4 +1,5 @@
 configoptions="--with-libdir=/lib/x86_64-linux-gnu \
+  --prefix=/opt/php-5.2.17 \
   --enable-fpm \
   --enable-fastcgi \
   --enable-force-cgi-redirect \
