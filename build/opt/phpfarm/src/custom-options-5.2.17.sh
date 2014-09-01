@@ -1,6 +1,7 @@
 configoptions="--with-libdir=/lib/x86_64-linux-gnu \
   --prefix=/opt/php-5.2.17 \
-  --sysconfdir=/etc/php \
+  --sysconfdir=/etc/php-5.2.17 \
+  --with-config-file-path=/etc/php-5.2.17 \
   --enable-fpm \
   --enable-fastcgi \
   --enable-force-cgi-redirect \
