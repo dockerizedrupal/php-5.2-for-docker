@@ -50,7 +50,7 @@ class php_5217_extension_xdebug {
     require => Exec['pear download pecl/xdebug']
   }
 
-  exec { '/bin/bash -l -c "phpize-5.2.17"':
+  exec { '/opt/phpfarm/inst/bin/phpize-5.2.17':
     cwd => '/tmp/xdebug-2.2.5',
     require => Exec['tar xzvf xdebug-2.2.5.tgz']
   }
