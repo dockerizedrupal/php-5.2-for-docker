@@ -179,14 +179,14 @@ class php {
 #  include php_5431
 #  include php_5515
 #  include php_apache2
-#
-#  file { '/etc/profile.d/phpfarm.sh':
-#    ensure => present,
-#    source => '/tmp/build/etc/profile.d/phpfarm.sh',
-#    mode => 755,
+
+  file { '/etc/profile.d/phpfarm.sh':
+    ensure => present,
+    source => '/tmp/build/etc/profile.d/phpfarm.sh',
+    mode => 755,
 #    require => Class['php_5515']
-#  }
-#
+  }
+
 #  exec { '/bin/bash -l -c "switch-phpfarm 5.5.15"':
 #    require => File['/etc/profile.d/phpfarm.sh']
 #  }
