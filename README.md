@@ -4,37 +4,25 @@ docker-php
 Compiled PHP versions
 ---------------------
 
-- 5.2.17
-- 5.3.28
-- 5.4.31
 - 5.5.15
+- 5.4.31
+- 5.3.28
+- 5.2.17
 
-Run PHP from the command line
------------------------------
+Run PHP from the CLI
+--------------------
 
-### PHP 5.2.17
+### PHP 5.5.15
 
-    ./php-5.2.17.sh my_script.php
-
-    sudo docker run \
-      --rm \
-      -i \
-      -t \
-      -v $(pwd):/src simpledrupalcloud/php \
-      php-5.2.17 \
-      my_script.php
-
-
-### PHP 5.3.28
-
-    ./php-5.3.28.sh my_script.php
+    ./php-5.5.15.sh my_script.php
 
     sudo docker run \
       --rm \
       -i \
       -t \
-      -v $(pwd):/src simpledrupalcloud/php \
-      php-5.3.28 \
+      -v $(pwd):/src \
+      simpledrupalcloud/php \
+      php-5.5.15 \
       my_script.php
 
 ### PHP 5.4.31
@@ -49,17 +37,28 @@ Run PHP from the command line
       php-5.4.31 \
       my_script.php
 
-### PHP 5.5.15
+### PHP 5.3.28
 
-    ./php-5.5.15.sh my_script.php
+    ./php-5.3.28.sh my_script.php
 
     sudo docker run \
       --rm \
       -i \
       -t \
-      -v $(pwd):/src \
-      simpledrupalcloud/php \
-      php-5.5.15 \
+      -v $(pwd):/src simpledrupalcloud/php \
+      php-5.3.28 \
+      my_script.php
+
+### PHP 5.2.17
+
+    ./php-5.2.17.sh my_script.php
+
+    sudo docker run \
+      --rm \
+      -i \
+      -t \
+      -v $(pwd):/src simpledrupalcloud/php \
+      php-5.2.17 \
       my_script.php
 
 Run as PHP-FPM (FastCGI Process Manager)
