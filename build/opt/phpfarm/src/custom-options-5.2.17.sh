@@ -1,7 +1,13 @@
 configoptions="--with-libdir=/lib/x86_64-linux-gnu \
   --prefix=/opt/php-5.2.17 \
   --sysconfdir=/etc/php-5.2.17 \
+  --localstatedir=/var \
   --with-config-file-path=/etc/php-5.2.17 \
+  --with-config-file-scan-dir=/etc/php-5.2.17/conf.d \
+  --mandir=/opt/php-5.2.17/share/man \
+  --enable-apc \
+  --enable-memcached \
+  --enable-xdebug \
   --enable-fpm \
   --enable-fastcgi \
   --enable-force-cgi-redirect \
