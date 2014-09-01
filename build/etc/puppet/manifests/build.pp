@@ -11,7 +11,8 @@ class packages {
     'libmcrypt-dev',
     'libmhash-dev',
     'libmysqlclient-dev',
-    'libpspell-dev'
+    'libpspell-dev',
+    'autoconf'
   ]:
     ensure => present
   }
@@ -34,9 +35,46 @@ class php_5217_supervisor {
   }
 }
 
+class php_5217_extension_xdebug {
+  include php_5217
+
+  exec { 'pear download pecl/xdebug'
+    cwd => '/tmp',
+    path => ['/opt/phpfarm/inst/php-5.2.17/bin'],
+    require => Class['php_5217']
+  }
+
+  exec { 'tar xzvf xdebug-2.2.5.tgz'
+    cwd => '/tmp',
+    path => ['/bin'],
+    require => Exec['pear download pecl/xdebug']
+  }
+
+  exec { '/bin/bash -l -c "phpize-5.2.17"'
+    cwd => '/tmp/xdebug-2.2.5',
+    require => Exec['tar xzvf xdebug-2.2.5.tgz']
+  }
+
+  exec { './configure --with-php-config=/opt/phpfarm/inst/bin/php-config-5.2.17'
+    cwd => '/tmp/xdebug-2.2.5',
+    require => Exec['/bin/bash -l -c "phpize-5.2.17"']
+  }
+
+  exec { 'make'
+    cwd => '/tmp/xdebug-2.2.5',
+    require => Exec['./configure --with-php-config=/opt/phpfarm/inst/bin/php-config-5.2.17']
+  }
+
+  exec { 'make install'
+    cwd => '/tmp/xdebug-2.2.5',
+    require => Exec['make']
+  }
+}
+
 class php_5217 {
   include phpfarm
   include php_5217_supervisor
+  include php_5217_extension_xdebug
 
   file { '/opt/phpfarm/src/custom-options-5.2.17.sh':
     ensure => present,

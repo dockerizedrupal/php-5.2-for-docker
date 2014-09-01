@@ -90,3 +90,6 @@ Run as PHP-FPM (FastCGI Process Manager)
 ### Apache 2.2 FastCGI conf
 
     /etc/apache/conf.d/fastcgi.conf
+
+Xdebug
+------
