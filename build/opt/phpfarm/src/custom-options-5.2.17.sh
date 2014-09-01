@@ -1,47 +1,42 @@
 configoptions="--with-libdir=/lib/x86_64-linux-gnu \
-  --prefix=/opt/php-5.2.17 \
-  --sysconfdir=/etc/php-5.2.17 \
-  --localstatedir=/var \
-  --with-config-file-path=/etc/php-5.2.17 \
-  --with-config-file-scan-dir=/etc/php-5.2.17/conf.d \
-  --mandir=/opt/php-5.2.17/share/man \
-  --enable-apc \
-  --enable-memcached \
-  --enable-xdebug \
+  --enable-shared \
+  --enable-apc=shared \
+  --enable-memcached=shared \
+  --enable-xdebug=shared \
   --enable-fpm \
   --enable-fastcgi \
   --enable-force-cgi-redirect \
   --enable-gd-native-ttf \
-  --enable-exif \
-  --enable-ftp \
-  --enable-bcmath \
-  --enable-sockets \
-  --enable-soap \
-  --enable-calendar \
+  --enable-exif=shared \
+  --enable-ftp=shared \
+  --enable-bcmath=shared \
+  --enable-sockets=shared \
+  --enable-soap=shared \
+  --enable-calendar=shared \
   --enable-mbstring \
-  --enable-zip \
+  --enable-zip=shared \
   --with-fpm-user=www-data \
   --with-fpm-group=www-data \
-  --with-curl \
-  --with-gd \
+  --with-curl=shared \
+  --with-gd=shared \
   --with-jpeg \
   --with-png \
   --with-ttf \
   --with-mhash \
-  --with-mcrypt \
-  --with-mysqli \
-  --with-mysql \
-  --with-pdo-mysql \
+  --with-mcrypt=shared \
+  --with-mysqli=shared \
+  --with-mysql=shared \
+  --with-pdo-mysql=shared \
   --with-libxml \
   --with-mbstring \
-  --with-iconv \
+  --with-iconv=shared \
   --with-pear \
-  --with-openssl \
-  --with-iconv \
-  --with-bz2 \
+  --with-openssl=shared \
+  --with-iconv=shared \
+  --with-bz2=shared \
   --with-zlib \
-  --with-gettext \
-  --with-pspell \
+  --with-gettext=shared \
+  --with-pspell=shared \
 "
 
 cd $srcdir
