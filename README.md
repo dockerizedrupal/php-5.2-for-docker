@@ -71,10 +71,10 @@ Run as PHP-FPM (FastCGI Process Manager)
 
     sudo docker run \
       --name php-fpm \
-      -p 9052:9052 \
-      -p 9053:9053 \
-      -p 9054:9054 \
-      -p 9055:9055 \
+      -p 127.0.0.1:9052:9052 \
+      -p 127.0.0.1:9053:9053 \
+      -p 127.0.0.1:9054:9054 \
+      -p 127.0.0.1:9055:9055 \
       -v /var/www:/var/www \
       -v /etc/apache/conf.d/fastcgi.conf:/etc/apache/conf.d/fastcgi.conf \
       -d \
