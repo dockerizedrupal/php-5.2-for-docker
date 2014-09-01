@@ -38,34 +38,34 @@ class php_5217_supervisor {
 class php_5217_extension_xdebug {
   include php_5217
 
-  exec { 'pear download pecl/xdebug'
+  exec { 'pear download pecl/xdebug':
     cwd => '/tmp',
     path => ['/opt/phpfarm/inst/php-5.2.17/bin'],
     require => Class['php_5217']
   }
 
-  exec { 'tar xzvf xdebug-2.2.5.tgz'
+  exec { 'tar xzvf xdebug-2.2.5.tgz':
     cwd => '/tmp',
     path => ['/bin'],
     require => Exec['pear download pecl/xdebug']
   }
 
-  exec { '/bin/bash -l -c "phpize-5.2.17"'
+  exec { '/bin/bash -l -c "phpize-5.2.17"':
     cwd => '/tmp/xdebug-2.2.5',
     require => Exec['tar xzvf xdebug-2.2.5.tgz']
   }
 
-  exec { './configure --with-php-config=/opt/phpfarm/inst/bin/php-config-5.2.17'
+  exec { './configure --with-php-config=/opt/phpfarm/inst/bin/php-config-5.2.17':
     cwd => '/tmp/xdebug-2.2.5',
     require => Exec['/bin/bash -l -c "phpize-5.2.17"']
   }
 
-  exec { 'make'
+  exec { 'make':
     cwd => '/tmp/xdebug-2.2.5',
     require => Exec['./configure --with-php-config=/opt/phpfarm/inst/bin/php-config-5.2.17']
   }
 
-  exec { 'make install'
+  exec { 'make install':
     cwd => '/tmp/xdebug-2.2.5',
     require => Exec['make']
   }
