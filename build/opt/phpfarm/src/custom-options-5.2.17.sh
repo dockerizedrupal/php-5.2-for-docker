@@ -1,42 +1,41 @@
 configoptions="--with-libdir=/lib/x86_64-linux-gnu \
-  --enable-shared \
-  --enable-apc=shared \
-  --enable-memcached=shared \
-  --enable-xdebug=shared \
+  --enable-apc \
+  --enable-memcached \
+  --enable-xdebug \
   --enable-fpm \
   --enable-fastcgi \
   --enable-force-cgi-redirect \
   --enable-gd-native-ttf \
-  --enable-exif=shared \
-  --enable-ftp=shared \
-  --enable-bcmath=shared \
-  --enable-sockets=shared \
-  --enable-soap=shared \
-  --enable-calendar=shared \
+  --enable-exif \
+  --enable-ftp \
+  --enable-bcmath \
+  --enable-sockets \
+  --enable-soap \
+  --enable-calendar \
   --enable-mbstring \
-  --enable-zip=shared \
+  --enable-zip \
   --with-fpm-user=www-data \
   --with-fpm-group=www-data \
-  --with-curl=shared \
-  --with-gd=shared \
+  --with-curl \
+  --with-gd \
   --with-jpeg \
   --with-png \
   --with-ttf \
   --with-mhash \
-  --with-mcrypt=shared \
-  --with-mysqli=shared \
-  --with-mysql=shared \
-  --with-pdo-mysql=shared \
+  --with-mcrypt \
+  --with-mysqli \
+  --with-mysql \
+  --with-pdo-mysql \
   --with-libxml \
   --with-mbstring \
-  --with-iconv=shared \
+  --with-iconv \
   --with-pear \
-  --with-openssl=shared \
-  --with-iconv=shared \
-  --with-bz2=shared \
+  --with-openssl \
+  --with-iconv \
+  --with-bz2 \
   --with-zlib \
-  --with-gettext=shared \
-  --with-pspell=shared \
+  --with-gettext \
+  --with-pspell \
 "
 
 cd $srcdir
