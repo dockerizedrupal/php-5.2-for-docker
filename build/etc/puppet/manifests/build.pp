@@ -48,7 +48,7 @@ class php_5217_extension_xdebug {
   exec { 'tar xzf xdebug-2.2.5.tgz':
     cwd => '/tmp',
     path => ['/bin'],
-    require => Exec['pear download pecl/xdebug']
+    require => Exec['pear download pecl/xdebug-2.2.5']
   }
 
   exec { 'phpize-5.2.17 xdebug':
