@@ -90,7 +90,7 @@ class php_5217_libmemcached {
   }
 
   exec { '/bin/bash -l -c "cd /tmp/libmemcached-0.53 && make"':
-    require => Exec['/bin/bash -l -c "cd libmemcached-0.53 && ./configure"']
+    require => Exec['/bin/bash -l -c "cd /tmp/libmemcached-0.53 && ./configure"']
   }
 
   exec { '/bin/bash -l -c "cd /tmp/libmemcached-0.53 && make install"':
