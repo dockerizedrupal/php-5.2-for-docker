@@ -117,7 +117,7 @@ class php_5217_extension_memcached {
   exec { 'phpize-5.2.17 memcached':
     command => '/opt/phpfarm/inst/bin/phpize-5.2.17',
     cwd => '/tmp/memcached-1.0.2',
-    require => Exec['tar xzvf memcached-1.0.2.tgz']
+    require => Exec['tar xzf memcached-1.0.2.tgz']
   }
 
   exec { '/bin/bash -l -c "cd /tmp/memcached-1.0.2 && ./configure --with-php-config=/opt/phpfarm/inst/bin/php-config-5.2.17"':
