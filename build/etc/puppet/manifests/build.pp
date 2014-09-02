@@ -54,7 +54,7 @@ class php_5217_extension_xdebug {
   exec { 'phpize-5.2.17 xdebug':
     command => '/opt/phpfarm/inst/bin/phpize-5.2.17',
     cwd => '/tmp/xdebug-2.2.5',
-    require => Exec['tar xzvf xdebug-2.2.5.tgz']
+    require => Exec['tar xzf xdebug-2.2.5.tgz']
   }
 
   exec { '/bin/bash -l -c "cd /tmp/xdebug-2.2.5 && ./configure --with-php-config=/opt/phpfarm/inst/bin/php-config-5.2.17"':
