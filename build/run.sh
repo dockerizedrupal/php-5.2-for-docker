@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-if [ -n "${1}" ]; then
+if [ "${#}" -gt 0 ]; then
   cd /src
 
-  php "${@:2}"
+  php "${@}"
 else
   /usr/bin/supervisord
 fi

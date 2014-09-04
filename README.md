@@ -1,6 +1,14 @@
 docker-php-5.2.17
 =================
 
+Build the image yourself
+------------------------
+
+    git clone http://git.simpledrupalcloud.com/simpledrupalcloud/docker-php.git docker-php
+    cd docker-php
+    git checkout 5.2.17
+    sudo docker build -t php:5.2.17 .
+
 PHP 5.2.17
 ----------
 
