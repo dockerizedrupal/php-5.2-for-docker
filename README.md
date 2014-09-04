@@ -19,5 +19,3 @@ Listening on port 9000
 ### Extensions
 
 #### Xdebug
-
-#### Memcached
