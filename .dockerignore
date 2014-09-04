@@ -1,7 +1,4 @@
 .git
 .gitignore
 README.md
-php-5.2.17.sh
-php-5.3.28.sh
-php-5.4.31.sh
-php-5.5.15.sh
+php.sh
