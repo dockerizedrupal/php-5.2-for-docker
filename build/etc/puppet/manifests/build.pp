@@ -39,16 +39,16 @@ class php_supervisor {
 class php_extension_xdebug {
   include php
 
-  exec { 'pear download pecl/xdebug-2.2.5':
+  exec { 'wget http://xdebug.org/files/xdebug-2.2.5.tgz':
     cwd => '/tmp',
-    path => ['/opt/phpfarm/inst/php-5.2.17/bin'],
+    path => ['/usr/bin'],
     require => Class['php']
   }
 
   exec { 'tar xzf xdebug-2.2.5.tgz':
     cwd => '/tmp',
     path => ['/bin'],
-    require => Exec['pear download pecl/xdebug-2.2.5']
+    require => Exec['wget http://xdebug.org/files/xdebug-2.2.5.tgz']
   }
 
   exec { 'phpize-5.2.17 xdebug':
