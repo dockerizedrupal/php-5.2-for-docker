@@ -10,6 +10,6 @@ RUN chmod +x /tmp/build/build.sh
 RUN /tmp/build/build.sh
 RUN rm -rf /tmp/*
 
-EXPOSE 9000
+EXPOSE 5217
 
 ENTRYPOINT ["/bin/bash", "-l", "-c", "/run.sh"]
