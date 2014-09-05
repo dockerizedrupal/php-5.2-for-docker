@@ -5,7 +5,7 @@ Run the container
 -----------------
 
     sudo docker run \
-      --name php \
+      --name php5217 \
       --net host \
       --volumes-from apache \
       -d \
