@@ -4,7 +4,12 @@ docker-php-5.2.17
 Run the container
 -----------------
 
-
+    sudo docker run \
+      --name php \
+      --net host \
+      --volumes-from apache \
+      -d \
+      simpledrupalcloud/php:5.2.17
 
 Build the image yourself
 ------------------------
