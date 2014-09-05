@@ -1,6 +1,11 @@
 docker-php-5.2.17
 =================
 
+Run the container
+-----------------
+
+
+
 Build the image yourself
 ------------------------
 
