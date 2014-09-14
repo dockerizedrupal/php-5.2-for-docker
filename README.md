@@ -4,10 +4,11 @@ docker-php-5.2.17
 Run the container
 -----------------
 
-    sudo docker run \
-      --name php5515 \
+    CONTAINER=php5217 && sudo docker run \
+      --name "${CONTAINER}" \
+      -h "${CONTAINER}" \
       -p 127.0.0.1::22 \
-      -p 0.0.0.0:5217:9000 \
+      -p
       --volumes-from apache \
       -d \
       simpledrupalcloud/php:5.2.17
