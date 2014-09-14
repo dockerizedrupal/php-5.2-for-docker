@@ -7,7 +7,6 @@ Run the container
     CONTAINER=php5217 && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
-      -p 127.0.0.1::22 \
       -p
       --volumes-from apache \
       -d \
