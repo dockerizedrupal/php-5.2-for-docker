@@ -7,8 +7,8 @@ Run the container
     CONTAINER=php5217 && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
-      -p
-      --volumes-from apache \
+      -p 5217:5217
+      -v /var/www:/var/www \
       -d \
       simpledrupalcloud/php:5.2.17
 
