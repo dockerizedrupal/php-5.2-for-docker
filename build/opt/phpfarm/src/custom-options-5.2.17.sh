@@ -18,8 +18,8 @@ configoptions="--with-libdir=/lib/x86_64-linux-gnu \
   --with-fpm-group=www-data \
   --with-curl \
   --with-gd \
-  --with-jpeg \
-  --with-png \
+  --with-jpeg-dir=/usr \
+  --with-png-dir=/usr \
   --with-ttf \
   --with-mhash \
   --with-mcrypt \
