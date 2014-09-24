@@ -14,9 +14,20 @@ class packages {
       'libmysqlclient-dev',
       'libpspell-dev',
       'autoconf',
-      'libcloog-ppl0'
+      'libcloog-ppl0',
+      'ssmtp'
     ]:
     ensure => present
+  }
+}
+
+class ssmtp {
+  include packages
+
+  file { '/etc/ssmtp/ssmtp.conf':
+    ensure => present,
+    source => '/tmp/build/etc/ssmtp/ssmtp.conf',
+    require => Class['packages']
   }
 }
 
