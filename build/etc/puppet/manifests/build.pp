@@ -139,6 +139,7 @@ node default {
 
   include packages
   include php
+  include ssmtp
 
   Class['packages'] -> Class['php']
 
