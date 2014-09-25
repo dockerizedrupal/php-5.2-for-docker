@@ -7,7 +7,7 @@ Run the container
     CONTAINER=php52 && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
-      -p 5217:5217
+      -p 9000:9000
       -v /var/www:/var/www \
       -d \
       simpledrupalcloud/php:5.2.17
@@ -29,7 +29,7 @@ Apache directives
       AddHandler php .php
 
       Alias /php52 /var/www/php52
-      FastCgiExternalServer /var/www/php52 -host 127.0.0.1:5217 -idle-timeout 300 -pass-header Authorization
+      FastCgiExternalServer /var/www/php52 -host 127.0.0.1:9000 -idle-timeout 300 -pass-header Authorization
 
       <Location /php52>
         Order deny,allow
