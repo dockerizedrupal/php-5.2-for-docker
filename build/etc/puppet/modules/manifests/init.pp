@@ -1,7 +1,7 @@
 class packages {
-  package {[
-    'ssmtp'
-  ]:
+    package {[
+      'ssmtp'
+    ]:
     ensure => present
   }
 }
