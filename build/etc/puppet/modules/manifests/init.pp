@@ -1,5 +1,5 @@
 class packages {
-    package {[
+  package {[
       'ssmtp'
     ]:
     ensure => present
