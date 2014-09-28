@@ -8,6 +8,7 @@ Run the container
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -p 9000:9000
+      --link mailcatcher:ssmtp \
       -v /var/www:/var/www \
       -d \
       simpledrupalcloud/php:5.2.17

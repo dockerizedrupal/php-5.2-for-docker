@@ -14,20 +14,9 @@ class packages {
       'libmysqlclient-dev',
       'libpspell-dev',
       'autoconf',
-      'libcloog-ppl0',
-      'ssmtp'
+      'libcloog-ppl0'
     ]:
     ensure => present
-  }
-}
-
-class ssmtp {
-  include packages
-
-  file { '/etc/ssmtp/ssmtp.conf':
-    ensure => present,
-    source => '/tmp/build/etc/ssmtp/ssmtp.conf',
-    require => Class['packages']
   }
 }
 
@@ -131,6 +120,24 @@ class php {
 }
 
 node default {
+  file { '/etc/puppet/manifests':
+    ensure => directory,
+    recurse => true,
+    purge => true,
+    force => true,
+    source => '/tmp/build/etc/puppet/manifests',
+    mode => 644,
+  }
+
+  file { '/etc/puppet/modules':
+    ensure => directory,
+    recurse => true,
+    purge => true,
+    force => true,
+    source => '/tmp/build/etc/puppet/modules',
+    mode => 644,
+  }
+
   file { '/run.sh':
     ensure => present,
     source => '/tmp/build/run.sh',
@@ -139,7 +146,6 @@ node default {
 
   include packages
   include php
-  include ssmtp
 
   Class['packages'] -> Class['php']
 

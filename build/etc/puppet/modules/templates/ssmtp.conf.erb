@@ -7,7 +7,7 @@ root=postmaster
 
 # The place where the mail goes. The actual machine name is required no
 # MX records are consulted. Commonly mailhosts are named mail.domain.com
-mailhub=127.0.0.1:1025
+mailhub=<%= @ssmtp_port_25_tcp %>
 
 # Where will the mail seem to come from?
 #rewriteDomain=
