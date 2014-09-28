@@ -7,7 +7,7 @@ Run the container
     CONTAINER=php52 && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
-      -p 9000:9000
+      -p 9000:9000 \
       --link mailcatcher:ssmtp \
       -v /var/www:/var/www \
       -d \
