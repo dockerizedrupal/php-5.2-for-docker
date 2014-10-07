@@ -6,7 +6,7 @@ class packages {
       'libxml2-dev',
       'libssl-dev',
       'libbz2-dev',
-      'libcurl4-gnutls-dev',
+      'libcurl4-openssl-dev',
       'libjpeg-dev',
       'libpng12-dev',
       'libmcrypt-dev',
