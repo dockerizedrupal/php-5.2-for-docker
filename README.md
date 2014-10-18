@@ -9,15 +9,15 @@
       --link mailcatcher:ssmtp \
       -v /var/www:/var/www \
       -d \
-      simpledrupalcloud/php:5.2
+      simpledrupalcloud/php:5.2-dev
 
 ## Build the image
 
     TMP="$(mktemp -d)" \
       && git clone http://git.simpledrupalcloud.com/simpledrupalcloud/docker-php.git "${TMP}" \
       && cd "${TMP}" \
-      && git checkout 5.2 \
-      && sudo docker build -t simpledrupalcloud/php:5.2 . \
+      && git checkout 5.2-dev \
+      && sudo docker build -t simpledrupalcloud/php:5.2-dev . \
       && cd -
 
 ## Apache directives
