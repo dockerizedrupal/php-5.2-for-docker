@@ -1,6 +1,6 @@
 class php {
-#  require php::packages
-#  require php::supervisor
+  require php::packages
+  require php::supervisor
 
   exec { 'git clone https://github.com/fpoirotte/phpfarm.git phpfarm':
     cwd => '/',
