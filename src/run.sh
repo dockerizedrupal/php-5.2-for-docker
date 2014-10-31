@@ -16,6 +16,6 @@ fi
 
 export FACTER_SSMTP_PORT_25_TCP="$(echo "${SSMTP_PORT_25_TCP}" | sed 's/tcp:\/\///')"
 
-puppet apply /etc/puppet/manifests/run.pp
+puppet apply --modulepath=/src/run/modules /src/run/run.pp
 
 /usr/bin/supervisord

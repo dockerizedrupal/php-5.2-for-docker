@@ -2,7 +2,7 @@
 
 ## Run the container
 
-    CONTAINER=php52 && sudo docker run \
+    CONTAINER="php52" && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -p 9000:9000 \
