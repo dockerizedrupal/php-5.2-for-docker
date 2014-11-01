@@ -19,11 +19,16 @@ class php {
     require => File['/phpfarm/src/php-5.2.17.tar.gz']
   }
 
+  file { '/phpfarm/custom':
+    ensure => directory,
+    require => Exec['tar xzf php-5.2.17.tar.gz']
+  }
+
   file { '/phpfarm/src/custom/options-5.2.17.sh':
     ensure => present,
     source => 'puppet:///modules/php/phpfarm/src/custom/options-5.2.17.sh',
     mode => 755,
-    require => Exec['tar xzf php-5.2.17.tar.gz']
+    require => File['/phpfarm/custom']
   }
 
   exec { '/phpfarm/src/main.sh 5.2.17':
