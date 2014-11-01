@@ -1,14 +1,26 @@
 class php::phpfarm {
   require php::packages
 
-  exec { 'git clone https://github.com/fpoirotte/phpfarm.git phpfarm':
+  file { '/phpfarm-master.zip':
+    ensure => present,
+    source => 'puppet:///modules/php/phpfarm-master.zip'
+  }
+
+  exec { 'unzip phpfarm-master.zip':
     cwd => '/',
-    path => ['/usr/bin']
+    path => ['/usr/bin'],
+    require => File['/phpfarm-master.zip']
+  }
+
+  exec { 'mv phpfarm-master phpfarm':
+    cwd => '/',
+    path => ['/bin'],
+    require => Exec['unzip phpfarm-master.zip']
   }
 
   file { '/phpfarm/custom':
     ensure => directory,
-    require => Exec['git clone https://github.com/fpoirotte/phpfarm.git phpfarm']
+    require => Exec['mv phpfarm-master phpfarm']
   }
 
   file { '/etc/profile.d/phpfarm.sh':

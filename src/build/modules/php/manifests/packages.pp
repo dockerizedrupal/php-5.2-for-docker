@@ -4,8 +4,6 @@ class php::packages {
   }
 
   package {[
-      'git',
-      'curl',
       'build-essential',
       'libxml2-dev',
       'libssl-dev',
