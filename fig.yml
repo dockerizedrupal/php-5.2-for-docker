@@ -1,5 +1,4 @@
 php52:
-  build: .
   image: simpledrupalcloud/php:5.2-dev
   hostname: php52
   ports:
