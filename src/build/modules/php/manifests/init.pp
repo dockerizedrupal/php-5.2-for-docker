@@ -1,16 +1,11 @@
 class php {
   require php::packages
+  require php::phpfarm
   require php::supervisor
-
-  exec { 'git clone https://github.com/fpoirotte/phpfarm.git phpfarm':
-    cwd => '/',
-    path => ['/usr/bin']
-  }
 
   file { '/phpfarm/src/php-5.2.17.tar.gz':
     ensure => present,
-    source => 'puppet:///modules/php/phpfarm/src/php-5.2.17.tar.gz',
-    require => Exec['git clone https://github.com/fpoirotte/phpfarm.git phpfarm']
+    source => 'puppet:///modules/php/phpfarm/src/php-5.2.17.tar.gz'
   }
 
   exec { 'tar xzf php-5.2.17.tar.gz':
@@ -19,16 +14,11 @@ class php {
     require => File['/phpfarm/src/php-5.2.17.tar.gz']
   }
 
-  file { '/phpfarm/custom':
-    ensure => directory,
-    require => Exec['tar xzf php-5.2.17.tar.gz']
-  }
-
   file { '/phpfarm/src/custom/options-5.2.17.sh':
     ensure => present,
     source => 'puppet:///modules/php/phpfarm/src/custom/options-5.2.17.sh',
     mode => 755,
-    require => File['/phpfarm/custom']
+    require => Exec['tar xzf php-5.2.17.tar.gz']
   }
 
   exec { '/phpfarm/src/main.sh 5.2.17':
@@ -52,13 +42,6 @@ class php {
     ensure => present,
     source => 'puppet:///modules/php/phpfarm/inst/php-5.2.17/lib/php.ini',
     mode => 644,
-    require => Exec['/phpfarm/src/main.sh 5.2.17']
-  }
-
-  file { '/etc/profile.d/phpfarm.sh':
-    ensure => present,
-    source => 'puppet:///modules/php/etc/profile.d/phpfarm.sh',
-    mode => 755,
     require => Exec['/phpfarm/src/main.sh 5.2.17']
   }
 
