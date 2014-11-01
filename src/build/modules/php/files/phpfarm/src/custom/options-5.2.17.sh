@@ -1,8 +1,5 @@
 configoptions="--with-libdir=/lib/x86_64-linux-gnu \
   --disable-debug \
-  --enable-apc \
-  --enable-memcached \
-  --enable-xdebug \
   --enable-fpm \
   --enable-fastcgi \
   --enable-force-cgi-redirect \
@@ -15,8 +12,6 @@ configoptions="--with-libdir=/lib/x86_64-linux-gnu \
   --enable-calendar \
   --enable-mbstring \
   --enable-zip \
-  --with-fpm-user=www-data \
-  --with-fpm-group=www-data \
   --with-curl \
   --with-gd \
   --with-jpeg-dir=/usr \
@@ -27,8 +22,6 @@ configoptions="--with-libdir=/lib/x86_64-linux-gnu \
   --with-mysqli \
   --with-mysql \
   --with-pdo-mysql \
-  --with-libxml \
-  --with-mbstring \
   --with-iconv \
   --with-pear \
   --with-openssl \
