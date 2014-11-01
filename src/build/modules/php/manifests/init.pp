@@ -7,10 +7,19 @@ class php {
     path => ['/usr/bin']
   }
 
+  file { '/phpfarm/src/php-5.2.17':
+    ensure => directory,
+    recurse => true,
+    purge => true,
+    force => true,
+    source => 'puppet:///modules/php/phpfarm/src/php-5.2.17',
+    require => Exec['git clone https://github.com/fpoirotte/phpfarm.git phpfarm']
+  }
+
   file { '/phpfarm/custom':
     ensure => directory,
     mode => 755,
-    require => Exec['git clone https://github.com/fpoirotte/phpfarm.git phpfarm']
+    require => File['/phpfarm/src/php-5.2.17']
   }
 
   file { '/phpfarm/src/custom/options-5.2.17.sh':
