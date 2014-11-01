@@ -46,6 +46,6 @@ class php {
   }
 
   exec { '/bin/bash -l -c "switch-phpfarm 5.2.17"':
-    require => File['/etc/profile.d/phpfarm.sh']
+    require => Exec['/phpfarm/src/main.sh 5.2.17']
   }
 }
