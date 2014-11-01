@@ -1,0 +1,6 @@
+// vim:ft=javascript
+// $Id: configure.tail 145409 2003-12-02 23:17:04Z wez $
+// tail end of configure
+
+generate_files();
+
