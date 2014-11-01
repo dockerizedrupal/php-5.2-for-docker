@@ -2,7 +2,7 @@ class php {
   require php::packages
   require php::supervisor
 
-  exec { 'git clone git://git.code.sf.net/p/phpfarm/code phpfarm':
+  exec { 'git clone https://github.com/fpoirotte/phpfarm.git phpfarm':
     cwd => '/',
     path => ['/usr/bin']
   }
@@ -10,7 +10,7 @@ class php {
   file { '/phpfarm/src/php-5.2.17.tar.gz':
     ensure => present,
     source => 'puppet:///modules/php/phpfarm/src/php-5.2.17.tar.gz',
-    require => Exec['git clone git://git.code.sf.net/p/phpfarm/code phpfarm']
+    require => Exec['git clone https://github.com/fpoirotte/phpfarm.git phpfarm']
   }
 
   exec { 'tar xzf php-5.2.17.tar.gz':
@@ -19,42 +19,42 @@ class php {
     require => File['/phpfarm/src/php-5.2.17.tar.gz']
   }
 
-  file { '/phpfarm/src/custom-options-5.2.17.sh':
+  file { '/phpfarm/src/custom/options-5.2.17.sh':
     ensure => present,
-    source => 'puppet:///modules/php/phpfarm/src/custom-options-5.2.17.sh',
+    source => 'puppet:///modules/php/phpfarm/src/custom/options-5.2.17.sh',
     mode => 755,
     require => Exec['tar xzf php-5.2.17.tar.gz']
   }
 
-  exec { '/phpfarm/src/compile.sh 5.2.17':
+  exec { '/phpfarm/src/main.sh 5.2.17':
     timeout => 0,
-    require => File['/phpfarm/src/custom-options-5.2.17.sh']
+    require => File['/phpfarm/src/custom/options-5.2.17.sh']
   }
 
   exec { 'rm -rf /phpfarm/src/php-5.2.17':
     path => ['/bin'],
-    require => Exec['/phpfarm/src/compile.sh 5.2.17']
+    require => Exec['/phpfarm/src/main.sh 5.2.17']
   }
 
   file { '/phpfarm/inst/php-5.2.17/etc/php-fpm.conf':
     ensure => present,
     source => 'puppet:///modules/php/phpfarm/inst/php-5.2.17/etc/php-fpm.conf',
     mode => 644,
-    require => Exec['/phpfarm/src/compile.sh 5.2.17']
+    require => Exec['/phpfarm/src/main.sh 5.2.17']
   }
 
   file { '/phpfarm/inst/php-5.2.17/lib/php.ini':
     ensure => present,
     source => 'puppet:///modules/php/phpfarm/inst/php-5.2.17/lib/php.ini',
     mode => 644,
-    require => Exec['/phpfarm/src/compile.sh 5.2.17']
+    require => Exec['/phpfarm/src/main.sh 5.2.17']
   }
 
   file { '/etc/profile.d/phpfarm.sh':
     ensure => present,
     source => 'puppet:///modules/php/etc/profile.d/phpfarm.sh',
     mode => 755,
-    require => Exec['/phpfarm/src/compile.sh 5.2.17']
+    require => Exec['/phpfarm/src/main.sh 5.2.17']
   }
 
   exec { '/bin/bash -l -c "switch-phpfarm 5.2.17"':
