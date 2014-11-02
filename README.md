@@ -36,3 +36,29 @@
 
       Action php /php52
     </IfModule>
+
+## Extensions
+
+### Xdebug
+
+    CONTAINER="php52" && sudo docker run \
+      --name "${CONTAINER}" \
+      -h "${CONTAINER}" \
+      -p 9000:9000 \
+      --link mailcatcher:ssmtp \
+      -v /var/www:/var/www \
+      -e DEBUGGER="Xdebug" \
+      -d \
+      simpledrupalcloud/php:5.2-dev
+
+### Zend Debugger
+
+    CONTAINER="php52" && sudo docker run \
+      --name "${CONTAINER}" \
+      -h "${CONTAINER}" \
+      -p 9000:9000 \
+      --link mailcatcher:ssmtp \
+      -v /var/www:/var/www \
+      -e DEBUGGER="Zend Debugger" \
+      -d \
+      simpledrupalcloud/php:5.2-dev
