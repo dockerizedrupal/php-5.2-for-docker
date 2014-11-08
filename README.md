@@ -6,6 +6,8 @@ A [Docker](https://docker.com/) container for [PHP](http://php.net/) version 5.2
 
 ### Run the container
 
+Using the `docker` command:
+
     CONTAINER="php52" && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
@@ -13,6 +15,14 @@ A [Docker](https://docker.com/) container for [PHP](http://php.net/) version 5.2
       -v /var/www:/var/www \
       -d \
       simpledrupalcloud/php:5.2-dev
+      
+Using the `fig` command
+
+    TMP="$(mktemp -d)" \
+      && git clone http://git.simpledrupalcloud.com/simpledrupalcloud/docker-php.git "${TMP}" \
+      && cd "${TMP}" \
+      && git checkout 5.2-dev \
+      && fig up
 
 ### Build the image
 
