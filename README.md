@@ -62,3 +62,7 @@
       -e DEBUGGER="Zend Debugger" \
       -d \
       simpledrupalcloud/php:5.2-dev
+
+## License
+
+**MIT**
