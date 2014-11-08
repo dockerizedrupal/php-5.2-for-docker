@@ -1,6 +1,6 @@
 # docker-php-5.2-dev
 
-A [Docker](https://docker.com/) container for [PHP](http://php.net/) version 5.2.x that runs PHP in FPM (FastCGI Process Manager) mode.
+A [Docker](https://docker.com/) container for [PHP](http://php.net/) version 5.2.17 that runs PHP in FPM (FastCGI Process Manager) mode.
 
 ## Run the container
 
