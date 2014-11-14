@@ -1,6 +1,4 @@
 class mysql {
-  require mysql::packages
-
   file { '/var/run/mysqld':
     ensure => directory
   }
