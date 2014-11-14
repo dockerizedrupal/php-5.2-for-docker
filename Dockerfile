@@ -1,4 +1,4 @@
-FROM simpledrupalcloud/base:dev
+FROM simpledrupalcloud/base:latest
 
 MAINTAINER Simple Drupal Cloud <support@simpledrupalcloud.com>
 

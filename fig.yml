@@ -1,12 +1,12 @@
 php52:
-  image: simpledrupalcloud/php:5.2-dev
+  image: simpledrupalcloud/php:5.2
   hostname: php52
   ports:
     - "9000:9000"
   volumes_from:
     - data
 data:
-  image: simpledrupalcloud/data:dev
+  image: simpledrupalcloud/data:latest
   hostname: data
   volumes:
     - /var/www:/var/www
