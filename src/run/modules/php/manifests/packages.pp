@@ -1,10 +1,11 @@
-class ssmtp::packages {
+class php::packages {
   exec { 'apt-get update':
     path => ['/usr/bin']
   }
 
   package {[
-      'ssmtp'
+      'ssmtp',
+      'socat'
     ]:
     ensure => present,
     require => Exec['apt-get update']
