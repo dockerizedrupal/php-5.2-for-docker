@@ -3,7 +3,7 @@ class php {
     include php::ssmtp
   }
 
-  if $mysql_port_3306_tcp {
-    include php::mysql
+  if $mysqld_port_3306_tcp {
+    include php::mysqld
   }
 }
