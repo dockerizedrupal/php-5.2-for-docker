@@ -1,0 +1,4 @@
+[program:mysqld]
+command=socat UNIX-LISTEN:/var/run/mysqld/mysqld.sock,fork,reuseaddr,unlink-early,user=www-data,group=www-data,mode=777 TCP:<%= @mysqld_port_3306_tcp %>
+autostart=true
+autorestart=true
