@@ -1,9 +1,9 @@
 class php {
-  if $ssmtp_host {
+  if $smtp_host {
     include php::ssmtp
   }
 
-  if $mysqld_host {
+  if $db_host {
     include php::mysqld
   }
 }
