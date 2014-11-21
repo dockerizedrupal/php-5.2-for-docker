@@ -1,9 +1,9 @@
 class php {
-  if $ssmtp_port_25_tcp {
+  if $ssmtp_host {
     include php::ssmtp
   }
 
-  if $mysqld_port_3306_tcp {
+  if $mysqld_host {
     include php::mysqld
   }
 }

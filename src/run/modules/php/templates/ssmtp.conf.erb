@@ -7,13 +7,13 @@ root=postmaster
 
 # The place where the mail goes. The actual machine name is required no
 # MX records are consulted. Commonly mailhosts are named mail.domain.com
-mailhub=<%= @ssmtp_port_25_tcp %>
+mailhub=<%= @ssmtp_host %>
 
 # Where will the mail seem to come from?
 #rewriteDomain=
 
 # The full hostname
-hostname=php52
+hostname=php
 
 # Are users allowed to set their own From: address?
 # YES - Allow the user to specify their own From: address

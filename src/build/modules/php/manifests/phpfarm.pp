@@ -12,6 +12,12 @@ class php::phpfarm {
     require => File['/phpfarm-master.zip']
   }
 
+  exec { 'rm phpfarm-master.zip':
+    cwd => '/',
+    path => ['/bin'],
+    require => Exec['unzip phpfarm-master.zip']
+  }
+
   exec { 'mv phpfarm-master phpfarm':
     cwd => '/',
     path => ['/bin'],
