@@ -16,7 +16,8 @@ class php::packages {
       'libmysqlclient-dev',
       'libpspell-dev',
       'autoconf',
-      'libcloog-ppl0'
+      'libcloog-ppl0',
+      'libsasl2-dev'
     ]:
     ensure => present,
     require => Exec['apt-get update']
