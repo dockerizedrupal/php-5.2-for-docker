@@ -19,14 +19,17 @@ class php::extension::xdebug {
   }
 
   exec { '/bin/bash -l -c "cd /tmp/xdebug-2.2.6 && ./configure --with-php-config=/phpfarm/inst/bin/php-config-5.2.17"':
+    timeout => 0,
     require => Exec['phpize-5.2.17 xdebug']
   }
 
   exec { '/bin/bash -l -c "cd /tmp/xdebug-2.2.6 && make"':
+    timeout => 0,
     require => Exec['/bin/bash -l -c "cd /tmp/xdebug-2.2.6 && ./configure --with-php-config=/phpfarm/inst/bin/php-config-5.2.17"']
   }
 
   exec { '/bin/bash -l -c "cd /tmp/xdebug-2.2.6 && make install"':
+    timeout => 0,
     require => Exec['/bin/bash -l -c "cd /tmp/xdebug-2.2.6 && make"']
   }
 }
