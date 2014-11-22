@@ -1,6 +1,4 @@
 class php::phpfarm {
-  require php::packages
-
   file { '/tmp/phpfarm-master.zip':
     ensure => present,
     source => 'puppet:///modules/php/tmp/phpfarm-master.zip'

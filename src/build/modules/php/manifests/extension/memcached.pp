@@ -1,5 +1,6 @@
 class php::extension::memcached {
   require php
+  require php::extension::igbinary
 
   file { '/tmp/libmemcached-1.0.18.tar.gz':
     ensure => present,
@@ -13,14 +14,17 @@ class php::extension::memcached {
   }
 
   exec { '/bin/bash -l -c "cd /tmp/libmemcached-1.0.18 && ./configure"':
+    timeout => 0,
     require => Exec['tar xzf libmemcached-1.0.18.tar.gz']
   }
 
   exec { '/bin/bash -l -c "cd /tmp/libmemcached-1.0.18 && make"':
+    timeout => 0,
     require => Exec['/bin/bash -l -c "cd /tmp/libmemcached-1.0.18 && ./configure"']
   }
 
   exec { '/bin/bash -l -c "cd /tmp/libmemcached-1.0.18 && make install"':
+    timeout => 0,
     require => Exec['/bin/bash -l -c "cd /tmp/libmemcached-1.0.18 && make"']
   }
 
@@ -42,15 +46,18 @@ class php::extension::memcached {
     require => Exec['tar xzf memcached-2.2.0.tgz']
   }
 
-  exec { '/bin/bash -l -c "cd /tmp/memcached-2.2.0 && ./configure --with-php-config=/phpfarm/inst/bin/php-config-5.2.17"':
+  exec { '/bin/bash -l -c "cd /tmp/memcached-2.2.0 && ./configure --with-php-config=/phpfarm/inst/bin/php-config-5.2.17 --enable-memcached-igbinary"':
+    timeout => 0,
     require => Exec['phpize-5.2.17 memcached']
   }
 
   exec { '/bin/bash -l -c "cd /tmp/memcached-2.2.0 && make"':
-    require => Exec['/bin/bash -l -c "cd /tmp/memcached-2.2.0 && ./configure --with-php-config=/phpfarm/inst/bin/php-config-5.2.17"']
+    timeout => 0,
+    require => Exec['/bin/bash -l -c "cd /tmp/memcached-2.2.0 && ./configure --with-php-config=/phpfarm/inst/bin/php-config-5.2.17 --enable-memcached-igbinary"']
   }
 
   exec { '/bin/bash -l -c "cd /tmp/memcached-2.2.0 && make install"':
+    timeout => 0,
     require => Exec['/bin/bash -l -c "cd /tmp/memcached-2.2.0 && make"']
   }
 }
