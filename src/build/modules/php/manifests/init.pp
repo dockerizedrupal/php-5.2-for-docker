@@ -3,10 +3,6 @@ class php {
   require php::phpfarm
   require php::supervisor
 
-  exec { 'mkdir -p /var/run/mysqld':
-    path => ['/bin']
-  }
-
   file { '/tmp/php-5.2.17.tar.gz':
     ensure => present,
     source => 'puppet:///modules/php/tmp/php-5.2.17.tar.gz'
