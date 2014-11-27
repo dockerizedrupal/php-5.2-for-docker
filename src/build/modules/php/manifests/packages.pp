@@ -17,7 +17,8 @@ class php::packages {
       'libpspell-dev',
       'autoconf',
       'libcloog-ppl0',
-      'libsasl2-dev'
+      'libsasl2-dev',
+      'libldap2-dev'
     ]:
     ensure => present,
     require => Exec['apt-get update']

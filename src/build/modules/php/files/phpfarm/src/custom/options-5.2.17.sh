@@ -30,6 +30,7 @@ configoptions="--with-libdir=/lib/x86_64-linux-gnu \
   --with-zlib \
   --with-gettext \
   --with-pspell \
+  --with-ldap=/usr \
 "
 
 cd $srcdir
