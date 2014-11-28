@@ -1,6 +1,4 @@
 class php::mysqld {
-  require php::packages
-
   exec { 'mkdir -p /var/run/mysqld':
     path => ['/bin']
   }
