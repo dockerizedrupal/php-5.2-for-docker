@@ -18,7 +18,8 @@ class php::packages {
       'autoconf',
       'libcloog-ppl0',
       'libsasl2-dev',
-      'libldap2-dev'
+      'libldap2-dev',
+      'ssmtp'
     ]:
     ensure => present,
     require => Exec['apt-get update']
