@@ -1,4 +1,4 @@
 [program:memcached]
-command=socat TCP-LISTEN:11211,fork TCP:<%= @memcached_host %>:<%= @memcached_port %>
-autostart=true
-autorestart=true
+command = /usr/bin/socat TCP-LISTEN:11211,fork TCP:<%= @memcached_host %>:<%= @memcached_port %>
+autostart = true
+autorestart = true
