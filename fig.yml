@@ -4,9 +4,9 @@ php:
   ports:
     - "9000:9000"
   volumes_from:
-    - data
-data:
+    - httpddata
+httpddata:
   image: simpledrupalcloud/data:latest
-  hostname: data
+  hostname: httpddata
   volumes:
-    - /var/www:/var/www
+    - /httpd/data

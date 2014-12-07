@@ -8,17 +8,17 @@ A [Docker](https://docker.com/) container for [PHP](http://php.net/) version 5.2
 
 Using the `docker` command:
 
-    CONTAINER="data" && sudo docker run \
+    CONTAINER="httpddata" && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
-      -v /var/www:/var/www \
+      -v /httpd/data \
       simpledrupalcloud/data:latest
 
     CONTAINER="php" && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -p 9000:9000 \
-      --volumes-from data \
+      --volumes-from httpddata \
       -d \
       simpledrupalcloud/php:5.2
       
@@ -44,8 +44,8 @@ Using the `fig` command
     <IfModule mod_fastcgi.c>
       AddHandler php .php
 
-      Alias /php /var/www/php
-      FastCgiExternalServer /var/www/php -host 127.0.0.1:9000 -idle-timeout 300 -pass-header Authorization
+      Alias /php /httpd/data/php
+      FastCgiExternalServer /httpd/data/php -host 127.0.0.1:9000 -idle-timeout 300 -pass-header Authorization
 
       <Location /php>
         Order deny,allow
