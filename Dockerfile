@@ -18,4 +18,4 @@ RUN apt-get clean
 
 EXPOSE 9000
 
-ENTRYPOINT ["/bin/bash", "-l", "-c", "/src/run.sh"]
+CMD ["/bin/bash", "-l", "-c", "/src/run.sh"]
