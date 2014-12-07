@@ -10,6 +10,9 @@ RUN chmod +x /src/build.sh
 RUN /src/build.sh
 
 RUN rm -rf /tmp/*
+RUN rm -rf /var/lib/apt/lists/*
+
+RUN apt-get clean
 
 EXPOSE 9000
 
