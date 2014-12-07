@@ -1,8 +1,4 @@
 class php::packages {
-  exec { 'apt-get update':
-    path => ['/usr/bin']
-  }
-
   package {[
       'build-essential',
       'libxml2-dev',
@@ -21,7 +17,6 @@ class php::packages {
       'libldap2-dev',
       'ssmtp'
     ]:
-    ensure => present,
-    require => Exec['apt-get update']
+    ensure => present
   }
 }
