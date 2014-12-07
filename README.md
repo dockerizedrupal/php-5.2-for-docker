@@ -44,8 +44,8 @@ Using the `fig` command
     <IfModule mod_fastcgi.c>
       AddHandler php .php
 
-      Alias /php /var/www/php
-      FastCgiExternalServer /var/www/php -host 127.0.0.1:9000 -idle-timeout 300 -pass-header Authorization
+      Alias /php /httpd/data/php
+      FastCgiExternalServer /httpd/data/php -host 127.0.0.1:9000 -idle-timeout 300 -pass-header Authorization
 
       <Location /php>
         Order deny,allow
