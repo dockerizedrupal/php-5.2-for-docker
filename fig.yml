@@ -1,6 +1,6 @@
-php:
+php52:
   image: simpledrupalcloud/php:5.2-dev
-  hostname: php
+  hostname: php52
   ports:
     - "9000:9000"
   volumes_from:
