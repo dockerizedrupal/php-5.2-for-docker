@@ -8,13 +8,8 @@ ADD ./src /src
 
 RUN apt-get update
 
-RUN chmod +x /src/build.sh
 RUN /src/build.sh
-
-RUN rm -rf /tmp/*
-RUN rm -rf /var/lib/apt/lists/*
-
-RUN apt-get clean
+RUN /src/clean.sh
 
 EXPOSE 9000
 
