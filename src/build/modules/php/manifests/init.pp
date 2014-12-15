@@ -51,7 +51,7 @@ class php {
     require => Exec['/phpfarm/src/main.sh 5.2.17']
   }
 
-  exec { '/bin/bash -l -c "switch-phpfarm 5.2.17"':
+  exec { '/bin/su - root -c "switch-phpfarm 5.2.17"':
     require => Exec['/phpfarm/src/main.sh 5.2.17']
   }
 }
