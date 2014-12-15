@@ -1,6 +1,5 @@
 class php::drush {
   require php
-  require php::drush::packages
 
   file { '/root/.bashrc':
     ensure => present,
