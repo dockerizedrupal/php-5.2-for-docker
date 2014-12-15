@@ -8,9 +8,21 @@ class php::drush {
     mode => 644
   }
 
-  exec { '/bin/su - root -c "composer global require drush/drush:6.*"':
-    timeout => 0,
-    require => File['/root/.bashrc']
+  file { '/tmp/drush-5.x.zip':
+    ensure => present,
+    source => 'puppet:///modules/php/tmp/drush-5.x.zip'
+  }
+
+  exec { 'unzip drush-5.x.zip':
+    cwd => '/tmp',
+    path => ['/usr/bin'],
+    require => File['/tmp/drush-5.x.zip']
+  }
+
+  exec { 'mv drush-5.x /opt/drush':
+    cwd => '/tmp',
+    path => ['/bin'],
+    require => Exec['unzip drush-5.x.zip']
   }
 
   file { '/etc/bash_completion.d/drush.complete.sh':
