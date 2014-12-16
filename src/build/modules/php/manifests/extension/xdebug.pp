@@ -18,18 +18,18 @@ class php::extension::xdebug {
     require => Exec['tar xzf xdebug-2.2.6.tgz']
   }
 
-  exec { '/bin/bash -l -c "cd /tmp/xdebug-2.2.6 && ./configure --with-php-config=/phpfarm/inst/bin/php-config-5.2.17"':
+  exec { '/bin/su - root -c "cd /tmp/xdebug-2.2.6 && ./configure --with-php-config=/phpfarm/inst/bin/php-config-5.2.17"':
     timeout => 0,
     require => Exec['phpize-5.2.17 xdebug']
   }
 
-  exec { '/bin/bash -l -c "cd /tmp/xdebug-2.2.6 && make"':
+  exec { '/bin/su - root -c "cd /tmp/xdebug-2.2.6 && make"':
     timeout => 0,
-    require => Exec['/bin/bash -l -c "cd /tmp/xdebug-2.2.6 && ./configure --with-php-config=/phpfarm/inst/bin/php-config-5.2.17"']
+    require => Exec['/bin/su - root -c "cd /tmp/xdebug-2.2.6 && ./configure --with-php-config=/phpfarm/inst/bin/php-config-5.2.17"']
   }
 
-  exec { '/bin/bash -l -c "cd /tmp/xdebug-2.2.6 && make install"':
+  exec { '/bin/su - root -c "cd /tmp/xdebug-2.2.6 && make install"':
     timeout => 0,
-    require => Exec['/bin/bash -l -c "cd /tmp/xdebug-2.2.6 && make"']
+    require => Exec['/bin/su - root -c "cd /tmp/xdebug-2.2.6 && make"']
   }
 }
