@@ -1,5 +1,6 @@
 class php::drush {
   require php
+  require php::extensions
   require php::drush::packages
 
   file { '/root/.bashrc':
