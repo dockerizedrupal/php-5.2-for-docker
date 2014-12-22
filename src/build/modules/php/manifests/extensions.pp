@@ -4,4 +4,5 @@ class php::extensions {
   include php::extension::xdebug
   include php::extension::memcached
   include php::extension::redis
+  include php::extension::apcu
 }
