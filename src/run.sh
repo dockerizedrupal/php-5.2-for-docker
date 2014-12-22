@@ -44,12 +44,6 @@ fi
 
 export FACTER_REDIS_ENABLE="${REDIS_ENABLE}"
 
-if [ -z "${BLACKFIRE_ENABLE}" ]; then
-  BLACKFIRE_ENABLE=1
-fi
-
-export FACTER_BLACKFIRE_ENABLE="${BLACKFIRE_ENABLE}"
-
 if [ -z "${APCU_ENABLE}" ]; then
   APCU_ENABLE=1
 fi
