@@ -1341,54 +1341,54 @@ date.timezone = "UTC"
 extension = igbinary.so
 
 <% if @opcache_enable %>
-  [opcache]
-  zend_extension = /phpfarm/inst/php-5.2.17/lib/php/extensions/no-debug-non-zts-20060613/opcache.so
+[opcache]
+zend_extension = /phpfarm/inst/php-5.2.17/lib/php/extensions/no-debug-non-zts-20060613/opcache.so
 
-  opcache.enable = 1
-  opcache.enable_cli = 1
-  opcache.memory_consumption = 1024
-  opcache.interned_strings_buffer = 8
-  opcache.max_accelerated_files = 100000
-  opcache.revalidate_freq = 0
-  opcache.save_comments = 1
-  opcache.load_comments = 1
-  opcache.fast_shutdown = 1
+opcache.enable = 1
+opcache.enable_cli = 1
+opcache.memory_consumption = 1024
+opcache.interned_strings_buffer = 8
+opcache.max_accelerated_files = 100000
+opcache.revalidate_freq = 0
+opcache.save_comments = 1
+opcache.load_comments = 1
+opcache.fast_shutdown = 1
 <% end %>
 
 <% if @xdebug_enable %>
-  [xdebug]
-  zend_extension = /phpfarm/inst/php-5.2.17/lib/php/extensions/no-debug-non-zts-20060613/xdebug.so
+[xdebug]
+zend_extension = /phpfarm/inst/php-5.2.17/lib/php/extensions/no-debug-non-zts-20060613/xdebug.so
 
-  xdebug.remote_enable = On
-  xdebug.remote_port = 9000
-  xdebug.remote_connect_back = On
-  xdebug.remote_handler = "dbgp"
-  xdebug.remote_mode = req
-  xdebug.idekey = "PHPSTORM"
-  xdebug.max_nesting_level = 1000
+xdebug.remote_enable = On
+xdebug.remote_port = 9000
+xdebug.remote_connect_back = On
+xdebug.remote_handler = "dbgp"
+xdebug.remote_mode = req
+xdebug.idekey = "PHPSTORM"
+xdebug.max_nesting_level = 1000
 <% end %>
 
 <% if @memcached_enable %>
-  [memcached]
-  extension = memcached.so
+[memcached]
+extension = memcached.so
 <% end %>
 
 <% if @redis_enable %>
-  [redis]
-  extension = redis.so
+[redis]
+extension = redis.so
 <% end %>
 
 <% if @apcu_enable %>
-  [apcu]
-  extension = apcu.so
+[apcu]
+extension = apcu.so
 
-  apc.enabled = 1
-  apc.shm_segments = 1
-  apc.shm_size = 1024M
-  apc.stat = 1
-  apc.ttl = 3600
-  apc.enable_cli = 1
-  apc.serializer = igbinary
+apc.enabled = 1
+apc.shm_segments = 1
+apc.shm_size = 1024M
+apc.stat = 1
+apc.ttl = 3600
+apc.enable_cli = 1
+apc.serializer = igbinary
 
-  apc.rfc1867 = 1
+apc.rfc1867 = 1
 <% end %>
