@@ -1340,7 +1340,7 @@ date.timezone = "UTC"
 [igbinary]
 extension = igbinary.so
 
-<% if @opcache_enable %>
+<% if @php_extension_opcache_enable %>
 [opcache]
 zend_extension = /phpfarm/inst/php-5.2.17/lib/php/extensions/no-debug-non-zts-20060613/opcache.so
 
@@ -1355,7 +1355,7 @@ opcache.load_comments = 1
 opcache.fast_shutdown = 1
 <% end %>
 
-<% if @xdebug_enable %>
+<% if @php_extension_xdebug_enable %>
 [xdebug]
 zend_extension = /phpfarm/inst/php-5.2.17/lib/php/extensions/no-debug-non-zts-20060613/xdebug.so
 
@@ -1368,17 +1368,17 @@ xdebug.idekey = "PHPSTORM"
 xdebug.max_nesting_level = 1000
 <% end %>
 
-<% if @memcached_enable %>
+<% if @php_extension_memcached_enable %>
 [memcached]
 extension = memcached.so
 <% end %>
 
-<% if @redis_enable %>
+<% if @php_extension_redis_enable %>
 [redis]
 extension = redis.so
 <% end %>
 
-<% if @apcu_enable %>
+<% if @php_extension_apcu_enable %>
 [apcu]
 extension = apcu.so
 
