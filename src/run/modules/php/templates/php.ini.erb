@@ -1346,7 +1346,7 @@ zend_extension = /phpfarm/inst/php-5.2.17/lib/php/extensions/no-debug-non-zts-20
 
 opcache.enable = 1
 opcache.enable_cli = 1
-opcache.memory_consumption = 1024
+opcache.memory_consumption = 2048
 opcache.interned_strings_buffer = 8
 opcache.max_accelerated_files = 100000
 opcache.revalidate_freq = 0
@@ -1384,7 +1384,7 @@ extension = apcu.so
 
 apc.enabled = 1
 apc.shm_segments = 1
-apc.shm_size = 1024M
+apc.shm_size = 32M
 apc.stat = 1
 apc.ttl = 3600
 apc.enable_cli = 1
