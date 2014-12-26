@@ -3,7 +3,7 @@ class php {
     include php::ssmtp
   }
 
-  if $db_host {
+  if $mysqld_host {
     include php::mysqld
   }
 

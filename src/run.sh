@@ -5,10 +5,10 @@ SMTP_PORT="$(echo "${SMTP_PORT}" | sed 's/tcp:\/\///')"
 export FACTER_SMTP_HOST="$(echo "${SMTP_PORT}" | cut -d ":" -f1)"
 export FACTER_SMTP_PORT="$(echo "${SMTP_PORT}" | cut -d ":" -f2)"
 
-DB_HOST="$(echo "${DB_PORT}" | sed 's/tcp:\/\///')"
+MYSQLD_HOST="$(echo "${MYSQLD_PORT}" | sed 's/tcp:\/\///')"
 
-export FACTER_DB_HOST="$(echo "${DB_HOST}" | cut -d ":" -f1)"
-export FACTER_DB_PORT="$(echo "${DB_HOST}" | cut -d ":" -f2)"
+export FACTER_MYSQLD_HOST="$(echo "${MYSQLD_HOST}" | cut -d ":" -f1)"
+export FACTER_MYSQLD_PORT="$(echo "${MYSQLD_HOST}" | cut -d ":" -f2)"
 
 MEMCACHED_HOST="$(echo "${MEMCACHED_PORT}" | sed 's/tcp:\/\///')"
 
