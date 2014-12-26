@@ -1,9 +1,9 @@
 [program:mysqld-1]
-command = /usr/bin/socat UNIX-LISTEN:/var/run/mysqld/mysqld.sock,fork,reuseaddr,unlink-early,user=www-data,group=www-data,mode=777 TCP:<%= @db_host %>:<%= @db_port %>
+command = /usr/bin/socat UNIX-LISTEN:/var/run/mysqld/mysqld.sock,fork,reuseaddr,unlink-early,user=www-data,group=www-data,mode=777 TCP:<%= @mysqld_host %>:<%= @mysqld_port %>
 autostart = true
 autorestart = true
 
 [program:mysqld-2]
-command = /usr/bin/socat TCP-LISTEN:<%= @db_port %>,fork TCP:<%= @db_host %>:<%= @db_port %>
+command = /usr/bin/socat TCP-LISTEN:<%= @mysqld_port %>,fork TCP:<%= @mysqld_host %>:<%= @mysqld_port %>
 autostart = true
 autorestart = true
