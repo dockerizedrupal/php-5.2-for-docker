@@ -14,4 +14,4 @@ RUN /src/clean.sh
 
 EXPOSE 9000
 
-ENTRYPOINT ["/bin/su", "-", "root", "-mc", "/src/run.sh"]
+CMD ["/bin/su", "-", "root", "-mc", "/src/run.sh"]
