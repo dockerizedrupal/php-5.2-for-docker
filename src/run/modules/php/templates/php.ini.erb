@@ -1392,3 +1392,8 @@ apc.serializer = igbinary
 
 apc.rfc1867 = 1
 <% end %>
+
+<% if @php_extension_apd_enable %>
+[apd]
+zend_extension = /phpfarm/inst/php-5.2.17/lib/php/extensions/no-debug-non-zts-20060613/apd.so
+<% end %>
