@@ -19,18 +19,18 @@ class php::extension::redis {
     require => Exec['tar xzf redis-2.2.5.tgz']
   }
 
-  exec { '/bin/su - root -c "cd /tmp/redis-2.2.5 && ./configure --with-php-config=/phpfarm/inst/bin/php-config-5.2.17 --enable-redis-igbinary"':
+  exec { '/bin/su - root -mc "cd /tmp/redis-2.2.5 && ./configure --with-php-config=/phpfarm/inst/bin/php-config-5.2.17 --enable-redis-igbinary"':
     timeout => 0,
     require => Exec['phpize-5.2.17 redis']
   }
 
-  exec { '/bin/su - root -c "cd /tmp/redis-2.2.5 && make"':
+  exec { '/bin/su - root -mc "cd /tmp/redis-2.2.5 && make"':
     timeout => 0,
-    require => Exec['/bin/su - root -c "cd /tmp/redis-2.2.5 && ./configure --with-php-config=/phpfarm/inst/bin/php-config-5.2.17 --enable-redis-igbinary"']
+    require => Exec['/bin/su - root -mc "cd /tmp/redis-2.2.5 && ./configure --with-php-config=/phpfarm/inst/bin/php-config-5.2.17 --enable-redis-igbinary"']
   }
 
-  exec { '/bin/su - root -c "cd /tmp/redis-2.2.5 && make install"':
+  exec { '/bin/su - root -mc "cd /tmp/redis-2.2.5 && make install"':
     timeout => 0,
-    require => Exec['/bin/su - root -c "cd /tmp/redis-2.2.5 && make"']
+    require => Exec['/bin/su - root -mc "cd /tmp/redis-2.2.5 && make"']
   }
 }

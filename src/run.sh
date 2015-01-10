@@ -50,6 +50,12 @@ fi
 
 export FACTER_PHP_EXTENSION_APCU_ENABLE="${PHP_EXTENSION_APCU_ENABLE}"
 
+if [ -z "${PHP_EXTENSION_APD_ENABLE}" ]; then
+  PHP_EXTENSION_APD_ENABLE=1
+fi
+
+export FACTER_PHP_EXTENSION_APD_ENABLE="${PHP_EXTENSION_APD_ENABLE}"
+
 puppet apply --modulepath=/src/run/modules /src/run/run.pp
 
 /usr/bin/supervisord

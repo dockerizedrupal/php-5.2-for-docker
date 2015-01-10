@@ -7,4 +7,5 @@ class php::extensions {
   include php::extension::apcu
   include php::extension::zendopcache
   include php::extension::zend_debugger
+  include php::extension::apd
 }

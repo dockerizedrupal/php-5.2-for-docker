@@ -13,25 +13,25 @@ class php::extension::memcached {
     require => File['/tmp/libmemcached-1.0.18.tar.gz']
   }
 
-  exec { '/bin/su - root -c "cd /tmp/libmemcached-1.0.18 && ./configure"':
+  exec { '/bin/su - root -mc "cd /tmp/libmemcached-1.0.18 && ./configure"':
     timeout => 0,
     require => Exec['tar xzf libmemcached-1.0.18.tar.gz']
   }
 
-  exec { '/bin/su - root -c "cd /tmp/libmemcached-1.0.18 && make"':
+  exec { '/bin/su - root -mc "cd /tmp/libmemcached-1.0.18 && make"':
     timeout => 0,
-    require => Exec['/bin/su - root -c "cd /tmp/libmemcached-1.0.18 && ./configure"']
+    require => Exec['/bin/su - root -mc "cd /tmp/libmemcached-1.0.18 && ./configure"']
   }
 
-  exec { '/bin/su - root -c "cd /tmp/libmemcached-1.0.18 && make install"':
+  exec { '/bin/su - root -mc "cd /tmp/libmemcached-1.0.18 && make install"':
     timeout => 0,
-    require => Exec['/bin/su - root -c "cd /tmp/libmemcached-1.0.18 && make"']
+    require => Exec['/bin/su - root -mc "cd /tmp/libmemcached-1.0.18 && make"']
   }
 
   file { '/tmp/memcached-2.1.0.tgz':
     ensure => present,
     source => 'puppet:///modules/php/tmp/memcached-2.1.0.tgz',
-    require => Exec['/bin/su - root -c "cd /tmp/libmemcached-1.0.18 && make install"']
+    require => Exec['/bin/su - root -mc "cd /tmp/libmemcached-1.0.18 && make install"']
   }
 
   exec { 'tar xzf memcached-2.1.0.tgz':
@@ -46,18 +46,18 @@ class php::extension::memcached {
     require => Exec['tar xzf memcached-2.1.0.tgz']
   }
 
-  exec { '/bin/su - root -c "cd /tmp/memcached-2.1.0 && ./configure --with-php-config=/phpfarm/inst/bin/php-config-5.2.17 --enable-memcached-igbinary"':
+  exec { '/bin/su - root -mc "cd /tmp/memcached-2.1.0 && ./configure --with-php-config=/phpfarm/inst/bin/php-config-5.2.17 --enable-memcached-igbinary"':
     timeout => 0,
     require => Exec['phpize-5.2.17 memcached']
   }
 
-  exec { '/bin/su - root -c "cd /tmp/memcached-2.1.0 && make"':
+  exec { '/bin/su - root -mc "cd /tmp/memcached-2.1.0 && make"':
     timeout => 0,
-    require => Exec['/bin/su - root -c "cd /tmp/memcached-2.1.0 && ./configure --with-php-config=/phpfarm/inst/bin/php-config-5.2.17 --enable-memcached-igbinary"']
+    require => Exec['/bin/su - root -mc "cd /tmp/memcached-2.1.0 && ./configure --with-php-config=/phpfarm/inst/bin/php-config-5.2.17 --enable-memcached-igbinary"']
   }
 
-  exec { '/bin/su - root -c "cd /tmp/memcached-2.1.0 && make install"':
+  exec { '/bin/su - root -mc "cd /tmp/memcached-2.1.0 && make install"':
     timeout => 0,
-    require => Exec['/bin/su - root -c "cd /tmp/memcached-2.1.0 && make"']
+    require => Exec['/bin/su - root -mc "cd /tmp/memcached-2.1.0 && make"']
   }
 }
