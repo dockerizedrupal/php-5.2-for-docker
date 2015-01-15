@@ -2,7 +2,7 @@ FROM simpledrupalcloud/base:dev
 
 MAINTAINER Simple Drupal Cloud <support@simpledrupalcloud.com>
 
-ENV TERM linux
+ENV TERM xterm
 ENV DEBIAN_FRONTEND noninteractive
 
 ADD ./src /src
