@@ -3,12 +3,6 @@ class php::drush {
   require php::extensions
   require php::drush::packages
 
-  file { '/root/.bashrc':
-    ensure => present,
-    source => 'puppet:///modules/php/root/.bashrc',
-    mode => 644
-  }
-
   file { '/tmp/drush-5.x.zip':
     ensure => present,
     source => 'puppet:///modules/php/tmp/drush-5.x.zip'
