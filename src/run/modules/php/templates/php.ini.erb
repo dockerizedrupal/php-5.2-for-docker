@@ -1340,7 +1340,7 @@ date.timezone = "UTC"
 [igbinary]
 extension = igbinary.so
 
-<% if @php_extension_opcache_enable %>
+<% if @php_extension_opcache_enable == "yes" %>
 [opcache]
 zend_extension = /phpfarm/inst/php-5.2.17/lib/php/extensions/no-debug-non-zts-20060613/opcache.so
 
@@ -1355,7 +1355,7 @@ opcache.load_comments = 1
 opcache.fast_shutdown = 1
 <% end %>
 
-<% if @php_extension_xdebug_enable %>
+<% if @php_extension_xdebug_enable == "yes" %>
 [xdebug]
 zend_extension = /phpfarm/inst/php-5.2.17/lib/php/extensions/no-debug-non-zts-20060613/xdebug.so
 
@@ -1368,17 +1368,17 @@ xdebug.idekey = "PHPSTORM"
 xdebug.max_nesting_level = 1000
 <% end %>
 
-<% if @php_extension_memcached_enable %>
+<% if @php_extension_memcached_enable == "yes" %>
 [memcached]
 extension = memcached.so
 <% end %>
 
-<% if @php_extension_redis_enable %>
+<% if @php_extension_redis_enable == "yes" %>
 [redis]
 extension = redis.so
 <% end %>
 
-<% if @php_extension_apcu_enable %>
+<% if @php_extension_apcu_enable == "yes" %>
 [apcu]
 extension = apcu.so
 
@@ -1393,7 +1393,7 @@ apc.serializer = igbinary
 apc.rfc1867 = 1
 <% end %>
 
-<% if @php_extension_apd_enable %>
+<% if @php_extension_apd_enable == "yes" %>
 [apd]
 zend_extension = /phpfarm/inst/php-5.2.17/lib/php/extensions/no-debug-non-zts-20060613/apd.so
 <% end %>
