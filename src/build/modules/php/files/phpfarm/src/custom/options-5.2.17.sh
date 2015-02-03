@@ -31,6 +31,7 @@ configoptions="--with-libdir=/lib/x86_64-linux-gnu \
   --with-gettext \
   --with-pspell \
   --with-ldap=/usr \
+  --with-config-file-scan-dir=/phpfarm/inst/php-5.2.17/etc/conf.d \
 "
 
 cd $srcdir
