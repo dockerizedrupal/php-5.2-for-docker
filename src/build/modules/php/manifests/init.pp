@@ -9,6 +9,10 @@ class php {
     mode => 644
   }
 
+  exec { 'mkdir -p /phpfarm/inst/php-5.2.17/etc/conf.d':
+    path => ['/bin']
+  }
+
   exec { 'mkdir -p /phpfarm/inst/php-5.2.17/lib/php/extensions/no-debug-non-zts-20060613':
     path => ['/bin']
   }
