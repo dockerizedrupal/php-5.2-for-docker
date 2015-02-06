@@ -3,26 +3,54 @@ class php::drush {
   require php::extensions
   require php::drush::packages
 
-  file { '/tmp/drush-5.x.zip':
+  file { '/tmp/drush-5.11.0.tar.gz':
     ensure => present,
-    source => 'puppet:///modules/php/tmp/drush-5.x.zip'
+    source => 'puppet:///modules/php/tmp/drush-5.11.0.tar.gz'
   }
 
-  exec { 'unzip drush-5.x.zip':
-    cwd => '/tmp',
-    path => ['/usr/bin'],
-    require => File['/tmp/drush-5.x.zip']
-  }
-
-  exec { 'mv drush-5.x /opt/drush':
+  exec { 'tar xzf drush-5.11.0.tar.gz':
     cwd => '/tmp',
     path => ['/bin'],
-    require => Exec['unzip drush-5.x.zip']
+    require => File['/tmp/drush-5.11.0.tar.gz']
   }
 
-  file { '/etc/bash_completion.d/drush.complete.sh':
+  exec { 'mv drush-5.11.0 /opt/drush5':
+    cwd => '/tmp',
+    path => ['/bin'],
+    require => Exec['tar xzf drush-5.11.0.tar.gz']
+  }
+
+  file { '/tmp/drush-6.5.0.tar.gz':
     ensure => present,
-    source => 'puppet:///modules/php/etc/bash_completion.d/drush.complete.sh',
-    mode => 755
+    source => 'puppet:///modules/php/tmp/drush-6.5.0.tar.gz'
+  }
+
+  exec { 'tar xzf drush-6.5.0.tar.gz':
+    cwd => '/tmp',
+    path => ['/bin'],
+    require => File['/tmp/drush-6.5.0.tar.gz']
+  }
+
+  exec { 'mv drush-6.5.0 /opt/drush6':
+    cwd => '/tmp',
+    path => ['/bin'],
+    require => Exec['tar xzf drush-6.5.0.tar.gz']
+  }
+
+  file { '/tmp/drush-7.0.0-alpha8.tar.gz':
+    ensure => present,
+    source => 'puppet:///modules/php/tmp/drush-7.0.0-alpha8.tar.gz'
+  }
+
+  exec { 'tar xzf drush-7.0.0-alpha8.tar.gz':
+    cwd => '/tmp',
+    path => ['/bin'],
+    require => File['/tmp/drush-7.0.0-alpha8.tar.gz']
+  }
+
+  exec { 'mv drush-7.0.0-alpha8 /opt/drush7':
+    cwd => '/tmp',
+    path => ['/bin'],
+    require => Exec['tar xzf ddrush-7.0.0-alpha8.tar.gz']
   }
 }

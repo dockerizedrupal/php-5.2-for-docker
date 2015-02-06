@@ -20,6 +20,12 @@ REDIS_HOST="$(echo "${REDIS_PORT}" | sed 's/tcp:\/\///')"
 export FACTER_REDIS_HOST="$(echo "${REDIS_HOST}" | cut -d ":" -f1)"
 export FACTER_REDIS_PORT="$(echo "${REDIS_HOST}" | cut -d ":" -f2)"
 
+if [ -z "${DRUSH_VERSION}" ]; then
+  DRUSH_VERSION="5"
+fi
+
+export FACTER_DRUSH_VERSION="${DRUSH_VERSION}"
+
 if [ -z "${PHP_EXTENSION_OPCACHE_ENABLE}" ]; then
   PHP_EXTENSION_OPCACHE_ENABLE="yes"
 fi
