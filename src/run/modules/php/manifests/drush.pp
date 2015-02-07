@@ -1,37 +1,37 @@
 class php::drush {
   if $drush_version == '5' {
-    file { '/opt/drush5/drush':
+    file { '/usr/local/bin/drush':
       ensure => link,
-      target => '/usr/local/bin/drush'
+      target => '/opt/drush5/drush'
     }
 
-    file { '/opt/drush5/drush.complete.sh':
+    file { '/etc/bash_completion.d/drush.complete.sh':
       ensure => link,
-      target => '/etc/bash_completion.d/drush.complete.sh'
+      target => '/opt/drush5/drush.complete.sh'
     }
   }
 
   if $drush_version == '6' {
-    file { '/opt/drush6/drush':
+    file { '/usr/local/bin/drush':
       ensure => link,
-      target => '/usr/local/bin/drush'
+      target => '/opt/drush6/drush'
     }
 
-    file { '/opt/drush6/drush.complete.sh':
+    file { '/etc/bash_completion.d/drush.complete.sh':
       ensure => link,
-      target => '/etc/bash_completion.d/drush.complete.sh'
+      target => '/opt/drush6/drush.complete.sh'
     }
   }
 
   if $drush_version == '7' {
-    file { '/opt/drush7/drush':
+    file { '/usr/local/bin/drush':
       ensure => link,
-      target => '/usr/local/bin/drush'
+      target => '/opt/drush7/drush'
     }
 
-    file { '/opt/drush7/drush.complete.sh':
+    file { '/etc/bash_completion.d/drush.complete.sh':
       ensure => link,
-      target => '/etc/bash_completion.d/drush.complete.sh'
+      target => '/opt/drush7/drush.complete.sh'
     }
   }
 }
