@@ -76,6 +76,8 @@ php:
     - mysqld
     - mailcatcher:smtp
     - memcached
+  environment:
+    - DRUSH_VERSION=7
 mailcatcher:
   image: simpledrupalcloud/mailcatcher:latest
   hostname: mailcatcher
@@ -183,6 +185,8 @@ php:
     - mysqld
     - mailcatcher:smtp
     - memcached
+  environment:
+    - DRUSH_VERSION=6
 mailcatcher:
   image: simpledrupalcloud/mailcatcher:latest
   hostname: mailcatcher
@@ -290,6 +294,8 @@ php:
     - mysqld
     - mailcatcher:smtp
     - memcached
+  environment:
+    - DRUSH_VERSION=5
 mailcatcher:
   image: simpledrupalcloud/mailcatcher:latest
   hostname: mailcatcher
