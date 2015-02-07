@@ -49,6 +49,6 @@ class php::drush {
   exec { 'mv drush-7.0.0-alpha8 /opt/drush7':
     cwd => '/tmp',
     path => ['/bin'],
-    require => Exec['tar xzf ddrush-7.0.0-alpha8.tar.gz']
+    require => Exec['tar xzf drush-7.0.0-alpha8.tar.gz']
   }
 }
