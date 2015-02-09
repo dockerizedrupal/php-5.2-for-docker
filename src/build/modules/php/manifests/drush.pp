@@ -38,7 +38,7 @@ class php::drush {
     require => Exec['tar xzf drush-6.5.0.tar.gz']
   }
 
-  exec { '/bin/su - root -c "cd /opt/drush7 && composer install"':
+  exec { '/bin/su - root -c "cd /opt/drush6 && composer install"':
     timeout => 0,
     require => Exec['mv drush-6.5.0 /opt/drush6']
   }
