@@ -3,10 +3,3 @@ php52:
   hostname: php52
   ports:
     - "9000:9000"
-  volumes_from:
-    - httpddata
-httpddata:
-  image: simpledrupalcloud/data:latest
-  hostname: httpddata
-  volumes:
-    - /httpd/data
