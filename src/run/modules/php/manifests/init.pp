@@ -21,4 +21,9 @@ class php {
     ensure => present,
     content => template('php/php.ini.erb')
   }
+
+  file { '/root/.bashrc':
+    ensure => present,
+    content => template('php/.bashrc.erb')
+  }
 }
