@@ -3,7 +3,7 @@
 CONTAINER="php"
 
 setup() {
-  docker run --name "${CONTAINER}" -h "${CONTAINER}" -p 9000:9000 -d simpledrupalcloud/php:5.2-dev
+  docker run --name "${CONTAINER}" -h "${CONTAINER}" -p 9000:9000 -d simpledrupalcloud/php:5.2
 
   sleep 5
 }
