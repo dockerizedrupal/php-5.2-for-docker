@@ -1,4 +1,4 @@
-# docker-php
+# docker-php ![Build status](https://jenkins.fenomen.ee/buildStatus/icon?job=SIMPLEDRUPALCLOUD_PHP_5_2)
 
 A [Docker](https://docker.com/) container for [PHP](http://php.net/) version 5.2.17 that runs PHP in FPM (FastCGI Process Manager) mode.
 
