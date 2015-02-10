@@ -3,12 +3,6 @@ class php {
   require php::phpfarm
   require php::supervisor
 
-  file { '/root/.bashrc':
-    ensure => present,
-    source => 'puppet:///modules/php/root/.bashrc',
-    mode => 644
-  }
-
   exec { 'mkdir -p /phpfarm/inst/php-5.2.17/etc/conf.d':
     path => ['/bin']
   }
