@@ -1,24 +1,18 @@
 class php::drush {
   require php::drush::packages
 
-  exec { 'mkdir /root/.drush':
-    path => ['/bin']
-  }
+  bash_exec { 'mkdir /root/.drush': }
 
   file { '/tmp/drush-5.11.0.tar.gz':
     ensure => present,
     source => 'puppet:///modules/php/tmp/drush-5.11.0.tar.gz'
   }
 
-  exec { 'tar xzf drush-5.11.0.tar.gz':
-    cwd => '/tmp',
-    path => ['/bin'],
+  bash_exec { 'cd /tmp && tar xzf drush-5.11.0.tar.gz':
     require => File['/tmp/drush-5.11.0.tar.gz']
   }
 
-  exec { 'mv drush-5.11.0 /opt/drush5':
-    cwd => '/tmp',
-    path => ['/bin'],
-    require => Exec['tar xzf drush-5.11.0.tar.gz']
+  bash_exec { 'mv /tmp/drush-5.11.0 /opt/drush5':
+    require => Bash_exec['cd /tmp && tar xzf drush-5.11.0.tar.gz']
   }
 }

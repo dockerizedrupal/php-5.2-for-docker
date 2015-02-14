@@ -1,49 +1,67 @@
 #!/usr/bin/env bats
 
-CONTAINER="php"
+FIG_FILE="${BATS_TEST_DIRNAME}/php.yml"
+
+container() {
+  echo "$(fig -f ${FIG_FILE} ps php | grep php | awk '{ print $1 }')"
+}
 
 setup() {
-  docker run --name "${CONTAINER}" -h "${CONTAINER}" -p 9000:9000 -d simpledrupalcloud/php:5.2
+  fig -f "${FIG_FILE}" up -d
 
-  sleep 5
+  sleep 10
 }
 
 teardown() {
-  docker rm -f "${CONTAINER}"
+  fig -f "${FIG_FILE}" kill
+  fig -f "${FIG_FILE}" rm --force
 }
 
 @test "php" {
-  docker exec "${CONTAINER}" /bin/su - root -mc "php -v"
+  run docker exec "$(container)" /bin/su - root -mc "php -v"
+
+  [ "${status}" -eq 0 ]
+  [[ "${output}" == *"PHP 5.2"* ]]
 }
 
-@test "php: xdebug" {
-  docker exec "${CONTAINER}" /bin/su - root -mc "php -m | grep 'Xdebug'"
+@test "php: extension: xdebug" {
+  run docker exec "$(container)" /bin/su - root -mc "php -m | grep 'Xdebug'"
+
+  [ "${status}" -eq 0 ]
 }
 
-@test "php: zend opcache" {
-  docker exec "${CONTAINER}" /bin/su - root -mc "php -m | grep 'Zend OPcache'"
+@test "php: extension: opcache" {
+  run docker exec "$(container)" /bin/su - root -mc "php -m | grep 'Zend OPcache'"
+
+  [ "${status}" -eq 0 ]
 }
 
-@test "php: advanced php debugger (apd)" {
-  docker exec "${CONTAINER}" /bin/su - root -mc "php -m | grep 'Advanced PHP Debugger (APD)'"
+@test "php: extension: apd" {
+  run docker exec "$(container)" /bin/su - root -mc "php -m | grep 'Advanced PHP Debugger (APD)'"
+
+  [ "${status}" -eq 0 ]
 }
 
-@test "php: apcu" {
-  docker exec "${CONTAINER}" /bin/su - root -mc "php -m | grep 'apcu'"
+@test "php: extension: apcu" {
+  run docker exec "$(container)" /bin/su - root -mc "php -m | grep 'apcu'"
+
+  [ "${status}" -eq 0 ]
 }
 
-@test "php: memcached" {
-  docker exec "${CONTAINER}" /bin/su - root -mc "php -m | grep 'memcached'"
+@test "php: extension: memcached" {
+  run docker exec "$(container)" /bin/su - root -mc "php -m | grep 'memcached'"
+
+  [ "${status}" -eq 0 ]
 }
 
-@test "php: redis" {
-  docker exec "${CONTAINER}" /bin/su - root -mc "php -m | grep 'redis'"
+@test "php: extension: redis" {
+  run docker exec "$(container)" /bin/su - root -mc "php -m | grep 'redis'"
+
+  [ "${status}" -eq 0 ]
 }
 
-@test "php: igbinary" {
-  docker exec "${CONTAINER}" /bin/su - root -mc "php -m | grep 'igbinary'"
-}
+@test "php: extension: igbinary" {
+  run docker exec "$(container)" /bin/su - root -mc "php -m | grep 'igbinary'"
 
-@test "drush" {
-  docker exec "${CONTAINER}" /bin/su - root -mc "drush status"
+  [ "${status}" -eq 0 ]
 }

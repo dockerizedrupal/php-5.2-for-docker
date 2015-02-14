@@ -6,30 +6,26 @@ class php::extension::apcu {
     source => 'puppet:///modules/php/tmp/apcu-4.0.7.tgz'
   }
 
-  exec { 'tar xzf apcu-4.0.7.tgz':
-    cwd => '/tmp',
-    path => ['/bin'],
+  bash_exec { 'cd /tmp && tar xzf apcu-4.0.7.tgz':
     require => File['/tmp/apcu-4.0.7.tgz']
   }
 
-  exec { 'phpize-5.2.17 apcu':
-    command => '/phpfarm/inst/bin/phpize-5.2.17',
-    cwd => '/tmp/apcu-4.0.7',
-    require => Exec['tar xzf apcu-4.0.7.tgz']
+  bash_exec { 'cd /tmp/apcu-4.0.7 && phpize-5.2.17':
+    require => Bash_exec['cd /tmp && tar xzf apcu-4.0.7.tgz']
   }
 
-  exec { '/bin/su - root -mc "cd /tmp/apcu-4.0.7 && ./configure --with-php-config=/phpfarm/inst/bin/php-config-5.2.17"':
+  bash_exec { 'cd /tmp/apcu-4.0.7 && ./configure --with-php-config=/phpfarm/inst/bin/php-config-5.2.17':
     timeout => 0,
-    require => Exec['phpize-5.2.17 apcu']
+    require => Bash_exec['cd /tmp/apcu-4.0.7 && phpize-5.2.17']
   }
 
-  exec { '/bin/su - root -mc "cd /tmp/apcu-4.0.7 && make"':
+  bash_exec { 'cd /tmp/apcu-4.0.7 && make':
     timeout => 0,
-    require => Exec['/bin/su - root -mc "cd /tmp/apcu-4.0.7 && ./configure --with-php-config=/phpfarm/inst/bin/php-config-5.2.17"']
+    require => Bash_exec['cd /tmp/apcu-4.0.7 && ./configure --with-php-config=/phpfarm/inst/bin/php-config-5.2.17']
   }
 
-  exec { '/bin/su - root -mc "cd /tmp/apcu-4.0.7 && make install"':
+  bash_exec { 'cd /tmp/apcu-4.0.7 && make install':
     timeout => 0,
-    require => Exec['/bin/su - root -mc "cd /tmp/apcu-4.0.7 && make"']
+    require => Bash_exec['cd /tmp/apcu-4.0.7 && make']
   }
 }

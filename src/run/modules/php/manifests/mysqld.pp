@@ -1,7 +1,5 @@
 class php::mysqld {
-  exec { 'mkdir -p /var/run/mysqld':
-    path => ['/bin']
-  }
+  bash_exec { 'mkdir -p /var/run/mysqld': }
 
   file { '/etc/supervisor/conf.d/mysqld.conf':
     ensure => present,
