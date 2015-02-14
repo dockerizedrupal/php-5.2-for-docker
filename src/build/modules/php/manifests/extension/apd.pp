@@ -6,42 +6,36 @@ class php::extension::apd {
     source => 'puppet:///modules/php/tmp/apd-1.0.1.tgz'
   }
 
-  exec { 'tar xzf apd-1.0.1.tgz':
-    cwd => '/tmp',
-    path => ['/bin'],
+  bash_exec { 'cd /tmp && tar xzf apd-1.0.1.tgz':
     require => File['/tmp/apd-1.0.1.tgz']
   }
 
   file { '/tmp/file.patch':
     ensure => present,
     source => 'puppet:///modules/php/tmp/file.patch',
-    require => Exec['tar xzf apd-1.0.1.tgz']
+    require => Bash_exec['cd /tmp && tar xzf apd-1.0.1.tgz']
   }
 
-  exec { 'patch < /tmp/file.patch':
-    cwd => '/tmp/apd-1.0.1',
-    path => ['/usr/bin'],
+  bash_exec { 'cd /tmp/apd-1.0.1 && patch < /tmp/file.patch':
     require => File['/tmp/file.patch']
   }
 
-  exec { 'phpize-5.2.17 apd':
-    command => '/phpfarm/inst/bin/phpize-5.2.17',
-    cwd => '/tmp/apd-1.0.1',
-    require => Exec['patch < /tmp/file.patch']
+  bash_exec { 'cd /tmp/apd-1.0.1 && phpize-5.2.17':
+    require => Bash_exec['cd /tmp/apd-1.0.1 && patch < /tmp/file.patch']
   }
 
-  exec { '/bin/su - root -mc "cd /tmp/apd-1.0.1 && ./configure --with-php-config=/phpfarm/inst/bin/php-config-5.2.17"':
+  bash_exec { 'cd /tmp/apd-1.0.1 && ./configure --with-php-config=/phpfarm/inst/bin/php-config-5.2.17':
     timeout => 0,
-    require => Exec['phpize-5.2.17 apd']
+    require => Bash_exec['cd /tmp/apd-1.0.1 && phpize-5.2.17']
   }
 
-  exec { '/bin/su - root -mc "cd /tmp/apd-1.0.1 && make"':
+  bash_exec { 'cd /tmp/apd-1.0.1 && make':
     timeout => 0,
-    require => Exec['/bin/su - root -mc "cd /tmp/apd-1.0.1 && ./configure --with-php-config=/phpfarm/inst/bin/php-config-5.2.17"']
+    require => Bash_exec['cd /tmp/apd-1.0.1 && ./configure --with-php-config=/phpfarm/inst/bin/php-config-5.2.17']
   }
 
-  exec { '/bin/su - root -mc "cd /tmp/apd-1.0.1 && make install"':
+  bash_exec { 'cd /tmp/apd-1.0.1 && make install':
     timeout => 0,
-    require => Exec['/bin/su - root -mc "cd /tmp/apd-1.0.1 && make"']
+    require => Bash_exec['cd /tmp/apd-1.0.1 && make']
   }
 }
