@@ -65,9 +65,3 @@ teardown() {
 
   [ "${status}" -eq 0 ]
 }
-
-@test "php: extension: mssql" {
-  run docker exec "$(container)" /bin/su - root -mc "php -m | grep 'mssql'"
-
-  [ "${status}" -eq 0 ]
-}

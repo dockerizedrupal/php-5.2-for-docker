@@ -24,11 +24,11 @@ mysqlddata:
   volumes:
     - /mysqld
 php:
-  image: simpledrupalcloud/php:5.3-dev
+  image: simpledrupalcloud/php:5.2-dev
   hostname: php
   volumes_from:
     - httpdata
   links:
     - mysqld
   environment:
-    - DRUSH_VERSION=6
+    - DRUSH_VERSION=5
