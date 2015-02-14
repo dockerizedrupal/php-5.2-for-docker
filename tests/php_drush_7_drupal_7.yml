@@ -1,0 +1,34 @@
+httpd:
+  image: simpledrupalcloud/httpd:dev
+  hostname: httpd
+  ports:
+    - "80"
+    - "443"
+  volumes_from:
+    - httpdata
+  links:
+    - php
+httpdata:
+  image: simpledrupalcloud/data:dev
+  hostname: httpdata
+  volumes:
+    - /httpd
+mysqld:
+  image: simpledrupalcloud/mysqld:dev
+  hostname: mysqld
+  volumes_from:
+    - mysqlddata
+mysqlddata:
+  image: simpledrupalcloud/data:dev
+  hostname: mysqlddata
+  volumes:
+    - /mysqld
+php:
+  image: simpledrupalcloud/php:5.3-dev
+  hostname: php
+  volumes_from:
+    - httpdata
+  links:
+    - mysqld
+  environment:
+    - DRUSH_VERSION=7

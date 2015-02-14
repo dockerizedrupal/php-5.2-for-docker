@@ -7,8 +7,8 @@ ENV DEBIAN_FRONTEND noninteractive
 
 ADD ./src /src
 
-RUN apt-get update && /src/build.sh && /src/clean.sh
+RUN /src/php.sh build
 
 EXPOSE 9000
 
-CMD ["/bin/su", "-", "root", "-mc", "/src/run.sh"]
+CMD ["/src/php.sh", "run"]
