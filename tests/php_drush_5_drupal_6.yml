@@ -1,5 +1,5 @@
 httpd:
-  image: simpledrupalcloud/httpd:dev
+  image: simpledrupalcloud/httpd:latest
   hostname: httpd
   ports:
     - "80"
@@ -9,22 +9,22 @@ httpd:
   links:
     - php
 httpdata:
-  image: simpledrupalcloud/data:dev
+  image: simpledrupalcloud/data:latest
   hostname: httpdata
   volumes:
     - /httpd
 mysqld:
-  image: simpledrupalcloud/mysqld:dev
+  image: simpledrupalcloud/mysqld:latest
   hostname: mysqld
   volumes_from:
     - mysqlddata
 mysqlddata:
-  image: simpledrupalcloud/data:dev
+  image: simpledrupalcloud/data:latest
   hostname: mysqlddata
   volumes:
     - /mysqld
 php:
-  image: simpledrupalcloud/php:5.2-dev
+  image: simpledrupalcloud/php:5.2
   hostname: php
   volumes_from:
     - httpdata
