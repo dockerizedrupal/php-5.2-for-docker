@@ -11,7 +11,7 @@ class php::extension::apcu {
   }
 
   bash_exec { 'cd /tmp/apcu-4.0.7 && phpize-5.2.17':
-    require => Bash_exec['tar xzf apcu-4.0.7.tgz']
+    require => Bash_exec['cd /tmp && tar xzf apcu-4.0.7.tgz']
   }
 
   bash_exec { 'cd /tmp/apcu-4.0.7 && ./configure --with-php-config=/phpfarm/inst/bin/php-config-5.2.17':
