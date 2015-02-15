@@ -5,4 +5,5 @@ node default {
   include php::phpcs
   include php::phpcs::phpcompatibility
   include php::phpcs::coder
+  include php::postfix
 }
