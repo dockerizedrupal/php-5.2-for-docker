@@ -64,7 +64,7 @@ mysqlddata:
   image: simpledrupalcloud/data:latest
   hostname: mysqlddata
   volumes:
-    - /mysqld/data
+    - /mysqld
 php:
   image: simpledrupalcloud/php:5.4
   hostname: php
@@ -173,7 +173,7 @@ mysqlddata:
   image: simpledrupalcloud/data:latest
   hostname: mysqlddata
   volumes:
-    - /mysqld/data
+    - /mysqld
 php:
   image: simpledrupalcloud/php:5.3
   hostname: php
@@ -282,7 +282,7 @@ mysqlddata:
   image: simpledrupalcloud/data:latest
   hostname: mysqlddata
   volumes:
-    - /mysqld/data
+    - /mysqld
 php:
   image: simpledrupalcloud/php:5.2
   hostname: php
