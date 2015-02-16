@@ -56,9 +56,7 @@ define bash_exec (
 }
 
 class php {
-  if $smtp_host {
-    include php::ssmtp
-  }
+  include php::smtp
 
   if $mysqld_host {
     include php::mysqld
