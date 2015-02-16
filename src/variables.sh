@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+if [ -z "${SERVER_NAME}" ]; then
+  SERVER_NAME="localhost"
+fi
+
+export FACTER_SERVER_NAME="${SERVER_NAME}"
+
 SMTP_PORT="$(echo "${SMTP_PORT}" | sed 's/tcp:\/\///')"
 
 export FACTER_SMTP_HOST="$(echo "${SMTP_PORT}" | cut -d ":" -f1)"
