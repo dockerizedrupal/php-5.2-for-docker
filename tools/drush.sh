@@ -2,6 +2,22 @@
 
 WORKING_DIR="$(pwd)"
 
+hash docker 2> /dev/null
+
+if [ "${?}" -ne 0 ]; then
+  echo "drush: docker command not found."
+
+  exit 1
+fi
+
+hash fig 2> /dev/null
+
+if [ "${?}" -ne 0 ]; then
+  echo "drush: fig command not found."
+
+  exit 1
+fi
+
 DRUPAL_ROOT_DIRECTORY="/httpd/data"
 
 ARGS="${@}"
@@ -9,13 +25,13 @@ ARGS="${@}"
 php_container_exists() {
   local DRUPAL_ROOT="${1}"
 
-  echo "$(cd ${DRUPAL_ROOT} && sudo fig ps php 2> /dev/null | grep _php_ | awk '{ print $1 }')"
+  echo "$(cd ${DRUPAL_ROOT} && fig ps php 2> /dev/null | grep _php_ | awk '{ print $1 }')"
 }
 
 php_container_running() {
   local CONTAINER="${1}"
 
-  echo "$(sudo docker exec ${CONTAINER} date 2> /dev/null)"
+  echo "$(docker exec ${CONTAINER} date 2> /dev/null)"
 }
 
 fig_file_path() {
@@ -371,7 +387,7 @@ if [ -z "${DRUPAL_ROOT}" ]; then
 
     echo -n "$(drupal_8_fig_template ${PROJECT_NAME})" > "${DRUPAL_ROOT}/fig.yml"
 
-    sudo chown -R "${SUDO_USER}".www-data "${DRUPAL_ROOT}/fig.yml"
+    chown -R "${SUDO_USER}".www-data "${DRUPAL_ROOT}/fig.yml"
   else
     DRUPAL_ROOT="$(drupal_7_path)"
 
@@ -380,7 +396,7 @@ if [ -z "${DRUPAL_ROOT}" ]; then
 
       echo -n "$(drupal_7_fig_template ${PROJECT_NAME})" > "${DRUPAL_ROOT}/fig.yml"
 
-      sudo chown -R "${SUDO_USER}".www-data "${DRUPAL_ROOT}/fig.yml"
+      chown -R "${SUDO_USER}".www-data "${DRUPAL_ROOT}/fig.yml"
     else
       DRUPAL_ROOT="$(drupal_6_path)"
 
@@ -389,7 +405,7 @@ if [ -z "${DRUPAL_ROOT}" ]; then
 
         echo -n "$(drupal_6_fig_template ${PROJECT_NAME})" > "${DRUPAL_ROOT}/fig.yml"
 
-        sudo chown -R "${SUDO_USER}".www-data "${DRUPAL_ROOT}/fig.yml"
+        chown -R "${SUDO_USER}".www-data "${DRUPAL_ROOT}/fig.yml"
       else
         echo "Drupal installation path could not be found."
 
@@ -410,7 +426,7 @@ if [ -z "${CONTAINER}" ]; then
 
   cd "${DRUPAL_ROOT}"
 
-  sudo fig up -d
+  fig up -d
 
   cd "${WORKING_DIR}"
 
@@ -424,7 +440,7 @@ elif [ -z "$(php_container_running ${CONTAINER})" ]; then
 
   cd "${DRUPAL_ROOT}"
 
-  sudo fig up -d
+  fig up -d
 
   cd "${WORKING_DIR}"
 fi
@@ -438,10 +454,10 @@ fi
 DRUPAL_WORKING_DIRECTORY="${DRUPAL_ROOT_DIRECTORY}/${RELATIVE_PATH}"
 
 if [ -t 0 ]; then
-  sudo docker exec -i -t "${CONTAINER}" /bin/bash -lc "cd ${DRUPAL_WORKING_DIRECTORY} && drush ${ARGS}"
+  docker exec -i -t "${CONTAINER}" /bin/bash -lc "cd ${DRUPAL_WORKING_DIRECTORY} && drush ${ARGS}"
 else
-  sudo docker exec -i "${CONTAINER}" /bin/bash -lc "cd ${DRUPAL_WORKING_DIRECTORY} && drush ${ARGS}"
+  docker exec -i "${CONTAINER}" /bin/bash -lc "cd ${DRUPAL_WORKING_DIRECTORY} && drush ${ARGS}"
 fi
 
-sudo chown -R "${SUDO_USER}".www-data "${DRUPAL_ROOT}"
-sudo chmod -R u+w "${DRUPAL_ROOT}"
+chown -R "${SUDO_USER}".www-data "${DRUPAL_ROOT}"
+chmod -R u+w "${DRUPAL_ROOT}"
