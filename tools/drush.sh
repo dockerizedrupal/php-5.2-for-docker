@@ -93,7 +93,7 @@ php:
     - mailcatcher:smtp
     - memcached
   environment:
-    - DRUSH_VERSION=7
+    - DRUPAL_VERSION=8
 mailcatcher:
   image: simpledrupalcloud/mailcatcher:latest
   hostname: mailcatcher
@@ -202,7 +202,7 @@ php:
     - mailcatcher:smtp
     - memcached
   environment:
-    - DRUSH_VERSION=6
+    - DRUPAL_VERSION=7
 mailcatcher:
   image: simpledrupalcloud/mailcatcher:latest
   hostname: mailcatcher
@@ -311,7 +311,7 @@ php:
     - mailcatcher:smtp
     - memcached
   environment:
-    - DRUSH_VERSION=5
+    - DRUPAL_VERSION=6
 mailcatcher:
   image: simpledrupalcloud/mailcatcher:latest
   hostname: mailcatcher
