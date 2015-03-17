@@ -8,13 +8,13 @@ class php::phpfarm {
     require => File['/tmp/phpfarm-master.zip']
   }
 
-  bash_exec { 'mv /tmp/phpfarm-master /usr/local/bin/phpfarm':
+  bash_exec { 'mv /tmp/phpfarm-master /usr/local/src/phpfarm':
     require => Bash_exec['cd /tmp && unzip phpfarm-master.zip']
   }
 
-  file { '/usr/local/bin/phpfarm/custom':
+  file { '/usr/local/src/phpfarm/custom':
     ensure => directory,
-    require => Bash_exec['mv /tmp/phpfarm-master /usr/local/bin/phpfarm']
+    require => Bash_exec['mv /tmp/phpfarm-master /usr/local/src/phpfarm']
   }
 
   file { '/etc/profile.d/phpfarm.sh':
