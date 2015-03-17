@@ -65,3 +65,15 @@ teardown() {
 
   [ "${status}" -eq 0 ]
 }
+
+@test "php: extension: mssql" {
+  run docker exec "$(container)" /bin/su - root -mc "php -m | grep 'mssql'"
+
+  [ "${status}" -eq 0 ]
+}
+
+@test "php: smtp: disabled" {
+  run docker exec "$(container)" /bin/su - root -mc "cat /etc/postfix/main.cf | grep 'relayhost'"
+
+  [ "${status}" -ne 0 ]
+}

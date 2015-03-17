@@ -2,4 +2,4 @@ php:
   image: simpledrupalcloud/php:5.2-dev
   hostname: php
   environment:
-    - DRUSH_VERSION=5
+    - SMTP_PORT=tcp://127.0.0.1:31337
