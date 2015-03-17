@@ -7,8 +7,8 @@ ENV DEBIAN_FRONTEND noninteractive
 
 ADD ./src /src
 
-RUN /src/php.sh build
+RUN /src/entrypoint.sh build
 
 EXPOSE 9000
 
-CMD ["/src/php.sh", "run"]
+CMD ["/src/entrypoint.sh", "run"]

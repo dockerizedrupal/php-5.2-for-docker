@@ -14,14 +14,14 @@ class php::extension::igbinary {
     require => Bash_exec['cd /tmp && tar xzf igbinary-1.2.1.tgz']
   }
 
-  bash_exec { 'cd /tmp/igbinary-1.2.1 && ./configure --with-php-config=/phpfarm/inst/bin/php-config-5.2.17 --enable-igbinary':
+  bash_exec { 'cd /tmp/igbinary-1.2.1 && ./configure --with-php-config=/usr/local/bin/phpfarm/inst/bin/php-config-5.2.17 --enable-igbinary':
     timeout => 0,
     require => Bash_exec['cd /tmp/igbinary-1.2.1 && phpize-5.2.17']
   }
 
   bash_exec { 'cd /tmp/igbinary-1.2.1 && make':
     timeout => 0,
-    require => Bash_exec['cd /tmp/igbinary-1.2.1 && ./configure --with-php-config=/phpfarm/inst/bin/php-config-5.2.17 --enable-igbinary']
+    require => Bash_exec['cd /tmp/igbinary-1.2.1 && ./configure --with-php-config=/usr/local/bin/phpfarm/inst/bin/php-config-5.2.17 --enable-igbinary']
   }
 
   bash_exec { 'cd /tmp/igbinary-1.2.1 && make install':

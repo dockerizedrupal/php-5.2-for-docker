@@ -70,9 +70,14 @@ class php {
     include php::redis
   }
 
-  include php::drush
+  if $freetds_1_server_name {
+    include php::freetds
+  }
 
-  file { '/phpfarm/inst/php-5.2.17/lib/php.ini':
+  include php::drush
+  include php::coder
+
+  file { '/usr/local/bin/phpfarm/inst/php-5.2.17/lib/php.ini':
     ensure => present,
     content => template('php/php.ini.erb')
   }

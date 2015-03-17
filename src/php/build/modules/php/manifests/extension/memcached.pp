@@ -40,14 +40,14 @@ class php::extension::memcached {
     require => Bash_exec['cd /tmp && tar xzf memcached-2.1.0.tgz']
   }
 
-  bash_exec { 'cd /tmp/memcached-2.1.0 && ./configure --with-php-config=/phpfarm/inst/bin/php-config-5.2.17 --enable-memcached-igbinary':
+  bash_exec { 'cd /tmp/memcached-2.1.0 && ./configure --with-php-config=/usr/local/bin/phpfarm/inst/bin/php-config-5.2.17 --enable-memcached-igbinary':
     timeout => 0,
     require => Bash_exec['cd /tmp/memcached-2.1.0 && phpize-5.2.17']
   }
 
   bash_exec { 'cd /tmp/memcached-2.1.0 && make':
     timeout => 0,
-    require => Bash_exec['cd /tmp/memcached-2.1.0 && ./configure --with-php-config=/phpfarm/inst/bin/php-config-5.2.17 --enable-memcached-igbinary']
+    require => Bash_exec['cd /tmp/memcached-2.1.0 && ./configure --with-php-config=/usr/local/bin/phpfarm/inst/bin/php-config-5.2.17 --enable-memcached-igbinary']
   }
 
   bash_exec { 'cd /tmp/memcached-2.1.0 && make install':

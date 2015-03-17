@@ -36,6 +36,6 @@ mailbox_size_limit = 0
 recipient_delimiter = +
 inet_interfaces = all
 
-<% if defined?(@smtp_host) %>
+<% if @smtp_host and !@smtp_host.empty? %>
 relayhost = <%= @smtp_host %>:<%= @smtp_port %>
 <% end %>

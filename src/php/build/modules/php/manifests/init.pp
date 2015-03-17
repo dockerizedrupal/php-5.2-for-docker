@@ -60,9 +60,9 @@ class php {
   require php::phpfarm
   require php::supervisor
 
-  bash_exec { 'mkdir -p /phpfarm/inst/php-5.2.17/etc/conf.d': }
+  bash_exec { 'mkdir -p /usr/local/bin/phpfarm/inst/php-5.2.17/etc/conf.d': }
 
-  bash_exec { 'mkdir -p /phpfarm/inst/php-5.2.17/lib/php/extensions/no-debug-non-zts-20060613': }
+  bash_exec { 'mkdir -p /usr/local/bin/phpfarm/inst/php-5.2.17/lib/php/extensions/no-debug-non-zts-20060613': }
 
   file { '/tmp/php-5.2.17.tar.gz':
     ensure => present,
@@ -73,34 +73,34 @@ class php {
     require => File['/tmp/php-5.2.17.tar.gz']
   }
 
-  bash_exec { 'mv /tmp/php-5.2.17 /phpfarm/src/php-5.2.17':
+  bash_exec { 'mv /tmp/php-5.2.17 /usr/local/bin/phpfarm/src/php-5.2.17':
     require => Bash_exec['cd /tmp && tar xzf php-5.2.17.tar.gz']
   }
 
-  file { '/phpfarm/src/custom/options-5.2.17.sh':
+  file { '/usr/local/bin/phpfarm/src/custom/options-5.2.17.sh':
     ensure => present,
     source => 'puppet:///modules/php/phpfarm/src/custom/options-5.2.17.sh',
     mode => 755,
-    require => Bash_exec['mv /tmp/php-5.2.17 /phpfarm/src/php-5.2.17']
+    require => Bash_exec['mv /tmp/php-5.2.17 /usr/local/bin/phpfarm/src/php-5.2.17']
   }
 
-  bash_exec { '/phpfarm/src/main.sh 5.2.17':
+  bash_exec { '/usr/local/bin/phpfarm/src/main.sh 5.2.17':
     timeout => 0,
-    require => File['/phpfarm/src/custom/options-5.2.17.sh']
+    require => File['/usr/local/bin/phpfarm/src/custom/options-5.2.17.sh']
   }
 
-  bash_exec { 'rm -rf /phpfarm/src/php-5.2.17':
-    require => Bash_exec['/phpfarm/src/main.sh 5.2.17']
+  bash_exec { 'rm -rf /usr/local/bin/phpfarm/src/php-5.2.17':
+    require => Bash_exec['/usr/local/bin/phpfarm/src/main.sh 5.2.17']
   }
 
-  file { '/phpfarm/inst/php-5.2.17/etc/php-fpm.conf':
+  file { '/usr/local/bin/phpfarm/inst/php-5.2.17/etc/php-fpm.conf':
     ensure => present,
     source => 'puppet:///modules/php/phpfarm/inst/php-5.2.17/etc/php-fpm.conf',
     mode => 644,
-    require => Bash_exec['/phpfarm/src/main.sh 5.2.17']
+    require => Bash_exec['/usr/local/bin/phpfarm/src/main.sh 5.2.17']
   }
 
   bash_exec { 'switch-phpfarm 5.2.17':
-    require => Bash_exec['/phpfarm/src/main.sh 5.2.17']
+    require => Bash_exec['/usr/local/bin/phpfarm/src/main.sh 5.2.17']
   }
 }
