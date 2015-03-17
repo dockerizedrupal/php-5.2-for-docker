@@ -1,5 +1,5 @@
 class php::drush {
-  if $rupal_version == '6' {
+  if $drupal_version == '6' {
     file { '/usr/local/bin/drush':
       ensure => link,
       target => '/usr/local/src/drush5/drush'
