@@ -1,6 +1,4 @@
 class php::phpcs::phpcompatibility {
-  require php::phpcs
-
   file { '/tmp/PHPCompatibility-master.zip':
     ensure => present,
     source => 'puppet:///modules/php/tmp/PHPCompatibility-master.zip'
