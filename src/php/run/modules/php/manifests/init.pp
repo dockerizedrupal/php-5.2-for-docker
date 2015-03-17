@@ -77,7 +77,7 @@ class php {
   include php::drush
   include php::coder
 
-  file { '/usr/local/bin/phpfarm/inst/php-5.2.17/lib/php.ini':
+  file { '/usr/local/src/phpfarm/inst/php-5.2.17/lib/php.ini':
     ensure => present,
     content => template('php/php.ini.erb')
   }

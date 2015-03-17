@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-export PATH="/usr/local/bin/phpfarm/inst/bin:/usr/local/bin/phpfarm/inst/current/bin:/usr/local/bin/phpfarm/inst/current/sbin:${PATH}"
+export PATH="/usr/local/src/phpfarm/inst/bin:/usr/local/src/phpfarm/inst/current/bin:/usr/local/src/phpfarm/inst/current/sbin:${PATH}"

@@ -539,7 +539,7 @@ doc_root =
 user_dir =
 
 ; Directory in which the loadable extensions (modules) reside.
-extension_dir = "/usr/local/bin/phpfarm/inst/php-5.2.17/lib/php/extensions/no-debug-non-zts-20060613/"
+extension_dir = "/usr/local/src/phpfarm/inst/php-5.2.17/lib/php/extensions/no-debug-non-zts-20060613/"
 
 ; Whether or not to enable the dl() function.  The dl() function does NOT work
 ; properly in multithreaded servers, such as IIS or Zeus, and is automatically
@@ -1342,7 +1342,7 @@ extension = igbinary.so
 
 <% if @php_extension_opcache_enable == "yes" %>
 [opcache]
-zend_extension = /usr/local/bin/phpfarm/inst/php-5.2.17/lib/php/extensions/no-debug-non-zts-20060613/opcache.so
+zend_extension = /usr/local/src/phpfarm/inst/php-5.2.17/lib/php/extensions/no-debug-non-zts-20060613/opcache.so
 
 opcache.enable = 1
 opcache.enable_cli = 1
@@ -1357,7 +1357,7 @@ opcache.fast_shutdown = 1
 
 <% if @php_extension_xdebug_enable == "yes" %>
 [xdebug]
-zend_extension = /usr/local/bin/phpfarm/inst/php-5.2.17/lib/php/extensions/no-debug-non-zts-20060613/xdebug.so
+zend_extension = /usr/local/src/phpfarm/inst/php-5.2.17/lib/php/extensions/no-debug-non-zts-20060613/xdebug.so
 
 xdebug.remote_enable = On
 xdebug.remote_port = 9000
@@ -1395,5 +1395,5 @@ apc.rfc1867 = 1
 
 <% if @php_extension_apd_enable == "yes" %>
 [apd]
-zend_extension = /usr/local/bin/phpfarm/inst/php-5.2.17/lib/php/extensions/no-debug-non-zts-20060613/apd.so
+zend_extension = /usr/local/src/phpfarm/inst/php-5.2.17/lib/php/extensions/no-debug-non-zts-20060613/apd.so
 <% end %>
