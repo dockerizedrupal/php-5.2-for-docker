@@ -2,6 +2,22 @@
 
 WORKING_DIR="$(pwd)"
 
+hash docker 2> /dev/null
+
+if [ "${?}" -ne 0 ]; then
+  echo "drush: docker command not found."
+
+  exit 1
+fi
+
+hash fig 2> /dev/null
+
+if [ "${?}" -ne 0 ]; then
+  echo "drush: fig command not found."
+
+  exit 1
+fi
+
 DRUPAL_ROOT_DIRECTORY="/httpd/data"
 
 ARGS="${@}"
@@ -9,13 +25,13 @@ ARGS="${@}"
 php_container_exists() {
   local DRUPAL_ROOT="${1}"
 
-  echo "$(cd ${DRUPAL_ROOT} && sudo fig ps php 2> /dev/null | grep _php_ | awk '{ print $1 }')"
+  echo "$(cd ${DRUPAL_ROOT} && fig ps php 2> /dev/null | grep _php_ | awk '{ print $1 }')"
 }
 
 php_container_running() {
   local CONTAINER="${1}"
 
-  echo "$(sudo docker exec ${CONTAINER} date 2> /dev/null)"
+  echo "$(docker exec ${CONTAINER} date 2> /dev/null)"
 }
 
 fig_file_path() {
@@ -39,7 +55,7 @@ drupal_8_fig_template() {
 
   cat <<EOF
 httpd:
-  image: simpledrupalcloud/httpd:latest
+  image: viljaste/httpd:latest
   hostname: httpd
   ports:
     - "80"
@@ -51,22 +67,22 @@ httpd:
   environment:
     - VHOST=${PROJECT_NAME}
 httpdata:
-  image: simpledrupalcloud/data:latest
+  image: viljaste/data:latest
   hostname: httpdata
   volumes:
     - .:/httpd/data
 mysqld:
-  image: simpledrupalcloud/mysqld:latest
+  image: viljaste/mysqld:latest
   hostname: mysqld
   volumes_from:
     - mysqlddata
 mysqlddata:
-  image: simpledrupalcloud/data:latest
+  image: viljaste/data:latest
   hostname: mysqlddata
   volumes:
     - /mysqld
 php:
-  image: simpledrupalcloud/php:5.4
+  image: viljaste/php:5.4
   hostname: php
   volumes:
     - ~/.ssh:/root/.ssh
@@ -77,16 +93,16 @@ php:
     - mailcatcher:smtp
     - memcached
   environment:
-    - DRUSH_VERSION=7
+    - DRUPAL_VERSION=8
 mailcatcher:
-  image: simpledrupalcloud/mailcatcher:latest
+  image: viljaste/mailcatcher:latest
   hostname: mailcatcher
   ports:
     - "80"
   environment:
     - VHOST=${PROJECT_NAME}
 phpmyadmin:
-  image: simpledrupalcloud/phpmyadmin:latest
+  image: viljaste/phpmyadmin:latest
   hostname: phpmyadmin
   ports:
     - "80"
@@ -96,7 +112,7 @@ phpmyadmin:
   environment:
     - VHOST=${PROJECT_NAME}
 adminer:
-  image: simpledrupalcloud/adminer:latest
+  image: viljaste/adminer:latest
   hostname: adminer
   ports:
     - "80"
@@ -106,14 +122,14 @@ adminer:
   environment:
     - VHOST=${PROJECT_NAME}
 memcached:
-  image: simpledrupalcloud/memcached:latest
+  image: viljaste/memcached:latest
   hostname: memcached
   environment:
     - CACHESIZE=512
     - MAX_ITEM_SIZE=16m
     - VERBOSITY=vvv
 memcachephp:
-  image: simpledrupalcloud/memcachephp:latest
+  image: viljaste/memcachephp:latest
   hostname: memcachephp
   ports:
     - "80"
@@ -148,7 +164,7 @@ drupal_7_fig_template() {
 
   cat <<EOF
 httpd:
-  image: simpledrupalcloud/httpd:latest
+  image: viljaste/httpd:latest
   hostname: httpd
   ports:
     - "80"
@@ -160,22 +176,22 @@ httpd:
   environment:
     - VHOST=${PROJECT_NAME}
 httpdata:
-  image: simpledrupalcloud/data:latest
+  image: viljaste/data:latest
   hostname: httpdata
   volumes:
     - .:/httpd/data
 mysqld:
-  image: simpledrupalcloud/mysqld:latest
+  image: viljaste/mysqld:latest
   hostname: mysqld
   volumes_from:
     - mysqlddata
 mysqlddata:
-  image: simpledrupalcloud/data:latest
+  image: viljaste/data:latest
   hostname: mysqlddata
   volumes:
     - /mysqld
 php:
-  image: simpledrupalcloud/php:5.3
+  image: viljaste/php:5.3
   hostname: php
   volumes:
     - ~/.ssh:/root/.ssh
@@ -186,16 +202,16 @@ php:
     - mailcatcher:smtp
     - memcached
   environment:
-    - DRUSH_VERSION=6
+    - DRUPAL_VERSION=7
 mailcatcher:
-  image: simpledrupalcloud/mailcatcher:latest
+  image: viljaste/mailcatcher:latest
   hostname: mailcatcher
   ports:
     - "80"
   environment:
     - VHOST=${PROJECT_NAME}
 phpmyadmin:
-  image: simpledrupalcloud/phpmyadmin:latest
+  image: viljaste/phpmyadmin:latest
   hostname: phpmyadmin
   ports:
     - "80"
@@ -205,7 +221,7 @@ phpmyadmin:
   environment:
     - VHOST=${PROJECT_NAME}
 adminer:
-  image: simpledrupalcloud/adminer:latest
+  image: viljaste/adminer:latest
   hostname: adminer
   ports:
     - "80"
@@ -215,14 +231,14 @@ adminer:
   environment:
     - VHOST=${PROJECT_NAME}
 memcached:
-  image: simpledrupalcloud/memcached:latest
+  image: viljaste/memcached:latest
   hostname: memcached
   environment:
     - CACHESIZE=512
     - MAX_ITEM_SIZE=16m
     - VERBOSITY=vvv
 memcachephp:
-  image: simpledrupalcloud/memcachephp:latest
+  image: viljaste/memcachephp:latest
   hostname: memcachephp
   ports:
     - "80"
@@ -257,7 +273,7 @@ drupal_6_fig_template() {
 
   cat <<EOF
 httpd:
-  image: simpledrupalcloud/httpd:latest
+  image: viljaste/httpd:latest
   hostname: httpd
   ports:
     - "80"
@@ -269,22 +285,22 @@ httpd:
   environment:
     - VHOST=${PROJECT_NAME}
 httpdata:
-  image: simpledrupalcloud/data:latest
+  image: viljaste/data:latest
   hostname: httpdata
   volumes:
     - .:/httpd/data
 mysqld:
-  image: simpledrupalcloud/mysqld:latest
+  image: viljaste/mysqld:latest
   hostname: mysqld
   volumes_from:
     - mysqlddata
 mysqlddata:
-  image: simpledrupalcloud/data:latest
+  image: viljaste/data:latest
   hostname: mysqlddata
   volumes:
     - /mysqld
 php:
-  image: simpledrupalcloud/php:5.2
+  image: viljaste/php:5.2
   hostname: php
   volumes:
     - ~/.ssh:/root/.ssh
@@ -295,16 +311,16 @@ php:
     - mailcatcher:smtp
     - memcached
   environment:
-    - DRUSH_VERSION=5
+    - DRUPAL_VERSION=6
 mailcatcher:
-  image: simpledrupalcloud/mailcatcher:latest
+  image: viljaste/mailcatcher:latest
   hostname: mailcatcher
   ports:
     - "80"
   environment:
     - VHOST=${PROJECT_NAME}
 phpmyadmin:
-  image: simpledrupalcloud/phpmyadmin:latest
+  image: viljaste/phpmyadmin:latest
   hostname: phpmyadmin
   ports:
     - "80"
@@ -314,7 +330,7 @@ phpmyadmin:
   environment:
     - VHOST=${PROJECT_NAME}
 adminer:
-  image: simpledrupalcloud/adminer:latest
+  image: viljaste/adminer:latest
   hostname: adminer
   ports:
     - "80"
@@ -324,14 +340,14 @@ adminer:
   environment:
     - VHOST=${PROJECT_NAME}
 memcached:
-  image: simpledrupalcloud/memcached:latest
+  image: viljaste/memcached:latest
   hostname: memcached
   environment:
     - CACHESIZE=512
     - MAX_ITEM_SIZE=16m
     - VERBOSITY=vvv
 memcachephp:
-  image: simpledrupalcloud/memcachephp:latest
+  image: viljaste/memcachephp:latest
   hostname: memcachephp
   ports:
     - "80"
@@ -371,7 +387,7 @@ if [ -z "${DRUPAL_ROOT}" ]; then
 
     echo -n "$(drupal_8_fig_template ${PROJECT_NAME})" > "${DRUPAL_ROOT}/fig.yml"
 
-    sudo chown -R "${SUDO_USER}".www-data "${DRUPAL_ROOT}/fig.yml"
+    chown -R "${SUDO_USER}".www-data "${DRUPAL_ROOT}/fig.yml"
   else
     DRUPAL_ROOT="$(drupal_7_path)"
 
@@ -380,7 +396,7 @@ if [ -z "${DRUPAL_ROOT}" ]; then
 
       echo -n "$(drupal_7_fig_template ${PROJECT_NAME})" > "${DRUPAL_ROOT}/fig.yml"
 
-      sudo chown -R "${SUDO_USER}".www-data "${DRUPAL_ROOT}/fig.yml"
+      chown -R "${SUDO_USER}".www-data "${DRUPAL_ROOT}/fig.yml"
     else
       DRUPAL_ROOT="$(drupal_6_path)"
 
@@ -389,7 +405,7 @@ if [ -z "${DRUPAL_ROOT}" ]; then
 
         echo -n "$(drupal_6_fig_template ${PROJECT_NAME})" > "${DRUPAL_ROOT}/fig.yml"
 
-        sudo chown -R "${SUDO_USER}".www-data "${DRUPAL_ROOT}/fig.yml"
+        chown -R "${SUDO_USER}".www-data "${DRUPAL_ROOT}/fig.yml"
       else
         echo "Drupal installation path could not be found."
 
@@ -410,7 +426,7 @@ if [ -z "${CONTAINER}" ]; then
 
   cd "${DRUPAL_ROOT}"
 
-  sudo fig up -d
+  fig up -d
 
   cd "${WORKING_DIR}"
 
@@ -424,7 +440,7 @@ elif [ -z "$(php_container_running ${CONTAINER})" ]; then
 
   cd "${DRUPAL_ROOT}"
 
-  sudo fig up -d
+  fig up -d
 
   cd "${WORKING_DIR}"
 fi
@@ -438,10 +454,10 @@ fi
 DRUPAL_WORKING_DIRECTORY="${DRUPAL_ROOT_DIRECTORY}/${RELATIVE_PATH}"
 
 if [ -t 0 ]; then
-  sudo docker exec -i -t "${CONTAINER}" /bin/bash -lc "cd ${DRUPAL_WORKING_DIRECTORY} && drush ${ARGS}"
+  docker exec -i -t "${CONTAINER}" /bin/bash -lc "cd ${DRUPAL_WORKING_DIRECTORY} && drush ${ARGS}"
 else
-  sudo docker exec -i "${CONTAINER}" /bin/bash -lc "cd ${DRUPAL_WORKING_DIRECTORY} && drush ${ARGS}"
+  docker exec -i "${CONTAINER}" /bin/bash -lc "cd ${DRUPAL_WORKING_DIRECTORY} && drush ${ARGS}"
 fi
 
-sudo chown -R "${SUDO_USER}".www-data "${DRUPAL_ROOT}"
-sudo chmod -R u+w "${DRUPAL_ROOT}"
+chown -R "${SUDO_USER}".www-data "${DRUPAL_ROOT}"
+chmod -R u+w "${DRUPAL_ROOT}"

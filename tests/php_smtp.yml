@@ -1,0 +1,5 @@
+php:
+  image: viljaste/php:5.2-dev
+  hostname: php
+  environment:
+    - SMTP_PORT=tcp://127.0.0.1:31337

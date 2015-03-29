@@ -11,7 +11,7 @@ Using the `docker` command:
       -h "${CONTAINER}" \
       -p 9000:9000 \
       -d \
-      simpledrupalcloud/php:5.2
+      viljaste/php:5.2
       
 Using the `fig` command
 
@@ -27,7 +27,7 @@ Using the `fig` command
       && git clone http://git.simpledrupalcloud.com/simpledrupalcloud/docker-php.git "${TMP}" \
       && cd "${TMP}" \
       && git checkout 5.2 \
-      && sudo docker build -t simpledrupalcloud/php:5.2 . \
+      && sudo docker build -t viljaste/php:5.2 . \
       && cd -
 
 ## Apache directives

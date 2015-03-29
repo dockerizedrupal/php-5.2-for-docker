@@ -1,14 +1,14 @@
-FROM simpledrupalcloud/base:latest
+FROM viljaste/base:latest
 
-MAINTAINER Simple Drupal Cloud <support@simpledrupalcloud.com>
+MAINTAINER Jürgen Viljaste <j.viljaste@gmail.com>
 
 ENV TERM xterm
 ENV DEBIAN_FRONTEND noninteractive
 
 ADD ./src /src
 
-RUN /src/php.sh build
+RUN /src/entrypoint.sh build
 
 EXPOSE 9000
 
-CMD ["/src/php.sh", "run"]
+CMD ["/src/entrypoint.sh", "run"]
