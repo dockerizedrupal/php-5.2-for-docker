@@ -379,6 +379,54 @@ drupal_6_path() {
 
 DRUPAL_ROOT="$(fig_file_path)"
 
+if [ -n "${DRUPAL_ROOT}" ]; then
+  STATUS=$(cat "${DRUPAL_ROOT}/fig.yml" | grep 'simpledrupalcloud' > /dev/null 2>&1 || echo "${?}")
+
+  if [[ "${STATUS}" -eq 0 ]]; then
+    read -p "The contents of Fig file is outdated. Would you like to generate a new Fig file? [Y/n]: " ANSWER
+
+    if [ "${ANSWER}" = "n" ]; then
+      exit
+    fi
+
+    rm -f "${DRUPAL_ROOT}/fig.yml"
+  fi
+fi
+
+DRUPAL_ROOT="$(fig_file_path)"
+
+if [ -n "${DRUPAL_ROOT}" ]; then
+  STATUS=$(cat "${DRUPAL_ROOT}/fig.yml" | grep '/mysqld/data' > /dev/null 2>&1 || echo "${?}")
+
+  if [[ "${STATUS}" -eq 0 ]]; then
+    read -p "The contents of Fig file is outdated. Would you like to generate a new Fig file? [Y/n]: " ANSWER
+
+    if [ "${ANSWER}" = "n" ]; then
+      exit
+    fi
+
+    rm -f "${DRUPAL_ROOT}/fig.yml"
+  fi
+fi
+
+DRUPAL_ROOT="$(fig_file_path)"
+
+if [ -n "${DRUPAL_ROOT}" ]; then
+  STATUS=$(cat "${DRUPAL_ROOT}/fig.yml" | grep 'DRUSH_VERSION' > /dev/null 2>&1 || echo "${?}")
+
+  if [[ "${STATUS}" -eq 0 ]]; then
+    read -p "The contents of Fig file is outdated. Would you like to generate a new Fig file? [Y/n]: " ANSWER
+
+    if [ "${ANSWER}" = "n" ]; then
+      exit
+    fi
+
+    rm -f "${DRUPAL_ROOT}/fig.yml"
+  fi
+fi
+
+DRUPAL_ROOT="$(fig_file_path)"
+
 if [ -z "${DRUPAL_ROOT}" ]; then
   DRUPAL_ROOT="$(drupal_8_path)"
 
