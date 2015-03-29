@@ -1,6 +1,6 @@
-FROM simpledrupalcloud/base:dev
+FROM viljaste/base:dev
 
-MAINTAINER Simple Drupal Cloud <support@simpledrupalcloud.com>
+MAINTAINER Jürgen Viljaste <j.viljaste@gmail.com>
 
 ENV TERM xterm
 ENV DEBIAN_FRONTEND noninteractive

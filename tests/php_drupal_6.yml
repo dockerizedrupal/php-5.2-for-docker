@@ -1,5 +1,5 @@
 httpd:
-  image: simpledrupalcloud/httpd:dev
+  image: viljaste/httpd:dev
   hostname: httpd
   ports:
     - "80"
@@ -9,22 +9,22 @@ httpd:
   links:
     - php
 httpdata:
-  image: simpledrupalcloud/data:dev
+  image: viljaste/data:dev
   hostname: httpdata
   volumes:
     - /httpd
 mysqld:
-  image: simpledrupalcloud/mysqld:dev
+  image: viljaste/mysqld:dev
   hostname: mysqld
   volumes_from:
     - mysqlddata
 mysqlddata:
-  image: simpledrupalcloud/data:dev
+  image: viljaste/data:dev
   hostname: mysqlddata
   volumes:
     - /mysqld
 php:
-  image: simpledrupalcloud/php:5.2-dev
+  image: viljaste/php:5.2-dev
   hostname: php
   volumes_from:
     - httpdata

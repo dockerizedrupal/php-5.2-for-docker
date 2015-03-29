@@ -55,7 +55,7 @@ drupal_8_fig_template() {
 
   cat <<EOF
 httpd:
-  image: simpledrupalcloud/httpd:latest
+  image: viljaste/httpd:latest
   hostname: httpd
   ports:
     - "80"
@@ -67,22 +67,22 @@ httpd:
   environment:
     - VHOST=${PROJECT_NAME}
 httpdata:
-  image: simpledrupalcloud/data:latest
+  image: viljaste/data:latest
   hostname: httpdata
   volumes:
     - .:/httpd/data
 mysqld:
-  image: simpledrupalcloud/mysqld:latest
+  image: viljaste/mysqld:latest
   hostname: mysqld
   volumes_from:
     - mysqlddata
 mysqlddata:
-  image: simpledrupalcloud/data:latest
+  image: viljaste/data:latest
   hostname: mysqlddata
   volumes:
     - /mysqld
 php:
-  image: simpledrupalcloud/php:5.4
+  image: viljaste/php:5.4
   hostname: php
   volumes:
     - ~/.ssh:/root/.ssh
@@ -95,14 +95,14 @@ php:
   environment:
     - DRUPAL_VERSION=8
 mailcatcher:
-  image: simpledrupalcloud/mailcatcher:latest
+  image: viljaste/mailcatcher:latest
   hostname: mailcatcher
   ports:
     - "80"
   environment:
     - VHOST=${PROJECT_NAME}
 phpmyadmin:
-  image: simpledrupalcloud/phpmyadmin:latest
+  image: viljaste/phpmyadmin:latest
   hostname: phpmyadmin
   ports:
     - "80"
@@ -112,7 +112,7 @@ phpmyadmin:
   environment:
     - VHOST=${PROJECT_NAME}
 adminer:
-  image: simpledrupalcloud/adminer:latest
+  image: viljaste/adminer:latest
   hostname: adminer
   ports:
     - "80"
@@ -122,14 +122,14 @@ adminer:
   environment:
     - VHOST=${PROJECT_NAME}
 memcached:
-  image: simpledrupalcloud/memcached:latest
+  image: viljaste/memcached:latest
   hostname: memcached
   environment:
     - CACHESIZE=512
     - MAX_ITEM_SIZE=16m
     - VERBOSITY=vvv
 memcachephp:
-  image: simpledrupalcloud/memcachephp:latest
+  image: viljaste/memcachephp:latest
   hostname: memcachephp
   ports:
     - "80"
@@ -164,7 +164,7 @@ drupal_7_fig_template() {
 
   cat <<EOF
 httpd:
-  image: simpledrupalcloud/httpd:latest
+  image: viljaste/httpd:latest
   hostname: httpd
   ports:
     - "80"
@@ -176,22 +176,22 @@ httpd:
   environment:
     - VHOST=${PROJECT_NAME}
 httpdata:
-  image: simpledrupalcloud/data:latest
+  image: viljaste/data:latest
   hostname: httpdata
   volumes:
     - .:/httpd/data
 mysqld:
-  image: simpledrupalcloud/mysqld:latest
+  image: viljaste/mysqld:latest
   hostname: mysqld
   volumes_from:
     - mysqlddata
 mysqlddata:
-  image: simpledrupalcloud/data:latest
+  image: viljaste/data:latest
   hostname: mysqlddata
   volumes:
     - /mysqld
 php:
-  image: simpledrupalcloud/php:5.3
+  image: viljaste/php:5.3
   hostname: php
   volumes:
     - ~/.ssh:/root/.ssh
@@ -204,14 +204,14 @@ php:
   environment:
     - DRUPAL_VERSION=7
 mailcatcher:
-  image: simpledrupalcloud/mailcatcher:latest
+  image: viljaste/mailcatcher:latest
   hostname: mailcatcher
   ports:
     - "80"
   environment:
     - VHOST=${PROJECT_NAME}
 phpmyadmin:
-  image: simpledrupalcloud/phpmyadmin:latest
+  image: viljaste/phpmyadmin:latest
   hostname: phpmyadmin
   ports:
     - "80"
@@ -221,7 +221,7 @@ phpmyadmin:
   environment:
     - VHOST=${PROJECT_NAME}
 adminer:
-  image: simpledrupalcloud/adminer:latest
+  image: viljaste/adminer:latest
   hostname: adminer
   ports:
     - "80"
@@ -231,14 +231,14 @@ adminer:
   environment:
     - VHOST=${PROJECT_NAME}
 memcached:
-  image: simpledrupalcloud/memcached:latest
+  image: viljaste/memcached:latest
   hostname: memcached
   environment:
     - CACHESIZE=512
     - MAX_ITEM_SIZE=16m
     - VERBOSITY=vvv
 memcachephp:
-  image: simpledrupalcloud/memcachephp:latest
+  image: viljaste/memcachephp:latest
   hostname: memcachephp
   ports:
     - "80"
@@ -273,7 +273,7 @@ drupal_6_fig_template() {
 
   cat <<EOF
 httpd:
-  image: simpledrupalcloud/httpd:latest
+  image: viljaste/httpd:latest
   hostname: httpd
   ports:
     - "80"
@@ -285,22 +285,22 @@ httpd:
   environment:
     - VHOST=${PROJECT_NAME}
 httpdata:
-  image: simpledrupalcloud/data:latest
+  image: viljaste/data:latest
   hostname: httpdata
   volumes:
     - .:/httpd/data
 mysqld:
-  image: simpledrupalcloud/mysqld:latest
+  image: viljaste/mysqld:latest
   hostname: mysqld
   volumes_from:
     - mysqlddata
 mysqlddata:
-  image: simpledrupalcloud/data:latest
+  image: viljaste/data:latest
   hostname: mysqlddata
   volumes:
     - /mysqld
 php:
-  image: simpledrupalcloud/php:5.2
+  image: viljaste/php:5.2
   hostname: php
   volumes:
     - ~/.ssh:/root/.ssh
@@ -313,14 +313,14 @@ php:
   environment:
     - DRUPAL_VERSION=6
 mailcatcher:
-  image: simpledrupalcloud/mailcatcher:latest
+  image: viljaste/mailcatcher:latest
   hostname: mailcatcher
   ports:
     - "80"
   environment:
     - VHOST=${PROJECT_NAME}
 phpmyadmin:
-  image: simpledrupalcloud/phpmyadmin:latest
+  image: viljaste/phpmyadmin:latest
   hostname: phpmyadmin
   ports:
     - "80"
@@ -330,7 +330,7 @@ phpmyadmin:
   environment:
     - VHOST=${PROJECT_NAME}
 adminer:
-  image: simpledrupalcloud/adminer:latest
+  image: viljaste/adminer:latest
   hostname: adminer
   ports:
     - "80"
@@ -340,14 +340,14 @@ adminer:
   environment:
     - VHOST=${PROJECT_NAME}
 memcached:
-  image: simpledrupalcloud/memcached:latest
+  image: viljaste/memcached:latest
   hostname: memcached
   environment:
     - CACHESIZE=512
     - MAX_ITEM_SIZE=16m
     - VERBOSITY=vvv
 memcachephp:
-  image: simpledrupalcloud/memcachephp:latest
+  image: viljaste/memcachephp:latest
   hostname: memcachephp
   ports:
     - "80"
