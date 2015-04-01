@@ -1,5 +1,5 @@
 php:
-  image: viljaste/php:5.3-dev
+  image: viljaste/php:5.2-dev
   hostname: php
   environment:
     - FREETDS_1_SERVER_NAME=server-name-1
