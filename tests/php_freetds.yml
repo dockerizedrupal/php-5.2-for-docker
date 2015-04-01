@@ -1,0 +1,16 @@
+php:
+  image: viljaste/php:5.3-dev
+  hostname: php
+  environment:
+    - FREETDS_1_SERVER_NAME=server-name-1
+    - FREETDS_1_HOST=host-1
+    - FREETDS_1_PORT=port-1
+    - FREETDS_1_TDS_VERSION=tds-version-1
+    - FREETDS_2_SERVER_NAME=server-name-2
+    - FREETDS_2_HOST=host-2
+    - FREETDS_2_PORT=port-2
+    - FREETDS_2_TDS_VERSION=tds-version-2
+    - FREETDS_3_SERVER_NAME=server-name-3
+    - FREETDS_3_HOST=host-3
+    - FREETDS_3_PORT=port-3
+    - FREETDS_3_TDS_VERSION=tds-version-3
