@@ -13,13 +13,13 @@ Using the `docker` command:
       -d \
       viljaste/php:5.2
       
-Using the `fig` command
+Using the `docker-compose` command
 
     TMP="$(mktemp -d)" \
       && git clone http://git.simpledrupalcloud.com/simpledrupalcloud/docker-php.git "${TMP}" \
       && cd "${TMP}" \
       && git checkout 5.2 \
-      && sudo fig up
+      && sudo docker-compose up
 
 ## Build the image
 
