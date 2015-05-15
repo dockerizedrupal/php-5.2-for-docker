@@ -12,7 +12,7 @@ class php::packages {
       'libmysqlclient-dev',
       'libpspell-dev',
       'autoconf',
-      'libcloog-ppl0',
+      'libcloog-ppl1',
       'libsasl2-dev',
       'libldap2-dev'
     ]:
