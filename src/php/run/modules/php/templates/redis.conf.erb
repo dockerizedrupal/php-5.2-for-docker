@@ -2,3 +2,6 @@
 command = /usr/bin/socat TCP-LISTEN:6379,fork TCP:<%= @redis_host %>:<%= @redis_port %>
 autostart = true
 autorestart = true
+stdout_logfile = /dev/stdout
+stdout_logfile_maxbytes = 0
+redirect_stderr = true
