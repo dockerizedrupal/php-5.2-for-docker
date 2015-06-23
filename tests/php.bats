@@ -24,42 +24,6 @@ teardown() {
   [[ "${output}" == *"PHP 5.2"* ]]
 }
 
-@test "php: extension: xdebug" {
-  run docker exec "$(container)" /bin/su - root -mc "php -m | grep 'Xdebug'"
-
-  [ "${status}" -eq 0 ]
-}
-
-@test "php: extension: opcache" {
-  run docker exec "$(container)" /bin/su - root -mc "php -m | grep 'Zend OPcache'"
-
-  [ "${status}" -eq 0 ]
-}
-
-@test "php: extension: apd" {
-  run docker exec "$(container)" /bin/su - root -mc "php -m | grep 'Advanced PHP Debugger (APD)'"
-
-  [ "${status}" -eq 0 ]
-}
-
-@test "php: extension: apcu" {
-  run docker exec "$(container)" /bin/su - root -mc "php -m | grep 'apcu'"
-
-  [ "${status}" -eq 0 ]
-}
-
-@test "php: extension: memcached" {
-  run docker exec "$(container)" /bin/su - root -mc "php -m | grep 'memcached'"
-
-  [ "${status}" -eq 0 ]
-}
-
-@test "php: extension: redis" {
-  run docker exec "$(container)" /bin/su - root -mc "php -m | grep 'redis'"
-
-  [ "${status}" -eq 0 ]
-}
-
 @test "php: extension: igbinary" {
   run docker exec "$(container)" /bin/su - root -mc "php -m | grep 'igbinary'"
 

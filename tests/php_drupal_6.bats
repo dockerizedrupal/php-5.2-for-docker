@@ -34,11 +34,11 @@ teardown() {
   [[ "${output}" == *"Successful"* ]]
 }
 
-@test "php: drupal 6: drush 5" {
+@test "php: drupal 6: drush 6" {
   run docker exec "$(container)" /bin/su - root -mc "drush --version"
 
   [ "${status}" -eq 0 ]
-  [[ "${output}" == *"5.11.0"* ]]
+  [[ "${output}" == *"6.5.0"* ]]
 }
 
 @test "php: drupal 6: phpcs" {

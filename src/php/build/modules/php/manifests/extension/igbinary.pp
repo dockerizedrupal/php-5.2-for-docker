@@ -28,4 +28,11 @@ class php::extension::igbinary {
     timeout => 0,
     require => Bash_exec['cd /tmp/igbinary-1.2.1 && make']
   }
+
+  file { '/usr/local/src/phpfarm/inst/current/etc/conf.d/igbinary.ini':
+    ensure => present,
+    source => 'puppet:///modules/php/usr/local/src/phpfarm/inst/current/etc/conf.d/igbinary.ini',
+    mode => 644,
+    require => Bash_exec['cd /tmp/igbinary-1.2.1 && make install']
+  }
 }

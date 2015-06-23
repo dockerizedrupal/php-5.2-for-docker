@@ -1,4 +1,4 @@
-FROM viljaste/base:latest
+FROM viljaste/base:debian-wheezy
 
 MAINTAINER Jürgen Viljaste <j.viljaste@gmail.com>
 
@@ -10,4 +10,4 @@ RUN /src/entrypoint.sh build
 
 EXPOSE 9000
 
-CMD ["/src/entrypoint.sh", "run"]
+ENTRYPOINT ["/src/entrypoint.sh", "run"]

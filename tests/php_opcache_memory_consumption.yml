@@ -1,0 +1,6 @@
+php:
+  image: viljaste/php:5.2
+  hostname: php
+  environment:
+    - OPCACHE=On
+    - OPCACHE_MEMORY_CONSUMPTION=4096

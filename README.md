@@ -2,6 +2,8 @@
 
 A [Docker](https://docker.com/) container for [PHP](http://php.net/) version 5.2 that runs PHP in FPM (FastCGI Process Manager) mode.
 
+Configuration, PHP extensions and other tools built into the image are primarily aimed for the developers that are using [Drupal](https://www.drupal.org/) as their primary development framework.
+
 ## Run the container
 
 Using the `docker` command:
@@ -10,6 +12,29 @@ Using the `docker` command:
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -p 9000:9000 \
+      -e SERVER_NAME="localhost" \
+      -e DRUPAL_VERSION="6" \
+      -e TIMEZONE="UTC" \
+      -e POST_MAX_SIZE="512M" \
+      -e UPLOAD_MAX_FILESIZE="512M" \
+      -e SHORT_OPEN_TAG="On" \
+      -e MAX_EXECUTION_TIME="300" \
+      -e MAX_INPUT_VARS="4096" \
+      -e MEMORY_LIMIT="512M" \
+      -e DISPLAY_ERRORS="On" \
+      -e DISPLAY_STARTUP_ERRORS="1" \
+      -e ERROR_REPORTING="E_ALL" \
+      -e OPCACHE="On" \
+      -e OPCACHE_MEMORY_CONSUMPTION="2048" \
+      -e XDEBUG="On" \
+      -e XDEBUG_REMOTE_PORT="9000" \
+      -e XDEBUG_REMOTE_HOST="127.0.0.1" \
+      -e XDEBUG_REMOTE_CONNECT_BACK="On" \
+      -e XDEBUG_IDEKEY="PHPSTORM" \
+      -e MEMCACHED="On" \
+      -e REDIS="On" \
+      -e APCU="On" \
+      -e APD="On" \
       -d \
       viljaste/php:5.2
       

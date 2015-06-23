@@ -1,20 +1,20 @@
 class php::phpfarm {
-  file { '/tmp/phpfarm-master.zip':
+  file { '/tmp/phpfarm-0.2.0.tar.gz':
     ensure => present,
-    source => 'puppet:///modules/php/tmp/phpfarm-master.zip'
+    source => 'puppet:///modules/php/tmp/phpfarm-0.2.0.tar.gz'
   }
 
-  bash_exec { 'cd /tmp && unzip phpfarm-master.zip':
-    require => File['/tmp/phpfarm-master.zip']
+  bash_exec { 'cd /tmp && tar xzf phpfarm-0.2.0.tar.gz':
+    require => File['/tmp/phpfarm-0.2.0.tar.gz']
   }
 
-  bash_exec { 'mv /tmp/phpfarm-master /usr/local/src/phpfarm':
-    require => Bash_exec['cd /tmp && unzip phpfarm-master.zip']
+  bash_exec { 'mv /tmp/phpfarm-0.2.0 /usr/local/src/phpfarm':
+    require => Bash_exec['cd /tmp && tar xzf phpfarm-0.2.0.tar.gz']
   }
 
   file { '/usr/local/src/phpfarm/custom':
     ensure => directory,
-    require => Bash_exec['mv /tmp/phpfarm-master /usr/local/src/phpfarm']
+    require => Bash_exec['mv /tmp/phpfarm-0.2.0 /usr/local/src/phpfarm']
   }
 
   file { '/etc/profile.d/phpfarm.sh':

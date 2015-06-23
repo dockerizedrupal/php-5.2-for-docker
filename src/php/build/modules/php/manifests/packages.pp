@@ -12,9 +12,10 @@ class php::packages {
       'libmysqlclient-dev',
       'libpspell-dev',
       'autoconf',
-      'libcloog-ppl1',
+      'libcloog-ppl0',
       'libsasl2-dev',
-      'libldap2-dev'
+      'libldap2-dev',
+      'pkg-config'
     ]:
     ensure => present
   }
