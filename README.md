@@ -14,8 +14,10 @@ Using the `docker` command:
       -p 9000:9000 \
       -e SERVER_NAME="localhost" \
       -e DRUPAL_VERSION="6" \
-      -e TIMEZONE="UTC" \
+      -e REALPATH_CACHE_SIZE="256k" \
+      -e REALPATH_CACHE_TTL="3600" \
       -e POST_MAX_SIZE="512M" \
+      -e TIMEZONE="UTC" \
       -e UPLOAD_MAX_FILESIZE="512M" \
       -e SHORT_OPEN_TAG="On" \
       -e MAX_EXECUTION_TIME="300" \

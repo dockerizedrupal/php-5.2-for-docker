@@ -4,6 +4,8 @@ class php {
   include php::coder
   include php::phpcs
 
+  include php::realpath_cache_size
+  include php::realpath_cache_ttl
   include php::timezone
   include php::post_max_size
   include php::upload_max_filesize

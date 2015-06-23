@@ -6,6 +6,8 @@ php:
   environment:
     - SERVER_NAME=localhost
     - DRUPAL_VERSION=6
+    - REALPATH_CACHE_SIZE=256k
+    - REALPATH_CACHE_TTL=3600
     - POST_MAX_SIZE=512M
     - TIMEZONE=UTC
     - UPLOAD_MAX_FILESIZE=512M
