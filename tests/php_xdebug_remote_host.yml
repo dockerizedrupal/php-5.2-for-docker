@@ -2,5 +2,5 @@ php:
   image: viljaste/php:5.2
   hostname: php
   environment:
-    - XDEBUG=On
-    - XDEBUG_REMOTE_HOST=192.168.1.1
+    - PHP_INI_XDEBUG=On
+    - PHP_INI_XDEBUG_REMOTE_HOST=192.168.1.1

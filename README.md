@@ -35,6 +35,7 @@ Using the `docker` command:
       -e XDEBUG_IDEKEY="PHPSTORM" \
       -e MEMCACHED="On" \
       -e REDIS="On" \
+      -e BLACKFIRE="On" \
       -e APCU="On" \
       -e APD="On" \
       -d \

@@ -2,4 +2,4 @@ php:
   image: viljaste/php:5.2
   hostname: php
   environment:
-    - OPCACHE=On
+    - PHP_INI_OPCACHE=On

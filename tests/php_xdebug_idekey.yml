@@ -2,5 +2,5 @@ php:
   image: viljaste/php:5.2
   hostname: php
   environment:
-    - XDEBUG=On
-    - XDEBUG_IDEKEY=PHPSTORM
+    - PHP_INI_XDEBUG=On
+    - PHP_INI_XDEBUG_IDEKEY=PHPSTORM

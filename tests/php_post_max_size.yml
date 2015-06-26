@@ -2,4 +2,4 @@ php:
   image: viljaste/php:5.2
   hostname: php
   environment:
-    - POST_MAX_SIZE=1024M
+    - PHP_INI_POST_MAX_SIZE=1024M

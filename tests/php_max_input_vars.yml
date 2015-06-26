@@ -2,4 +2,4 @@ php:
   image: viljaste/php:5.2
   hostname: php
   environment:
-    - MAX_INPUT_VARS=8192
+    - PHP_INI_MAX_INPUT_VARS=8192

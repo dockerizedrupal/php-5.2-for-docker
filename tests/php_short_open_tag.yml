@@ -2,4 +2,4 @@ php:
   image: viljaste/php:5.2
   hostname: php
   environment:
-    - SHORT_OPEN_TAG=On
+    - PHP_INI_SHORT_OPEN_TAG=On

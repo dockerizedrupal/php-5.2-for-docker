@@ -2,4 +2,4 @@ php:
   image: viljaste/php:5.2
   hostname: php
   environment:
-    - REALPATH_CACHE_SIZE=512k
+    - PHP_INI_REALPATH_CACHE_SIZE=512k

@@ -2,4 +2,4 @@ php:
   image: viljaste/php:5.2
   hostname: php
   environment:
-    - MEMORY_LIMIT=1024M
+    - PHP_INI_MEMORY_LIMIT=1024M

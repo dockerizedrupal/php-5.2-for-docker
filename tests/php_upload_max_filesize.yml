@@ -2,4 +2,4 @@ php:
   image: viljaste/php:5.2
   hostname: php
   environment:
-    - UPLOAD_MAX_FILESIZE=1024M
+    - PHP_INI_UPLOAD_MAX_FILESIZE=1024M

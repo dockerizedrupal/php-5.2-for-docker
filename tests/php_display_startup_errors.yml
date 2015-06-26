@@ -2,4 +2,4 @@ php:
   image: viljaste/php:5.2
   hostname: php
   environment:
-    - DISPLAY_STARTUP_ERRORS=On
+    - PHP_INI_DISPLAY_STARTUP_ERRORS=On

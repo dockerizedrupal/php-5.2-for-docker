@@ -2,5 +2,5 @@ php:
   image: viljaste/php:5.2
   hostname: php
   environment:
-    - XDEBUG=On
-    - XDEBUG_REMOTE_PORT=9001
+    - PHP_INI_XDEBUG=On
+    - PHP_INI_XDEBUG_REMOTE_PORT=9001

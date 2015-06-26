@@ -2,4 +2,4 @@ php:
   image: viljaste/php:5.2
   hostname: php
   environment:
-    - MAX_EXECUTION_TIME=600
+    - PHP_INI_MAX_EXECUTION_TIME=600

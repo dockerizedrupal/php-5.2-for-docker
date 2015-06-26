@@ -2,4 +2,4 @@ php:
   image: viljaste/php:5.2
   hostname: php
   environment:
-    - TIMEZONE=Europe/Tallinn
+    - PHP_INI_TIMEZONE=Europe/Tallinn

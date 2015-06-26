@@ -2,4 +2,4 @@ php:
   image: viljaste/php:5.2
   hostname: php
   environment:
-    - MEMCACHED=On
+    - PHP_INI_MEMCACHED=On

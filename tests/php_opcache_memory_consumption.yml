@@ -2,5 +2,5 @@ php:
   image: viljaste/php:5.2
   hostname: php
   environment:
-    - OPCACHE=On
-    - OPCACHE_MEMORY_CONSUMPTION=4096
+    - PHP_INI_OPCACHE=On
+    - PHP_INI_OPCACHE_MEMORY_CONSUMPTION=4096

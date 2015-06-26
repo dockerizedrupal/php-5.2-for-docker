@@ -10,7 +10,7 @@ setup_drupal() {
   docker exec "$(container)" /bin/su - root -mc "wget http://ftp.drupal.org/files/projects/drupal-6.34.tar.gz -O /tmp/drupal-6.34.tar.gz"
   docker exec "$(container)" /bin/su - root -mc "tar xzf /tmp/drupal-6.34.tar.gz -C /tmp"
   docker exec "$(container)" /bin/su - root -mc "rsync -avz /tmp/drupal-6.34/ /httpd/data"
-  docker exec "$(container)" /bin/su - root -mc "chown www-data.www-data /httpd/data"
+  docker exec "$(container)" /bin/su - root -mc "chown container.container /httpd/data"
   docker exec "$(container)" /bin/su - root -mc "drush -r /httpd/data -y site-install --db-url=mysqli://root:root@localhost/drupal --account-name=admin --account-pass=admin"
 }
 
