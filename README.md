@@ -39,8 +39,8 @@ Using the `docker` command:
       -e PHP_INI_REDIS="On" \
       -e PHP_INI_APCU="On" \
       -e PHP_INI_APD="On" \
-      -e USER_ID="0" \
-      -e GROUP_ID="0" \
+      -e USER_ID="" \
+      -e GROUP_ID="" \
       -d \
       viljaste/php:5.2
       

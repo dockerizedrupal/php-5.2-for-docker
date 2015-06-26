@@ -31,5 +31,5 @@ php:
     - PHP_INI_REDIS=On
     - PHP_INI_APCU=On
     - PHP_INI_APD=On
-    - USER_ID=0
-    - GROUP_ID=0
+    - USER_ID=
+    - GROUP_ID=
