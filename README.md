@@ -14,30 +14,33 @@ Using the `docker` command:
       -p 9000:9000 \
       -e SERVER_NAME="localhost" \
       -e DRUPAL_VERSION="6" \
-      -e REALPATH_CACHE_SIZE="256k" \
-      -e REALPATH_CACHE_TTL="3600" \
-      -e POST_MAX_SIZE="512M" \
-      -e TIMEZONE="UTC" \
-      -e UPLOAD_MAX_FILESIZE="512M" \
-      -e SHORT_OPEN_TAG="On" \
-      -e MAX_EXECUTION_TIME="300" \
-      -e MAX_INPUT_VARS="4096" \
-      -e MEMORY_LIMIT="512M" \
-      -e DISPLAY_ERRORS="On" \
-      -e DISPLAY_STARTUP_ERRORS="1" \
-      -e ERROR_REPORTING="E_ALL" \
-      -e OPCACHE="On" \
-      -e OPCACHE_MEMORY_CONSUMPTION="2048" \
-      -e XDEBUG="On" \
-      -e XDEBUG_REMOTE_PORT="9000" \
-      -e XDEBUG_REMOTE_HOST="127.0.0.1" \
-      -e XDEBUG_REMOTE_CONNECT_BACK="On" \
-      -e XDEBUG_IDEKEY="PHPSTORM" \
-      -e MEMCACHED="On" \
-      -e REDIS="On" \
-      -e BLACKFIRE="On" \
-      -e APCU="On" \
-      -e APD="On" \
+      -e PHP_INI_REALPATH_CACHE_SIZE="256k" \
+      -e PHP_INI_REALPATH_CACHE_TTL="3600" \
+      -e PHP_INI_POST_MAX_SIZE="512M" \
+      -e PHP_INI_TIMEZONE="UTC" \
+      -e PHP_INI_UPLOAD_MAX_FILESIZE="512M" \
+      -e PHP_INI_SHORT_OPEN_TAG="On" \
+      -e PHP_INI_MAX_EXECUTION_TIME="300" \
+      -e PHP_INI_MAX_INPUT_VARS="4096" \
+      -e PHP_INI_MEMORY_LIMIT="512M" \
+      -e PHP_INI_DISPLAY_ERRORS="On" \
+      -e PHP_INI_DISPLAY_STARTUP_ERRORS="On" \
+      -e PHP_INI_ERROR_REPORTING="E_ALL" \
+      -e PHP_INI_EXPOSE_PHP="On" \
+      -e PHP_INI_ALLOW_URL_FOPEN="On" \
+      -e PHP_INI_OPCACHE="On" \
+      -e PHP_INI_OPCACHE_MEMORY_CONSUMPTION="2048" \
+      -e PHP_INI_XDEBUG="On" \
+      -e PHP_INI_XDEBUG_REMOTE_PORT="9000" \
+      -e PHP_INI_XDEBUG_REMOTE_HOST="127.0.0.1" \
+      -e PHP_INI_XDEBUG_REMOTE_CONNECT_BACK="On" \
+      -e PHP_INI_XDEBUG_IDEKEY="PHPSTORM" \
+      -e PHP_INI_MEMCACHED="On" \
+      -e PHP_INI_REDIS="On" \
+      -e PHP_INI_APCU="On" \
+      -e PHP_INI_APD="On" \
+      -e USER_ID="0" \
+      -e GROUP_ID="0" \
       -d \
       viljaste/php:5.2
       
