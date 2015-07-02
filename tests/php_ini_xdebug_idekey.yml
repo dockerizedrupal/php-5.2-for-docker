@@ -1,0 +1,6 @@
+php:
+  image: viljaste/php:5.2
+  hostname: php
+  environment:
+    - PHP_INI_XDEBUG=On
+    - PHP_INI_XDEBUG_IDEKEY=MY_IDEKEY

@@ -1,5 +1,0 @@
-php:
-  image: viljaste/php:5.2
-  hostname: php
-  environment:
-    - PHP_INI_ERROR_REPORTING=E_ALL

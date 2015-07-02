@@ -194,6 +194,42 @@ fi
 
 export FACTER_PHP_INI_APD="${PHP_INI_APD}"
 
+if [ -z "${PHP_FPM_PM}" ]; then
+  PHP_FPM_PM="static"
+fi
+
+export FACTER_PHP_FPM_PM="${PHP_FPM_PM}"
+
+if [ -z "${PHP_FPM_PM_MAX_CHILDREN}" ]; then
+  PHP_FPM_PM_MAX_CHILDREN="5"
+fi
+
+export FACTER_PHP_FPM_PM_MAX_CHILDREN="${PHP_FPM_PM_MAX_CHILDREN}"
+
+if [ -z "${PHP_FPM_PM_START_SERVERS}" ]; then
+  PHP_FPM_PM_START_SERVERS="20"
+fi
+
+export FACTER_PHP_FPM_PM_START_SERVERS="${PHP_FPM_PM_START_SERVERS}"
+
+if [ -z "${PHP_FPM_PM_MIN_SPARE_SERVERS}" ]; then
+  PHP_FPM_PM_MIN_SPARE_SERVERS="5"
+fi
+
+export FACTER_PHP_FPM_PM_MIN_SPARE_SERVERS="${PHP_FPM_PM_MIN_SPARE_SERVERS}"
+
+if [ -z "${PHP_FPM_PM_MAX_SPARE_SERVERS}" ]; then
+  PHP_FPM_PM_MAX_SPARE_SERVERS="35"
+fi
+
+export FACTER_PHP_FPM_PM_MAX_SPARE_SERVERS="${PHP_FPM_PM_MAX_SPARE_SERVERS}"
+
+if [ -z "${PHP_FPM_PM_MAX_REQUESTS}" ]; then
+  PHP_FPM_PM_MAX_REQUESTS="500"
+fi
+
+export FACTER_PHP_FPM_PM_MAX_REQUESTS="${PHP_FPM_PM_MAX_REQUESTS}"
+
 for VARIABLE in $(env); do
   if [[ "${VARIABLE}" =~ ^FREETDS_[[:digit:]]_HOST=.*$ ]]; then
     i="$(echo ${VARIABLE} | awk -F '_' '{ print $2 }')"

@@ -37,13 +37,6 @@ class build::php {
     require => Bash_exec['/usr/local/src/phpfarm/src/main.sh 5.2.17']
   }
 
-  file { '/usr/local/src/phpfarm/inst/php-5.2.17/etc/php-fpm.conf':
-    ensure => present,
-    source => 'puppet:///modules/build/usr/local/src/phpfarm/inst/php-5.2.17/etc/php-fpm.conf',
-    mode => 644,
-    require => Bash_exec['/usr/local/src/phpfarm/src/main.sh 5.2.17']
-  }
-
   bash_exec { 'switch-phpfarm 5.2.17':
     require => Bash_exec['/usr/local/src/phpfarm/src/main.sh 5.2.17']
   }

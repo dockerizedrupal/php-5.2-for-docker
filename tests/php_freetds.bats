@@ -18,73 +18,73 @@ teardown() {
 }
 
 @test "php: freetds: FREETDS_1_SERVER_NAME" {
-  run docker exec "$(container)" /bin/su - root -mc "cat /usr/local/freetds/etc/freetds.conf | grep 'server-name-1'"
+  run docker exec "$(container)" /bin/su - root -lc "cat /usr/local/freetds/etc/freetds.conf | grep 'server-name-1'"
 
   [ "${status}" -eq 0 ]
 }
 
 @test "php: freetds: FREETDS_1_HOST" {
-  run docker exec "$(container)" /bin/su - root -mc "cat /usr/local/freetds/etc/freetds.conf | grep 'host-1'"
+  run docker exec "$(container)" /bin/su - root -lc "cat /usr/local/freetds/etc/freetds.conf | grep 'host-1'"
 
   [ "${status}" -eq 0 ]
 }
 
 @test "php: freetds: FREETDS_1_PORT" {
-  run docker exec "$(container)" /bin/su - root -mc "cat /usr/local/freetds/etc/freetds.conf | grep 'port-1'"
+  run docker exec "$(container)" /bin/su - root -lc "cat /usr/local/freetds/etc/freetds.conf | grep 'port-1'"
 
   [ "${status}" -eq 0 ]
 }
 
 @test "php: freetds: FREETDS_1_TDS_VERSION" {
-  run docker exec "$(container)" /bin/su - root -mc "cat /usr/local/freetds/etc/freetds.conf | grep 'tds-version-1'"
+  run docker exec "$(container)" /bin/su - root -lc "cat /usr/local/freetds/etc/freetds.conf | grep 'tds-version-1'"
 
   [ "${status}" -eq 0 ]
 }
 
 @test "php: freetds: FREETDS_2_SERVER_NAME" {
-  run docker exec "$(container)" /bin/su - root -mc "cat /usr/local/freetds/etc/freetds.conf | grep 'server-name-2'"
+  run docker exec "$(container)" /bin/su - root -lc "cat /usr/local/freetds/etc/freetds.conf | grep 'server-name-2'"
 
   [ "${status}" -eq 0 ]
 }
 
 @test "php: freetds: FREETDS_2_HOST" {
-  run docker exec "$(container)" /bin/su - root -mc "cat /usr/local/freetds/etc/freetds.conf | grep 'host-2'"
+  run docker exec "$(container)" /bin/su - root -lc "cat /usr/local/freetds/etc/freetds.conf | grep 'host-2'"
 
   [ "${status}" -eq 0 ]
 }
 
 @test "php: freetds: FREETDS_2_PORT" {
-  run docker exec "$(container)" /bin/su - root -mc "cat /usr/local/freetds/etc/freetds.conf | grep 'port-2'"
+  run docker exec "$(container)" /bin/su - root -lc "cat /usr/local/freetds/etc/freetds.conf | grep 'port-2'"
 
   [ "${status}" -eq 0 ]
 }
 
 @test "php: freetds: FREETDS_2_TDS_VERSION" {
-  run docker exec "$(container)" /bin/su - root -mc "cat /usr/local/freetds/etc/freetds.conf | grep 'tds-version-2'"
+  run docker exec "$(container)" /bin/su - root -lc "cat /usr/local/freetds/etc/freetds.conf | grep 'tds-version-2'"
 
   [ "${status}" -eq 0 ]
 }
 
 @test "php: freetds: FREETDS_3_SERVER_NAME" {
-  run docker exec "$(container)" /bin/su - root -mc "cat /usr/local/freetds/etc/freetds.conf | grep 'server-name-3'"
+  run docker exec "$(container)" /bin/su - root -lc "cat /usr/local/freetds/etc/freetds.conf | grep 'server-name-3'"
 
   [ "${status}" -eq 0 ]
 }
 
 @test "php: freetds: FREETDS_3_HOST" {
-  run docker exec "$(container)" /bin/su - root -mc "cat /usr/local/freetds/etc/freetds.conf | grep 'host-3'"
+  run docker exec "$(container)" /bin/su - root -lc "cat /usr/local/freetds/etc/freetds.conf | grep 'host-3'"
 
   [ "${status}" -eq 0 ]
 }
 
 @test "php: freetds: FREETDS_3_PORT" {
-  run docker exec "$(container)" /bin/su - root -mc "cat /usr/local/freetds/etc/freetds.conf | grep 'port-3'"
+  run docker exec "$(container)" /bin/su - root -lc "cat /usr/local/freetds/etc/freetds.conf | grep 'port-3'"
 
   [ "${status}" -eq 0 ]
 }
 
 @test "php: freetds: FREETDS_3_TDS_VERSION" {
-  run docker exec "$(container)" /bin/su - root -mc "cat /usr/local/freetds/etc/freetds.conf | grep 'tds-version-3'"
+  run docker exec "$(container)" /bin/su - root -lc "cat /usr/local/freetds/etc/freetds.conf | grep 'tds-version-3'"
 
   [ "${status}" -eq 0 ]
 }

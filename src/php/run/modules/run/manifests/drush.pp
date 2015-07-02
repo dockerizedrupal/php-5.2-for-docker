@@ -1,7 +1,7 @@
 class run::drush {
   require run::user
 
-  if $drupal_version == '6' {
+  if ($drupal_version == '6') or ($drupal_version == '7') {
     file { '/usr/local/bin/drush':
       ensure => link,
       target => '/usr/local/src/drush5/drush'
