@@ -1,5 +1,5 @@
 php:
-  image: viljaste/php:5.2
+  image: dockerizedrupal/php:5.2
   hostname: php
   environment:
     - PHP_FPM_PM_MAX_CHILDREN=10

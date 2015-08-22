@@ -48,12 +48,12 @@ Using the `docker` command:
       -e USER_ID="" \
       -e GROUP_ID="" \
       -d \
-      viljaste/php:5.2
+      dockerizedrupal/php:5.2
       
 Using the `docker-compose` command
 
     TMP="$(mktemp -d)" \
-      && GIT_SSL_NO_VERIFY=true git clone https://git.beyondcloud.io/viljaste/docker-php.git "${TMP}" \
+      && git clone https://github.com/dockerizedrupal/docker-php.git "${TMP}" \
       && cd "${TMP}" \
       && git checkout 5.2 \
       && sudo docker-compose up
@@ -61,10 +61,10 @@ Using the `docker-compose` command
 ## Build the image
 
     TMP="$(mktemp -d)" \
-      && GIT_SSL_NO_VERIFY=true git clone https://git.beyondcloud.io/viljaste/docker-php.git "${TMP}" \
+      && git clone https://github.com/dockerizedrupal/docker-php.git "${TMP}" \
       && cd "${TMP}" \
       && git checkout 5.2 \
-      && sudo docker build -t viljaste/php:5.2 . \
+      && sudo docker build -t dockerizedrupal/php:5.2 . \
       && cd -
 
 ## Tests

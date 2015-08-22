@@ -1,5 +1,5 @@
 httpd:
-  image: viljaste/httpd:2.2
+  image: dockerizedrupal/httpd:2.2
   hostname: httpd
   ports:
     - "80"
@@ -9,22 +9,22 @@ httpd:
   links:
     - php
 httpdata:
-  image: viljaste/data:latest
+  image: dockerizedrupal/data:latest
   hostname: httpdata
   volumes:
     - /httpd
 mysqld:
-  image: viljaste/mysqld:latest
+  image: dockerizedrupal/mysqld:latest
   hostname: mysqld
   volumes_from:
     - mysqlddata
 mysqlddata:
-  image: viljaste/data:latest
+  image: dockerizedrupal/data:latest
   hostname: mysqlddata
   volumes:
     - /mysqld
 php:
-  image: viljaste/php:5.2
+  image: dockerizedrupal/php:5.2
   hostname: php
   volumes_from:
     - httpdata
