@@ -7,9 +7,9 @@ container() {
 }
 
 setup_drupal() {
-  docker exec "$(container)" /bin/su - root -lc "wget http://ftp.drupal.org/files/projects/drupal-7.38.tar.gz -O /tmp/drupal-7.38.tar.gz"
-  docker exec "$(container)" /bin/su - root -lc "tar xzf /tmp/drupal-7.38.tar.gz -C /tmp"
-  docker exec "$(container)" /bin/su - root -lc "rsync -avz /tmp/drupal-7.38/ /apache-2.2/data"
+  docker exec "$(container)" /bin/su - root -lc "wget http://ftp.drupal.org/files/projects/drupal-7.39.tar.gz -O /tmp/drupal-7.39.tar.gz"
+  docker exec "$(container)" /bin/su - root -lc "tar xzf /tmp/drupal-7.39.tar.gz -C /tmp"
+  docker exec "$(container)" /bin/su - root -lc "rsync -avz /tmp/drupal-7.39/ /apache-2.2/data"
   docker exec "$(container)" /bin/su - root -lc "drush -r /apache-2.2/data -y site-install --db-url=mysqli://root:root@localhost/drupal --account-name=admin --account-pass=admin"
   docker exec "$(container)" /bin/su - root -lc "chown container.container /apache-2.2/data"
 }
