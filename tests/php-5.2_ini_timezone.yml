@@ -1,0 +1,5 @@
+php-5.2:
+  image: dockerizedrupal/php-5.2:latest
+  hostname: php-5.2
+  environment:
+    - PHP_INI_TIMEZONE=Europe/Tallinn

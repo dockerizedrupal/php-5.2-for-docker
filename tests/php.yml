@@ -1,3 +1,0 @@
-php:
-  image: dockerizedrupal/php:5.2
-  hostname: php

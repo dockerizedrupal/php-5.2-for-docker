@@ -1,0 +1,34 @@
+apache-2.2:
+  image: dockerizedrupal/apache-2.2:latest
+  hostname: apache-2.2
+  ports:
+    - "80"
+    - "443"
+  volumes_from:
+    - apache-2.2-data
+  links:
+    - php-5.2
+apache-2.2-data:
+  image: dockerizedrupal/data:latest
+  hostname: apache-2.2-data
+  volumes:
+    - /apache-2.2
+mysql:
+  image: dockerizedrupal/mysql:latest
+  hostname: mysql
+  volumes_from:
+    - mysql-data
+mysql-data:
+  image: dockerizedrupal/data:latest
+  hostname: mysql-data
+  volumes:
+    - /mysql
+php-5.2:
+  image: dockerizedrupal/php-5.2:latest
+  hostname: php-5.2
+  volumes_from:
+    - apache-2.2-data
+  links:
+    - mysql
+  environment:
+    - DRUPAL_VERSION=7

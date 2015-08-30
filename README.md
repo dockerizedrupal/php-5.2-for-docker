@@ -1,4 +1,4 @@
-# docker-php
+# docker-php-5.2
 
 A [Docker](https://docker.com/) image for [PHP](http://php.net/) version 5.2 that runs PHP in FPM (FastCGI Process Manager) mode.
 
@@ -8,7 +8,7 @@ Configuration, PHP extensions and other tools built into the image are primarily
 
 Using the `docker` command:
 
-    CONTAINER="php" && sudo docker run \
+    CONTAINER="php-5.2" && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -p 9000:9000 \
@@ -48,23 +48,21 @@ Using the `docker` command:
       -e USER_ID="" \
       -e GROUP_ID="" \
       -d \
-      dockerizedrupal/php:5.2
+      dockerizedrupal/php-5.2:latest
       
 Using the `docker-compose` command
 
     TMP="$(mktemp -d)" \
-      && git clone https://github.com/dockerizedrupal/docker-php.git "${TMP}" \
+      && git clone https://github.com/dockerizedrupal/docker-php-5.2.git "${TMP}" \
       && cd "${TMP}" \
-      && git checkout 5.2 \
       && sudo docker-compose up
 
 ## Build the image
 
     TMP="$(mktemp -d)" \
-      && git clone https://github.com/dockerizedrupal/docker-php.git "${TMP}" \
+      && git clone https://github.com/dockerizedrupal/docker-php-5.2.git "${TMP}" \
       && cd "${TMP}" \
-      && git checkout 5.2 \
-      && sudo docker build -t dockerizedrupal/php:5.2 . \
+      && sudo docker build -t dockerizedrupal/php-5.2:latest . \
       && cd -
 
 ## Tests

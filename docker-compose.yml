@@ -1,6 +1,6 @@
-php:
-  image: dockerizedrupal/php:5.2
-  hostname: php
+php-5.2:
+  image: dockerizedrupal/php-5.2:latest
+  hostname: php-5.2
   ports:
     - "9000:9000"
   environment:

@@ -1,0 +1,6 @@
+php-5.2:
+  image: dockerizedrupal/php-5.2:latest
+  hostname: php-5.2
+  environment:
+    - PHP_INI_XDEBUG=On
+    - PHP_INI_XDEBUG_IDEKEY=MY_IDEKEY
