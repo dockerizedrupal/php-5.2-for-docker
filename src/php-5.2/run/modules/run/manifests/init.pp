@@ -7,8 +7,8 @@ class run {
   include run::coder
   include run::phpcs
 
-  if $mysqld_host {
-    include run::mysqld
+  if $mysql_host {
+    include run::mysql
   }
 
   if $memcached_host {
