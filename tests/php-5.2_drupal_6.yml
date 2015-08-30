@@ -13,7 +13,7 @@ apache-2.2-data:
   hostname: apache-2.2-data
   volumes:
     - /apache-2.2
-mysqld:
+mysql:
   image: dockerizedrupal/mysql:latest
   hostname: mysql
   volumes_from:
