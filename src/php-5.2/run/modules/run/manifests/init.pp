@@ -1,7 +1,7 @@
 class run {
   require run::user
 
-  include run::php
+  include run::php52
   include run::smtp
   include run::drush
   include run::coder
