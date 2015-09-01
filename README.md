@@ -77,10 +77,10 @@ Tests are implemented in [Bats: Bash Automated Testing System](https://github.co
     ok 3 php-5.2: drupal 6: drush 5
     ok 4 php-5.2: drupal 6: phpcs
     ok 5 php-5.2: drupal 6: phpcs: phpcompatibility
-    ok 6 php: drupal 7
-    ok 7 php: drupal 7: drush 5
-    ok 8 php: drupal 7: phpcs
-    ok 9 php: drupal 7: phpcs: phpcompatibility
+    ok 6 php-5.2: drupal 7
+    ok 7 php-5.2: drupal 7: drush 5
+    ok 8 php-5.2: drupal 7: phpcs
+    ok 9 php-5.2: drupal 7: phpcs: phpcompatibility
     ok 10 php-5.2: fpm: pm
     ok 11 php-5.2: fpm: pm.max_children
     ok 12 php-5.2: fpm: pm.max_requests
