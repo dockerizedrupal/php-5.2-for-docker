@@ -27,28 +27,28 @@ teardown() {
   docker-compose -f "${DOCKER_COMPOSE_FILE}" rm --force
 }
 
-@test "php: drupal 7" {
+@test "php-5.2: drupal 7" {
   run docker exec "$(container)" /bin/su - root -lc "drush -r /apache-2.2/data/ status | grep 'Drupal bootstrap'"
 
   [ "${status}" -eq 0 ]
   [[ "${output}" == *"Successful"* ]]
 }
 
-@test "php: drupal 7: drush 5" {
+@test "php-5.2: drupal 7: drush 5" {
   run docker exec "$(container)" /bin/su - root -lc "drush --version"
 
   [ "${status}" -eq 0 ]
   [[ "${output}" == *"5.11.0"* ]]
 }
 
-@test "php: drupal 7: phpcs" {
+@test "php-5.2: drupal 7: phpcs" {
   run docker exec "$(container)" /bin/su - root -lc "phpcs --version"
 
   [ "${status}" -eq 0 ]
   [[ "${output}" == *"1.5.6"* ]]
 }
 
-@test "php: drupal 7: phpcs: phpcompatibility" {
+@test "php-5.2: drupal 7: phpcs: phpcompatibility" {
   run docker exec "$(container)" /bin/su - root -lc "phpcs -i | grep 'PHPCompatibility'"
 
   [ "${status}" -eq 0 ]
