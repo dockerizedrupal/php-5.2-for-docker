@@ -1,4 +1,4 @@
-class run::mysqld {
+class run::mysql {
   bash_exec { 'mkdir -p /var/run/mysqld': }
 
   file { '/etc/supervisor/conf.d/mysqld.conf':
