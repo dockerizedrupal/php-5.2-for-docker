@@ -48,13 +48,14 @@ Using the `docker` command:
       -e USER_ID="" \
       -e GROUP_ID="" \
       -d \
-      dockerizedrupal/php-5.2:latest
+      dockerizedrupal/php-5.2:1.0.1
       
 Using the `docker-compose` command
 
     TMP="$(mktemp -d)" \
       && git clone https://github.com/dockerizedrupal/docker-php-5.2.git "${TMP}" \
       && cd "${TMP}" \
+      && git checkout 1.0.1 \
       && sudo docker-compose up
 
 ## Build the image
@@ -62,7 +63,8 @@ Using the `docker-compose` command
     TMP="$(mktemp -d)" \
       && git clone https://github.com/dockerizedrupal/docker-php-5.2.git "${TMP}" \
       && cd "${TMP}" \
-      && sudo docker build -t dockerizedrupal/php-5.2:latest . \
+      && git checkout 1.0.1 \
+      && sudo docker build -t dockerizedrupal/php-5.2:1.0.1 . \
       && cd -
 
 ## Tests
