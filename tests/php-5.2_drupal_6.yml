@@ -7,7 +7,7 @@ apache-2.2:
   volumes_from:
     - apache-2.2-data
   links:
-    - php-5.2
+    - php-5.2:php
 apache-2.2-data:
   image: dockerizedrupal/data:latest
   hostname: apache-2.2-data
