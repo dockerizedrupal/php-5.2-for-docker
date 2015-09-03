@@ -3,7 +3,7 @@
 DOCKER_COMPOSE_FILE="${BATS_TEST_DIRNAME}/php-5.2_ini_apd_on.yml"
 
 container() {
-  echo "$(docker-compose -f ${DOCKER_COMPOSE_FILE} ps php-5.2 | grep php-5.2 | awk '{ print $1 }')"
+  echo "$(docker-compose -f ${DOCKER_COMPOSE_FILE} ps php | grep php | awk '{ print $1 }')"
 }
 
 setup() {
