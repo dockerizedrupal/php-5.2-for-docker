@@ -1,5 +1,5 @@
 apache:
-  image: dockerizedrupal/apache-2.2:1.0.3
+  image: dockerizedrupal/apache-2.2:1.0.5
   hostname: apache
   ports:
     - "80"
@@ -9,23 +9,23 @@ apache:
   links:
     - php
 apache-data:
-  image: dockerizedrupal/data:1.0.2
+  image: dockerizedrupal/data:1.0.3
   hostname: apache-data
   volumes:
     - /apache/data
     - /apache/ssl
 mysql:
-  image: dockerizedrupal/mysql:1.0.3
+  image: dockerizedrupal/mysql:1.0.4
   hostname: mysql
   volumes_from:
     - mysql-data
 mysql-data:
-  image: dockerizedrupal/data:1.0.2
+  image: dockerizedrupal/data:1.0.3
   hostname: mysql-data
   volumes:
     - /mysql
 php:
-  image: dockerizedrupal/php-5.2:1.0.2
+  image: dockerizedrupal/php-5.2:1.0.3
   hostname: php
   volumes_from:
     - apache-data
