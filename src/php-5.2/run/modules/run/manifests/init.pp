@@ -6,6 +6,8 @@ class run {
   include run::drush
   include run::coder
   include run::phpcs
+  include run::timezone
+  include run::cron
 
   if $mysql_host {
     include run::mysql

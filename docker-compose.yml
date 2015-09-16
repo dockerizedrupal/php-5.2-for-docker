@@ -1,10 +1,11 @@
 php:
-  image: dockerizedrupal/php-5.2:1.0.3
+  image: dockerizedrupal/php-5.2:1.0.4
   hostname: php
   ports:
     - "9000:9000"
   environment:
     - SERVER_NAME=localhost
+    - TIMEZONE=Etc/UTC
     - DRUPAL_VERSION=6
     - PHP_INI_REALPATH_CACHE_SIZE=256k
     - PHP_INI_REALPATH_CACHE_TTL=3600
@@ -37,5 +38,12 @@ php:
     - PHP_FPM_PM_MIN_SPARE_SERVERS=5
     - PHP_FPM_PM_MAX_SPARE_SERVERS=33
     - PHP_FPM_PM_MAX_REQUESTS=500
+    - FREETDS_1_SERVER_NAME=
+    - FREETDS_1_HOST=
+    - FREETDS_1_PORT=1433
+    - FREETDS_1_TDS_VERSION=8.0
+    - CRONTAB_1_MAILTO=
+    - CRONTAB_1_EXPRESSION=
+    - CRONTAB_1_COMMAND=
     - USER_ID=
     - GROUP_ID=
