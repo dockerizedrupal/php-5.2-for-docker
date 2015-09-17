@@ -56,7 +56,7 @@ Using the `docker` command:
       -e USER_ID="" \
       -e GROUP_ID="" \
       -d \
-      dockerizedrupal/php-5.2:1.0.4
+      dockerizedrupal/php-5.2:1.0.5
       
 Using the `docker-compose` command
 
@@ -72,7 +72,7 @@ Using the `docker-compose` command
       && git clone https://github.com/dockerizedrupal/docker-php-5.2.git "${TMP}" \
       && cd "${TMP}" \
       && git checkout 1.0.4 \
-      && sudo docker build -t dockerizedrupal/php-5.2:1.0.4 . \
+      && sudo docker build -t dockerizedrupal/php-5.2:1.0.5 . \
       && cd -
 
 ## Tests

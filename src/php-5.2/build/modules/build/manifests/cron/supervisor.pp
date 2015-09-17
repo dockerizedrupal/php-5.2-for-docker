@@ -1,7 +1,7 @@
 class build::cron::supervisor {
-  file { '/etc/supervisor/conf.d/cron.conf':
+  file { '/etc/supervisor/conf.d/logs_cron.conf':
     ensure => present,
-    source => 'puppet:///modules/build/etc/supervisor/conf.d/cron.conf',
+    source => 'puppet:///modules/build/etc/supervisor/conf.d/logs_cron.conf',
     mode => 644
   }
 }

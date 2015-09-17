@@ -1,5 +1,5 @@
 php:
-  image: dockerizedrupal/php-5.2:1.0.4
+  image: dockerizedrupal/php-5.2:1.0.5
   hostname: php
   environment:
     - PHP_INI_DISPLAY_STARTUP_ERRORS=On
