@@ -2,4 +2,4 @@
 MAILTO=<%= @crontab_2_mailto %>
 <% end -%>
 
-<%= @crontab_2_expression %> container <%= @crontab_2_command %> >> /var/log/cron.log 2>&1
+<%= @crontab_2_expression %> container /bin/bash -lc "<%= @crontab_2_command %> >>" /var/log/cron.log 2>&1
