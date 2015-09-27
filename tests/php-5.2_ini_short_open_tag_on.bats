@@ -9,7 +9,7 @@ container() {
 setup() {
   docker-compose -f "${DOCKER_COMPOSE_FILE}" up -d
 
-  sleep 10
+  sleep 20
 }
 
 teardown() {
@@ -18,7 +18,7 @@ teardown() {
 }
 
 @test "php-5.2: ini: short_open_tag: on" {
-  run docker exec "$(container)" /bin/su - root -lc "cat /usr/local/src/phpfarm/inst/current/etc/conf.d/short_open_tag.ini | grep 'short_open_tag'"
+  run docker exec "$(container)" /bin/su - root -mc "cat /usr/local/src/phpfarm/inst/current/etc/conf.d/short_open_tag.ini | grep 'short_open_tag'"
 
   [ "${status}" -eq 0 ]
   [[ "${output}" == *"On"* ]]

@@ -9,7 +9,7 @@ container() {
 setup() {
   docker-compose -f "${DOCKER_COMPOSE_FILE}" up -d
 
-  sleep 10
+  sleep 20
 }
 
 teardown() {
@@ -18,7 +18,7 @@ teardown() {
 }
 
 @test "php-5.2: fpm: pm" {
-  run docker exec "$(container)" /bin/su - root -lc "cat /usr/local/src/phpfarm/inst/php-5.2.17/etc/php-fpm.conf | grep '<value name=\"style\">'"
+  run docker exec "$(container)" /bin/su - root -mc "cat /usr/local/src/phpfarm/inst/php-5.2.17/etc/php-fpm.conf | grep '<value name=\"style\">'"
 
   [ "${status}" -eq 0 ]
   [[ "${output}" == *"static"* ]]

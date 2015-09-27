@@ -9,7 +9,7 @@ container() {
 setup() {
   docker-compose -f "${DOCKER_COMPOSE_FILE}" up -d
 
-  sleep 10
+  sleep 20
 }
 
 teardown() {
@@ -18,7 +18,7 @@ teardown() {
 }
 
 @test "php-5.2: ini: xdebug.remote_port" {
-  run docker exec "$(container)" /bin/su - root -lc "cat /usr/local/src/phpfarm/inst/current/etc/conf.d/xdebug.ini | grep 'xdebug.remote_port'"
+  run docker exec "$(container)" /bin/su - root -mc "cat /usr/local/src/phpfarm/inst/current/etc/conf.d/xdebug.ini | grep 'xdebug.remote_port'"
 
   [ "${status}" -eq 0 ]
   [[ "${output}" == *"9001"* ]]

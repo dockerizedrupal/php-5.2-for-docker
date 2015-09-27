@@ -9,7 +9,7 @@ container() {
 setup() {
   docker-compose -f "${DOCKER_COMPOSE_FILE}" up -d
 
-  sleep 10
+  sleep 20
 }
 
 teardown() {
@@ -18,7 +18,7 @@ teardown() {
 }
 
 @test "php-5.2: ini: allow_url_fopen: on" {
-  run docker exec "$(container)" /bin/su - root -lc "cat /usr/local/src/phpfarm/inst/current/etc/conf.d/allow_url_fopen.ini | grep 'allow_url_fopen'"
+  run docker exec "$(container)" /bin/su - root -mc "cat /usr/local/src/phpfarm/inst/current/etc/conf.d/allow_url_fopen.ini | grep 'allow_url_fopen'"
 
   [ "${status}" -eq 0 ]
   [[ "${output}" == *"On"* ]]

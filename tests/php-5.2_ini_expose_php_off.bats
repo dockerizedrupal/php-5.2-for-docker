@@ -9,7 +9,7 @@ container() {
 setup() {
   docker-compose -f "${DOCKER_COMPOSE_FILE}" up -d
 
-  sleep 10
+  sleep 20
 }
 
 teardown() {
@@ -18,7 +18,7 @@ teardown() {
 }
 
 @test "php-5.2: ini: expose_php: off" {
-  run docker exec "$(container)" /bin/su - root -lc "php -i | grep 'expose_php'"
+  run docker exec "$(container)" /bin/su - root -mc "php -i | grep 'expose_php'"
 
   [ "${status}" -eq 0 ]
   [[ "${output}" == *"Off"* ]]

@@ -9,7 +9,7 @@ container() {
 setup() {
   docker-compose -f "${DOCKER_COMPOSE_FILE}" up -d
 
-  sleep 10
+  sleep 20
 }
 
 teardown() {
@@ -18,7 +18,7 @@ teardown() {
 }
 
 @test "php-5.2: ini: max_input_vars" {
-  run docker exec "$(container)" /bin/su - root -lc "cat /usr/local/src/phpfarm/inst/current/etc/conf.d/max_input_vars.ini | grep 'max_input_vars'"
+  run docker exec "$(container)" /bin/su - root -mc "cat /usr/local/src/phpfarm/inst/current/etc/conf.d/max_input_vars.ini | grep 'max_input_vars'"
 
   [ "${status}" -eq 0 ]
   [[ "${output}" == *"8192"* ]]

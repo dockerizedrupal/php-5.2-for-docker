@@ -1,0 +1,8 @@
+{
+  "name": "docker-php-5.2",
+  "version": "1.1.0",
+  "dependencies": {
+    "grunt": "^0.4.5",
+    "grunt-replace": "^0.11.0"
+  }
+}

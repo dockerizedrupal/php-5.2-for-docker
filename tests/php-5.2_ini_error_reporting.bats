@@ -9,7 +9,7 @@ container() {
 setup() {
   docker-compose -f "${DOCKER_COMPOSE_FILE}" up -d
 
-  sleep 10
+  sleep 20
 }
 
 teardown() {
@@ -18,7 +18,7 @@ teardown() {
 }
 
 @test "php-5.2: ini: error_reporting" {
-  run docker exec "$(container)" /bin/su - root -lc "cat /usr/local/src/phpfarm/inst/current/etc/conf.d/error_reporting.ini | grep 'error_reporting'"
+  run docker exec "$(container)" /bin/su - root -mc "cat /usr/local/src/phpfarm/inst/current/etc/conf.d/error_reporting.ini | grep 'error_reporting'"
 
   [ "${status}" -eq 0 ]
   [[ "${output}" == *"E_ALL & ~E_NOTICE & ~E_STRICT"* ]]

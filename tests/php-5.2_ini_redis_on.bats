@@ -9,7 +9,7 @@ container() {
 setup() {
   docker-compose -f "${DOCKER_COMPOSE_FILE}" up -d
 
-  sleep 10
+  sleep 20
 }
 
 teardown() {
@@ -18,7 +18,7 @@ teardown() {
 }
 
 @test "php-5.2: ini: redis: on" {
-  run docker exec "$(container)" /bin/su - root -lc "php -m | grep 'redis'"
+  run docker exec "$(container)" /bin/su - root -mc "php -m | grep 'redis'"
 
   [ "${status}" -eq 0 ]
 }

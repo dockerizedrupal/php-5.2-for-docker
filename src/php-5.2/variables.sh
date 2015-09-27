@@ -12,25 +12,65 @@ fi
 
 export FACTER_TIMEZONE="${TIMEZONE}"
 
-SMTP_PORT="$(echo "${SMTP_PORT}" | sed 's/tcp:\/\///')"
+if [ -n "${SMTP_HOST}" ]; then
+  export FACTER_SMTP_HOST="${SMTP_HOST}"
 
-export FACTER_SMTP_HOST="$(echo "${SMTP_PORT}" | cut -d ":" -f1)"
-export FACTER_SMTP_PORT="$(echo "${SMTP_PORT}" | cut -d ":" -f2)"
+  if [ -z "${SMTP_PORT}" ]; then
+    SMTP_PORT="25"
+  fi
 
-MYSQL_HOST="$(echo "${MYSQL_PORT}" | sed 's/tcp:\/\///')"
+  export FACTER_SMTP_PORT="${SMTP_PORT}"
+else
+  SMTP_PORT="$(echo "${SMTP_PORT}" | sed 's/tcp:\/\///')"
 
-export FACTER_MYSQL_HOST="$(echo "${MYSQL_HOST}" | cut -d ":" -f1)"
-export FACTER_MYSQL_PORT="$(echo "${MYSQL_HOST}" | cut -d ":" -f2)"
+  export FACTER_SMTP_HOST="$(echo "${SMTP_PORT}" | cut -d ":" -f1)"
+  export FACTER_SMTP_PORT="$(echo "${SMTP_PORT}" | cut -d ":" -f2)"
+fi
 
-MEMCACHED_HOST="$(echo "${MEMCACHED_PORT}" | sed 's/tcp:\/\///')"
+if [ -n "${MYSQL_HOST}" ]; then
+  export FACTER_MYSQL_HOST="${MYSQL_HOST}"
 
-export FACTER_MEMCACHED_HOST="$(echo "${MEMCACHED_HOST}" | cut -d ":" -f1)"
-export FACTER_MEMCACHED_PORT="$(echo "${MEMCACHED_HOST}" | cut -d ":" -f2)"
+  if [ -z "${MYSQL_PORT}" ]; then
+    MYSQL_PORT="3306"
+  fi
 
-REDIS_HOST="$(echo "${REDIS_PORT}" | sed 's/tcp:\/\///')"
+  export FACTER_MYSQL_PORT="${MYSQL_PORT}"
+else
+  MYSQL_PORT="$(echo "${MYSQL_PORT}" | sed 's/tcp:\/\///')"
 
-export FACTER_REDIS_HOST="$(echo "${REDIS_HOST}" | cut -d ":" -f1)"
-export FACTER_REDIS_PORT="$(echo "${REDIS_HOST}" | cut -d ":" -f2)"
+  export FACTER_MYSQL_HOST="$(echo "${MYSQL_PORT}" | cut -d ":" -f1)"
+  export FACTER_MYSQL_PORT="$(echo "${MYSQL_PORT}" | cut -d ":" -f2)"
+fi
+
+if [ -n "${MEMCACHED_HOST}" ]; then
+  export FACTER_MEMCACHED_HOST="${MEMCACHED_HOST}"
+
+  if [ -z "${MEMCACHED_PORT}" ]; then
+    MEMCACHED_PORT="11211"
+  fi
+
+  export FACTER_MEMCACHED_PORT="${MEMCACHED_PORT}"
+else
+  MEMCACHED_PORT="$(echo "${MEMCACHED_PORT}" | sed 's/tcp:\/\///')"
+
+  export FACTER_MEMCACHED_HOST="$(echo "${MEMCACHED_PORT}" | cut -d ":" -f1)"
+  export FACTER_MEMCACHED_PORT="$(echo "${MEMCACHED_PORT}" | cut -d ":" -f2)"
+fi
+
+if [ -n "${REDIS_HOST}" ]; then
+  export FACTER_REDIS_HOST="${REDIS_HOST}"
+
+  if [ -z "${REDIS_PORT}" ]; then
+    REDIS_PORT="6379"
+  fi
+
+  export FACTER_REDIS_PORT="${REDIS_PORT}"
+else
+  REDIS_PORT="$(echo "${REDIS_PORT}" | sed 's/tcp:\/\///')"
+
+  export FACTER_REDIS_HOST="$(echo "${REDIS_PORT}" | cut -d ":" -f1)"
+  export FACTER_REDIS_PORT="$(echo "${REDIS_PORT}" | cut -d ":" -f2)"
+fi
 
 if [ -z "${USER_ID}" ]; then
   USER_ID=$(id www-data -u)
