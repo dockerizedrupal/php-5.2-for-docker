@@ -1,6 +1,8 @@
 # docker-php-5.2
 
-A Docker image for [PHP](http://php.net/) version 5.2 that runs PHP in FPM (FastCGI Process Manager) mode that is used in the [Dockerized Drupal](https://dockerizedrupal.com/) project.
+A Docker image for [PHP](http://php.net/) version 5.2 that runs PHP in FPM (FastCGI Process Manager) mode.
+
+This project is part of the [Dockerized Drupal](https://dockerizedrupal.com/) initiative.
 
 ## Run the container
 
