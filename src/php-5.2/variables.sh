@@ -289,7 +289,7 @@ export FACTER_CRONTAB_3_EXPRESSION="${CRONTAB_3_EXPRESSION}"
 export FACTER_CRONTAB_3_COMMAND="${CRONTAB_3_COMMAND}"
 
 for VARIABLE in $(env); do
-  if [[ "${VARIABLE}" =~ ^FREETDS_[[:digit:]]_HOST=.*$ ]]; then
+  if [[ "${VARIABLE}" =~ ^FREETDS_[[:digit:]]+_HOST=.*$ ]]; then
     i="$(echo ${VARIABLE} | awk -F '_' '{ print $2 }')"
 
     FREETDS_HOST="FREETDS_${i}_HOST"

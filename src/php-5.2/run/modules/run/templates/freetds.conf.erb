@@ -39,7 +39,7 @@
         tds version = 7.0
 
 <% scope.to_hash.keys.each do |variable| -%>
-<% if (variable =~ /^freetds_[[:digit:]]_host/) -%>
+<% if (variable =~ /^freetds_[[:digit:]]+_host$/) -%>
 <% i = variable.split('_')[1] -%>
 [<%= eval("@freetds_#{i}_server_name") %>]
         host = <%= eval("@freetds_#{i}_host") %>

@@ -1,5 +1,5 @@
 php:
-  image: dockerizedrupal/php-5.2:1.1.0
+  image: dockerizedrupal/php-5.2:1.1.1
   hostname: php
   environment:
     - PHP_FPM_PM_MAX_SPARE_SERVERS=70
