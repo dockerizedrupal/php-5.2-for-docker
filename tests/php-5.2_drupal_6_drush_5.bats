@@ -1,6 +1,6 @@
 #!/usr/bin/env bats
 
-DOCKER_COMPOSE_FILE="${BATS_TEST_DIRNAME}/php-5.2_drupal_6.yml"
+DOCKER_COMPOSE_FILE="${BATS_TEST_DIRNAME}/php-5.2_drupal_6_drush_5.yml"
 
 container() {
   echo "$(docker-compose -f ${DOCKER_COMPOSE_FILE} ps php | grep php | awk '{ print $1 }')"
