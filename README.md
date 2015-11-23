@@ -13,6 +13,7 @@ This project is part of the [Dockerized Drupal](https://dockerizedrupal.com/) in
       -e SERVER_NAME="localhost" \
       -e TIMEZONE="Etc/UTC" \
       -e DRUPAL_VERSION="6" \
+      -e DRUSH_VERSION="5" \
       -e SMTP_HOST="" \
       -e SMTP_PORT="25" \
       -e MYSQL_HOST="" \
@@ -62,15 +63,15 @@ This project is part of the [Dockerized Drupal](https://dockerizedrupal.com/) in
       -e USER_ID="" \
       -e GROUP_ID="" \
       -d \
-      dockerizedrupal/php-5.2:1.1.1
+      dockerizedrupal/php-5.2:1.1.2
 
 ## Build the image
 
     TMP="$(mktemp -d)" \
       && git clone https://github.com/dockerizedrupal/docker-php-5.2.git "${TMP}" \
       && cd "${TMP}" \
-      && git checkout 1.1.1 \
-      && sudo docker build -t dockerizedrupal/php-5.2:1.1.1 . \
+      && git checkout 1.1.2 \
+      && sudo docker build -t dockerizedrupal/php-5.2:1.1.2 . \
       && cd -
 
 ## Changing the container behaviour on runtime through environment variables

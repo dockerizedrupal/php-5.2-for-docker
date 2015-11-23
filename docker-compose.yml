@@ -1,5 +1,5 @@
 php:
-  image: dockerizedrupal/php-5.2:1.1.1
+  image: dockerizedrupal/php-5.2:1.1.2
   hostname: php
   ports:
     - "9000:9000"
@@ -7,6 +7,7 @@ php:
     - SERVER_NAME=localhost
     - TIMEZONE=Etc/UTC
     - DRUPAL_VERSION=6
+    - DRUSH_VERSION=5
     - SMTP_HOST=
     - SMTP_PORT=25
     - MYSQL_HOST=

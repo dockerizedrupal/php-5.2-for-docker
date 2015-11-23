@@ -25,7 +25,7 @@ mysql-data:
   volumes:
     - /mysql
 php:
-  image: dockerizedrupal/php-5.2:1.1.1
+  image: dockerizedrupal/php-5.2:1.1.2
   hostname: php
   volumes_from:
     - apache-data
@@ -33,3 +33,4 @@ php:
     - mysql
   environment:
     - DRUPAL_VERSION=6
+    - DRUSH_VERSION=5
