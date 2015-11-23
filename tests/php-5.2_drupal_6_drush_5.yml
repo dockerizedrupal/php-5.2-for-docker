@@ -25,7 +25,7 @@ mysql-data:
   volumes:
     - /mysql
 php:
-  image: dockerizedrupal/php-5.2:1.1.2
+  image: dockerizedrupal/php-5.2:1.2.0
   hostname: php
   volumes_from:
     - apache-data
