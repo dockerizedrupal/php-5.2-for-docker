@@ -83,6 +83,25 @@ module.exports = function(grunt) {
             ]
           }
         ]
+      },
+      task5: {
+        options: {
+          patterns: [
+            {
+              match: 'VERSION = "' + current_version + '"',
+              replacement: 'VERSION = "' + new_version + '"'
+            }
+          ],
+          usePrefix: false
+        },
+        files: [
+          {
+            expand: true,
+            src: [
+              'Vagrantfile'
+            ]
+          }
+        ]
       }
     }
   });
