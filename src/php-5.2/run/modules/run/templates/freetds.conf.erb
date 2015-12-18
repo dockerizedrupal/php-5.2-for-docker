@@ -26,18 +26,6 @@
         # Try setting 'text size' to a more reasonable limit
         text size = 64512
 
-# A typical Sybase server
-[egServer50]
-        host = symachine.domain.com
-        port = 5000
-        tds version = 5.0
-
-# A typical Microsoft server
-[egServer70]
-        host = ntmachine.domain.com
-        port = 1433
-        tds version = 7.0
-
 <% scope.to_hash.keys.each do |variable| -%>
 <% if (variable =~ /^freetds_[[:digit:]]+_host$/) -%>
 <% i = variable.split('_')[1] -%>
@@ -45,6 +33,7 @@
         host = <%= eval("@freetds_#{i}_host") %>
         port = <%= eval("@freetds_#{i}_port") %>
         tds version = <%= eval("@freetds_#{i}_tds_version") %>
+        client charset = <%= eval("@freetds_#{i}_client_charset") %>
 
 <% end -%>
 <% end -%>

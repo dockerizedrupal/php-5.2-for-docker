@@ -57,6 +57,7 @@ This project is part of the [Dockerized Drupal](https://dockerizedrupal.com/) in
       -e FREETDS_1_HOST="" \
       -e FREETDS_1_PORT="1433" \
       -e FREETDS_1_TDS_VERSION="8.0" \
+      -e FREETDS_1_CLIENT_CHARSET="UTF-8" \
       -e CRONTAB_1_MAILTO="" \
       -e CRONTAB_1_EXPRESSION="" \
       -e CRONTAB_1_COMMAND="" \

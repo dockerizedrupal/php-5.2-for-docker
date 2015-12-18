@@ -302,6 +302,7 @@ for VARIABLE in $(env); do
     FREETDS_PORT="FREETDS_${i}_PORT"
     FREETDS_TDS_VERSION="FREETDS_${i}_TDS_VERSION"
     FREETDS_SERVER_NAME="FREETDS_${i}_SERVER_NAME"
+    FREETDS_CLIENT_CHARSET="FREETDS_${i}_CLIENT_CHARSET"
 
     if [ -z "${!FREETDS_HOST}" ]; then
       continue
@@ -319,9 +320,14 @@ for VARIABLE in $(env); do
       declare "${FREETDS_SERVER_NAME}=server-${i}"
     fi
 
+    if [ -z "${!FREETDS_SERVER_NAME}" ]; then
+      declare "${FREETDS_CLIENT_CHARSET}=UTF-8"
+    fi
+
     export "FACTER_${FREETDS_HOST}=${!FREETDS_HOST}"
     export "FACTER_${FREETDS_PORT}=${!FREETDS_PORT}"
     export "FACTER_${FREETDS_TDS_VERSION}=${!FREETDS_TDS_VERSION}"
     export "FACTER_${FREETDS_SERVER_NAME}=${!FREETDS_SERVER_NAME}"
+    export "FACTER_${FREETDS_CLIENT_CHARSET}=${!FREETDS_CLIENT_CHARSET}"
   fi
 done
