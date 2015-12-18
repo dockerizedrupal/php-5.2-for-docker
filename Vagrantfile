@@ -57,7 +57,7 @@ Vagrant.configure("2") do |config|
 
         sed -i "s/^start on (local-filesystems and net-device-up IFACE!=lo)/start on vagrant-ready/" /etc/init/docker.conf
 
-        usermod -aG docker container
+        usermod -aG docker vagrant
       }
 
       docker_compose_install() {
