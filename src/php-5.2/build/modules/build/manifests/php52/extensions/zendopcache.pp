@@ -1,4 +1,4 @@
-class build::php52::extension::zendopcache {
+class build::php52::extensions::zendopcache {
   require build::php52
 
   file { '/tmp/zendopcache-7.0.3.tgz':

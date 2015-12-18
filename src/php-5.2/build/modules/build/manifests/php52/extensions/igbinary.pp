@@ -1,4 +1,4 @@
-class build::php52::extension::igbinary {
+class build::php52::extensions::igbinary {
   require build::php52
 
   file { '/tmp/igbinary-1.2.1.tgz':

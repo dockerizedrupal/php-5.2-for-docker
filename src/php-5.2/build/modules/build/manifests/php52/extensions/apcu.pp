@@ -1,4 +1,4 @@
-class build::php52::extension::apcu {
+class build::php52::extensions::apcu {
   require build::php52
 
   file { '/tmp/apcu-4.0.7.tgz':

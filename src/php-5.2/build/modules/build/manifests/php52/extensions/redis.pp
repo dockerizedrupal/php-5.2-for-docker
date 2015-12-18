@@ -1,6 +1,6 @@
-class build::php52::extension::redis {
+class build::php52::extensions::redis {
   require build::php52
-  require build::php52::extension::igbinary
+  require build::php52::extensions::igbinary
 
   file { '/tmp/redis-2.2.5.tgz':
     ensure => present,

@@ -1,4 +1,4 @@
-class build::php52::extension::apd {
+class build::php52::extensions::apd {
   require build::php52
 
   file { '/tmp/apd-1.0.1.tgz':
