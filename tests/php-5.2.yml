@@ -1,3 +1,3 @@
 php:
-  image: dockerizedrupal/php-5.2:1.2.0
+  image: dockerizedrupal/php-5.2:1.2.1
   hostname: php
