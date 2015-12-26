@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+rm -rf /etc/cron.d/crontab_*
+
+for VARIABLE in $(env); do
+  if [[ "${VARIABLE}" =~ ^CRONTAB_[[:digit:]]+_EXPRESSION=.*$ ]]; then
+    i="$(echo ${VARIABLE} | awk -F '_' '{ print $2 }' | awk -F '=' '{ print $1 }')"
+
+    CRONTAB_MAILTO="CRONTAB_${i}_MAILTO"
+    CRONTAB_EXPRESSION="CRONTAB_${i}_EXPRESSION"
+    CRONTAB_COMMAND="CRONTAB_${i}_COMMAND"
+
+    if [ -z "${!CRONTAB_EXPRESSION}" ]; then
+      continue
+    fi
+
+    if [ -z "${!CRONTAB_COMMAND}" ]; then
+      continue
+    fi
+
+    if [ -n "${!CRONTAB_MAILTO}" ]; then
+      echo "MAILTO=${!CRONTAB_MAILTO}" >> "/etc/cron.d/crontab_${i}"
+    fi
+
+    echo "${!CRONTAB_EXPRESSION} container /bin/bash -lc '${!CRONTAB_COMMAND}' >> /var/log/cron.log 2>&1" >> "/etc/cron.d/crontab_${i}"
+  fi
+done

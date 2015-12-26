@@ -1,5 +1,0 @@
-<% if @crontab_3_mailto and !@crontab_3_mailto.empty? -%>
-MAILTO=<%= @crontab_3_mailto %>
-<% end -%>
-
-<%= @crontab_3_expression %> container /bin/bash -lc "<%= @crontab_3_command %> >>" /var/log/cron.log 2>&1

@@ -7,7 +7,10 @@ class run {
   include run::coder
   include run::phpcs
   include run::timezone
-  include run::cron
+
+  if $crontab_1_expression and $crontab_1_command {
+    include run::cron
+  }
 
   if $mysql_host {
     include run::mysql
