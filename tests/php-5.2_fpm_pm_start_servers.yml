@@ -1,5 +1,5 @@
 php:
-  image: dockerizedrupal/php-5.2:1.2.2
+  image: dockerizedrupal/php-5.2:1.2.3
   hostname: php
   environment:
     - PHP_FPM_PM_START_SERVERS=40
