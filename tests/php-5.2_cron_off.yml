@@ -1,0 +1,14 @@
+php:
+  image: dockerizedrupal/php-5.2:1.2.4
+  hostname: php
+  environment:
+    - CRON=Off
+    - CRONTAB_1_MAILTO=mailto-1
+    - CRONTAB_1_EXPRESSION=expression-1
+    - CRONTAB_1_COMMAND=command-1
+    - CRONTAB_2_MAILTO=mailto-2
+    - CRONTAB_2_EXPRESSION=expression-2
+    - CRONTAB_2_COMMAND=command-2
+    - CRONTAB_3_MAILTO=mailto-3
+    - CRONTAB_3_EXPRESSION=expression-3
+    - CRONTAB_3_COMMAND=command-3

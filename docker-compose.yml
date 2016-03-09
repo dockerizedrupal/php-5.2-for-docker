@@ -15,7 +15,7 @@ apache-data:
   volumes:
     - .:/apache/data
 php:
-  image: dockerizedrupal/php-5.2:1.2.3
+  image: dockerizedrupal/php-5.2:1.2.4
   hostname: php
   volumes_from:
     - apache-data
@@ -69,6 +69,7 @@ php:
     - FREETDS_1_PORT=1433
     - FREETDS_1_TDS_VERSION=8.0
     - FREETDS_1_CLIENT_CHARSET=UTF-8
+    - CRON=On
     - CRONTAB_1_MAILTO=
     - CRONTAB_1_EXPRESSION=
     - CRONTAB_1_COMMAND=
