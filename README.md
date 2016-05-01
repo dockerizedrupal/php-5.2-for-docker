@@ -50,7 +50,7 @@ A Docker image for [PHP](http://php.net/) version 5.2 that runs PHP in FPM (Fast
       -e PHP_INI_XDEBUG_REMOTE_HOST="127.0.0.1" \
       -e PHP_INI_XDEBUG_REMOTE_CONNECT_BACK="On" \
       -e PHP_INI_XDEBUG_IDEKEY="PHPSTORM" \
-      -e PHP_INI_XDEBUG_VAR_DISPLAY_MAX_DEPTH="3" \
+      -e PHP_INI_XDEBUG_VAR_DISPLAY_MAX_DEPTH="5" \
       -e PHP_INI_MEMCACHED="On" \
       -e PHP_INI_REDIS="On" \
       -e PHP_INI_APCU="On" \
