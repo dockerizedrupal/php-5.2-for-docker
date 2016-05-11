@@ -107,7 +107,7 @@ Tests are implemented in [Bats: Bash Automated Testing System](https://github.co
 
 ### Test results for the current release
 
-    1..88
+    1..91
     ok 1 php-5.2
     ok 2 php-5.2: cron: off
     ok 3 php-5.2: cron: CRONTAB_1_MAILTO: off
@@ -194,8 +194,11 @@ Tests are implemented in [Bats: Bash Automated Testing System](https://github.co
     ok 84 php-5.2: ini: xdebug.remote_connect_back: on
     ok 85 php-5.2: ini: xdebug.remote_host
     ok 86 php-5.2: ini: xdebug.remote_port
-    ok 87 php-5.2: smtp: off
-    ok 88 php-5.2: smtp: on
+    ok 87 php-5.2: smtp: from
+    ok 88 php-5.2: smtp: off
+    ok 89 php-5.2: smtp: on
+    ok 90 php-5.2: smtp: password
+    ok 91 php-5.2: smtp: username
 
 ## License
 
