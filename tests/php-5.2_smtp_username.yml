@@ -2,4 +2,5 @@ php:
   image: dockerizedrupal/php-5.2:1.2.5
   hostname: php
   environment:
-    - PHP_FPM_PM_START_SERVERS=40
+    - SMTP_USERNAME=smtp_username
+    - SMTP_PASSWORD=smtp_password

@@ -1,6 +1,6 @@
 {
   "name": "docker-php-5.2",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "repository": {
     "type": "git",
     "url": "https://github.com/dockerizedrupal/docker-php-5.2.git"

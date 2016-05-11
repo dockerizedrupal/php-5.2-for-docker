@@ -15,7 +15,7 @@ apache-data:
   volumes:
     - .:/apache/data
 php:
-  image: dockerizedrupal/php-5.2:1.2.4
+  image: dockerizedrupal/php-5.2:1.2.5
   hostname: php
   volumes_from:
     - apache-data
@@ -26,6 +26,9 @@ php:
     - DRUSH_VERSION=5
     - SMTP_HOST=
     - SMTP_PORT=25
+    - SMTP_FROM=
+    - SMTP_USERNAME=
+    - SMTP_PASSWORD=
     - MYSQL_HOST=
     - MYSQL_PORT=3306
     - MEMCACHED_HOST=

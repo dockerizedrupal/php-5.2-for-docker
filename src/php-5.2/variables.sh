@@ -27,6 +27,10 @@ else
   export FACTER_SMTP_PORT="$(echo "${SMTP_PORT}" | cut -d ":" -f2)"
 fi
 
+export FACTER_SMTP_FROM="${SMTP_FROM}"
+export FACTER_SMTP_USERNAME="${SMTP_USERNAME}"
+export FACTER_SMTP_PASSWORD="${SMTP_PASSWORD}"
+
 if [ -n "${MYSQL_HOST}" ]; then
   export FACTER_MYSQL_HOST="${MYSQL_HOST}"
 
