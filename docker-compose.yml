@@ -15,7 +15,7 @@ apache-data:
   volumes:
     - .:/apache/data
 php:
-  image: dockerizedrupal/php-5.2:1.2.5
+  image: dockerizedrupal/php-5.2:1.2.6
   hostname: php
   volumes_from:
     - apache-data
