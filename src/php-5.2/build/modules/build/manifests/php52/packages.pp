@@ -17,7 +17,8 @@ class build::php52::packages {
       'libldap2-dev',
       'pkg-config',
       'libpq-dev',
-      'libreadline-dev'
+      'libreadline-dev',
+      'libfreetype6-dev'
     ]:
     ensure => present
   }

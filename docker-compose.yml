@@ -15,7 +15,7 @@ apache-data:
   volumes:
     - .:/apache/data
 php:
-  image: dockerizedrupal/php-5.2:1.2.7
+  image: dockerizedrupal/php-5.2:1.2.8
   hostname: php
   volumes_from:
     - apache-data
@@ -76,5 +76,6 @@ php:
     - CRONTAB_1_MAILTO=
     - CRONTAB_1_EXPRESSION=
     - CRONTAB_1_COMMAND=
+    - MAX_ALLOWED_PACKET=
     - USER_ID=
     - GROUP_ID=
