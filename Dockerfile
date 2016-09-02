@@ -1,4 +1,4 @@
-FROM dockerizedrupal/base-debian-wheezy:1.1.0
+FROM dockerizedrupal/base-debian-wheezy:1.1.1
 
 MAINTAINER Jürgen Viljaste <j.viljaste@gmail.com>
 
