@@ -1,5 +1,5 @@
 apache:
-  image: dockerizedrupal/apache-2.2:1.2.0
+  image: dockerizedrupal/apache-2.2:2.0.0
   hostname: apache
   ports:
     - "80:80"
@@ -9,13 +9,13 @@ apache:
   links:
     - php
 apache-data:
-  image: dockerizedrupal/apache-2.2:1.2.0
+  image: dockerizedrupal/apache-2.2:2.0.0
   hostname: apache-data
   entrypoint: ["/bin/echo", "Data-only container for Apache."]
   volumes:
     - .:/apache/data
 php:
-  image: dockerizedrupal/php-5.2:1.2.9
+  image: dockerizedrupal/php-5.2:2.0.0
   hostname: php
   volumes_from:
     - apache-data

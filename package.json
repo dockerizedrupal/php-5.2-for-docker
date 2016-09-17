@@ -1,9 +1,9 @@
 {
-  "name": "docker-php-5.2",
-  "version": "1.2.9",
+  "name": "php-5.2-for-docker",
+  "version": "2.0.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/dockerizedrupal/docker-php-5.2.git"
+    "url": "https://github.com/dockerizedrupal/php-5.2-for-docker.git"
   },
   "license": "MIT",
   "dependencies": {
