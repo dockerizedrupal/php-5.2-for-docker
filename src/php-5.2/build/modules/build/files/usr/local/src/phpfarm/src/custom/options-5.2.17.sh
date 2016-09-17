@@ -42,6 +42,6 @@ configoptions="--with-libdir=/lib/x86_64-linux-gnu \
 
 cd $srcdir
 
-curl -sS 'https://bugs.php.net/patch-display.php?bug_id=54736&patch=debian_patches_disable_SSLv2_for_openssl_1_0_0.patch&revision=1305414559&download=1' | patch -p1
-curl -sS https://mail.gnome.org/archives/xml/2012-August/txtbgxGXAvz4N.txt | patch -p0
-curl -sS http://php-fpm.org/downloads/php-5.2.17-fpm-0.5.14.diff.gz | gunzip | patch -p1
+cat /src/php-5.2/build/modules/build/files/tmp/debian_patches_disable_SSLv2_for_openssl_1_0_0.patch.patch.txt | patch -p1
+cat /src/php-5.2/build/modules/build/files/tmp/txtbgxGXAvz4N.txt | patch -p0
+zcat /src/php-5.2/build/modules/build/files/tmp/php-5.2.17-fpm-0.5.14.diff.gz | patch -p1
